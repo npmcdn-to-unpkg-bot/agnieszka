@@ -1,0 +1,10 @@
+/vendor
+/node_modules
+/public/storage
+*.DS_Store
+Homestead.yaml
+Homestead.json
+.env
+/**/robots.txt
+/public/css/builds/*
+/public/js/builds/*
