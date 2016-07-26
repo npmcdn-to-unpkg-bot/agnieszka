@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class GalleryController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -14,6 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
+        Auth::loginUsingId(1);
         $this->middleware('auth');
     }
 
@@ -24,6 +26,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user = Auth::user();
+
+        return view('gallery', compact('user'));
     }
 }
