@@ -1,0 +1,23 @@
+@mixin border-bottom-transition ($colorFrom, $colorTo, $height) {
+  color:$colorFrom;
+  transition: all 0.270s ease-out 0s;
+  &:focus, &:hover {
+    color: $colorTo;
+    &:after {
+      width: 100%;
+      background-color: $colorTo;
+    }
+  }
+  &:after {
+    content:'';
+    position: absolute;
+    left: 0;
+    bottom:-1px;
+    background-color: $colorFrom;
+    width:0;
+    height:$height;
+    transition: all 0.270s ease-out 0s;
+  }
+}
+
+// @include border-bottom-transition (#000, #fff, 2)

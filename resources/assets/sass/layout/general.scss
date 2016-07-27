@@ -1,0 +1,52 @@
+/* =======================================
+   General Styles
+   =======================================*/
+
+$primary: #3e3c36;
+$secondary: #767676;
+$accent: #5bd9b3;
+$accentHover: #6bffd2;
+$white: #ffffff;
+
+$padding30: 30px;
+
+$fontsize: 16px;
+
+html,body {
+  width:100%;
+  height:100%;
+}
+
+body {
+  font-size:$fontsize;
+  color:$white;
+  line-height:1.6;
+  background: $primary;
+}
+
+p {
+  text-rendering: optimizeLegibility;
+  color:$white;
+}
+
+a {
+  transition: all 0.270s ease-out 0s;
+}
+
+a:hover,
+a:focus {
+  text-decoration:none;
+}
+
+img {
+  max-width: 100%;
+  height:auto;
+}
+
+
+ul,
+li,
+ol {
+  list-style: none;
+  list-style-image: none;
+}

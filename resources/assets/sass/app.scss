@@ -1,2 +1,22 @@
-// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+/*
+			  	Agnieszka Krol
+				  Photography
+					 2016
+++++++++++++++++++++++++++++++++++++++++++++++++
+======= Webdesing by www.istvanlovas.com =======
+++++++++++++++++++++++++++++++++++++++++++++++++
+					 CSS
+*/
 
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+@import "mixins/border_bottom_transition";
+@import "mixins/vertical_and_horizontal_align";
+@import "mixins/vh_unit_workaround";
+
+@import 'layout/general';
+@import 'layout/header';
+@import 'layout/home';
+@import 'layout/portfolio';
+@import 'layout/about';
+@import 'layout/contact';
