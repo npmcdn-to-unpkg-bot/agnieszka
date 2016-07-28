@@ -6,4 +6,6 @@ Route::get('/', function () {
 
 Route::auth();
 
+Route::resource('portfolio_photo', 'PortfolioPhotoController');
+
 Route::get('/gallery', 'GalleryController@index');
