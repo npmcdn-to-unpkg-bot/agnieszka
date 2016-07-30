@@ -2,9 +2,16 @@
 
 namespace App;
 
+use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 
 class PortfolioPhoto extends Model
 {
-    protected $fillable = ['photo', 'category'];
+	/*
+	 * Fillable fields for a photos.
+	 *
+	 * @var array
+	 */
+    protected $fillable = ['path', 'category'];
+
 }

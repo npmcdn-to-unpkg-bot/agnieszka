@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\PortfolioPhoto;
 
-use App\Http\Requests;
+use App\Http\Requests\PhotoRequest;
 
 class PortfolioPhotoController extends Controller
 {
@@ -25,7 +26,7 @@ class PortfolioPhotoController extends Controller
      */
     public function create()
     {
-        return view('photo.create');
+        return view('portfolio_photos.create');
     }
 
     /**
@@ -36,7 +37,26 @@ class PortfolioPhotoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+    }
+
+    public function addPhoto(Request $request, $category)
+    {
+        // dd($request->file('file'));
+        // flash()->overlay('Welcome Abord!', 'Your photo has been created!');
+        // $this->validate($request, [
+        //     'photo' => 'required|mime:jpg,jpeg,png,bmp'
+        // ]);
+
+        $file = $request->file('file');
+        $name = time() . $file->getClientOriginalName();
+
+        $file->move('images/portfolio_photos', $name);
+
+        PortfolioPhoto::create([
+            'path' => "/images/portfolio_photos/{$name}",
+            'category' => $category
+        ]);
     }
 
     /**
@@ -45,9 +65,11 @@ class PortfolioPhotoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $portfolio_photos = PortfolioPhoto::all();
+
+        return view('portfolio_photos.show', compact('portfolio_photos'));
     }
 
     /**

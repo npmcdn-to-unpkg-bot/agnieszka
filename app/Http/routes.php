@@ -6,6 +6,7 @@ Route::get('/', function () {
 
 Route::auth();
 
-Route::resource('portfolio_photo', 'PortfolioPhotoController');
+Route::post('/portfolio_photos/{category}', 'PortfolioPhotoController@addPhoto');
+Route::resource('/portfolio_photos', 'PortfolioPhotoController');
 
 Route::get('/gallery', 'GalleryController@index');

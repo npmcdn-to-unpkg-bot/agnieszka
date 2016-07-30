@@ -14,7 +14,7 @@ class CreatePortfolioPhotosTable extends Migration
     {
         Schema::create('portfolio_photos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('photo');
+            $table->string('path')->unique();
             $table->string('category');
             $table->timestamps();
         });

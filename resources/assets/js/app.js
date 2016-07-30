@@ -94,3 +94,7 @@ function GSPreloader(options) {
     return this;
   };
 }
+
+$(window).on('load', function() {
+  preloader.active(false);
+});

@@ -102,6 +102,10 @@ function GSPreloader(options) {
   };
 }
 
+$(window).on('load', function () {
+  preloader.active(false);
+});
+
 },{}]},{},[1]);
 
 //# sourceMappingURL=app.js.map
