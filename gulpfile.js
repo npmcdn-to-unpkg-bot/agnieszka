@@ -15,10 +15,13 @@ elixir(function(mix) {
     mix
     	.sass('app.scss')
     	.scripts([
-    		'libs/sweetalert-dev.js'
+    		'libs/sweetalert-dev.js',
+            'libs/smoothscroll.js'
     	],'./public/js/libs.js')
     	.styles([
-    		'libs/sweetalert.css'
+            'toggle.css',
+    		'libs/sweetalert.css',
+            'libs/social-icons.css'
     	],'./public/css/libs.css')
     	.browserify('app.js')
     	.browserSync({

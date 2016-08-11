@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class PortfolioPhoto extends Model
 {
 	/*
-	 * Fillable fields for a photos.
+	 * Fillable fields for a photo.
 	 *
 	 * @var array
 	 */

@@ -1,8 +1,8 @@
-@mixin vertical-and-horizontal-align ($top, $left) {
+@mixin vertical-and-horizontal-align($top, $left) {
 	position: absolute;
 	top: $top;
 	left: $left;
     transform: translate(-$left, -$top);
 }
 
-// vertical-and-horizontal-align (50%, 50%)
+// vertical-and-horizontal-align(50%, 50%)

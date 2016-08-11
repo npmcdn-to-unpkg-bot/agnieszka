@@ -2,14 +2,21 @@
    General Styles
    =======================================*/
 
-$primary: #3e3c36;
-$secondary: #767676;
-$accent: #5bd9b3;
-$accentHover: #6bffd2;
-$white: #ffffff;
+$primary: #ff4081;
+$primaryLight: #ff80ab;
+$primaryDark: #f50057;
 
-$padding30: 30px;
+$secondary: #ffffff;
 
+$accent: #7c7c7c;
+$accentDark: #565656;
+$accentLight: #a2a2a2;
+
+$background: #fbfbfb;
+
+$textcolor: rgba(0,0,0,.87);
+
+$paddingSmall: 30px;
 $fontsize: 16px;
 
 html,body {
@@ -19,34 +26,22 @@ html,body {
 
 body {
   font-size:$fontsize;
-  color:#000;
+  color:$textcolor;
   line-height:1.6;
   background: $primary;
 }
 
-p {
-  text-rendering: optimizeLegibility;
-  color:$white;
-}
+p { text-rendering: optimizeLegibility; }
+a { transition: all 0.270s ease-out 0s; }
+a:hover,a:focus { text-decoration:none; }
 
-a {
-  transition: all 0.270s ease-out 0s;
-}
-
-a:hover,
-a:focus {
-  text-decoration:none;
-}
-
-img {
-  max-width: 100%;
-  height:auto;
-}
-
-
-ul,
-li,
-ol {
+ul,li,ol {
   list-style: none;
   list-style-image: none;
+  padding:0;
+}
+
+.content {
+  background: $primary;
+  height: 100%;
 }

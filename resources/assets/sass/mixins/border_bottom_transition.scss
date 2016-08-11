@@ -1,12 +1,9 @@
-@mixin border-bottom-transition ($colorFrom, $colorTo, $height) {
-  color:$colorFrom;
+@mixin border-bottom-transition($colorFrom, $colorTo, $height) {
+  position: relative;
   transition: all 0.270s ease-out 0s;
-  &:focus, &:hover {
-    color: $colorTo;
-    &:after {
-      width: 100%;
-      background-color: $colorTo;
-    }
+  &:focus:after, &:hover:after {
+    width: 100%;
+    background-color: $colorTo;
   }
   &:after {
     content:'';
@@ -20,4 +17,4 @@
   }
 }
 
-// @include border-bottom-transition (#000, #fff, 2)
+// @include border-bottom-transition(#000, #fff, 2px)

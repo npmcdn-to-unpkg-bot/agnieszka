@@ -1,3 +1,23 @@
 /* =======================================
    Home
    =======================================*/
+
+#home {
+	position: relative;
+	background-image: url('/images/background.jpg');
+	background-repeat:no-repeat;
+	background-position: center center;
+	background-size: cover;
+	@include viewport-unit(height, 100vh);
+	.welcome-intro {
+		h2 {
+			margin: 0;
+		}
+		p {
+			margin: $paddingSmall 0;
+			a {
+				@include border-bottom-transition($accentLight, $accent, 2px)
+			}
+		}
+	}
+}
