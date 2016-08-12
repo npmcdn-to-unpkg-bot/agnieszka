@@ -29,7 +29,7 @@ class AuthController extends Controller
      * @var string
      */
     protected $redirectTo = '/gallery';
-    protected $redirectAfterLogout = '/login';
+    protected $redirectAfterLogout = '/';
 
     /**
      * Create a new authentication controller instance.
@@ -71,5 +71,14 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    protected function authenticated($request, $user)
+    {
+        if($user->hasRole === 'admin') {
+            return redirect()->intended('/admin');
+        }
+
+        return redirect()->intended('/gallery/{{ $user->id }}');
     }
 }

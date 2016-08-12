@@ -1,3 +1,7 @@
-<form id="addPortfolioPhotosForm" method="POST" action="/admin/portfolio_photos/{{  $category }}" enctype="multipart/form-data" class="dropzone">
+<form 	id="addPortfolioPhotosForm"
+		method="POST"
+		action="{{ route('store_photo', $category) }}"
+		enctype="multipart/form-data"
+		class="dropzone">
 {{ csrf_field() }}
 </form>

@@ -4,26 +4,30 @@
 @section('meta_description', 'Admin dashboard')
 
 @section('content')
+    
+    <section id="admin-dashboard">
 
-<div class="container">
-    <div class="row">
+        <div class="col-md-8 col-md-offset-2 add-client">
+            <div class="row">
+                <h1>Add new client</h1>
+                
+                @include('errors.errors')
+                @include('admin.partials.forms.register_new_client')
 
-    	<div class="col-md-6 col-md-offset-3">
+            </div>
+        </div>
 
-	    	@if (count($errors) > 0)
-		        <div class="alert alert-danger">
-		            <ul>
-		                @foreach ($errors->all() as $error)
-		                    <li>{{ $error }}</li>
-		                @endforeach
-		            </ul>
-		        </div>
-    		@endif
+        <div class="col-md-8 col-md-offset-2 add-photosession">
+            <div class="row">
+                <h1>Add new Photo Session</h1>
+                
+                @include('errors.errors')
+                @include('admin.partials.forms.add_new_photosession')
 
-    	</div>
-
-    </div> {{-- ./row --}}
-</div> {{-- ./container --}}
+            </div>
+        </div>
+        
+    </section>
 
 @endsection
 

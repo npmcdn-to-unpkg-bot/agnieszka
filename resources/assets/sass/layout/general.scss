@@ -28,7 +28,7 @@ body {
   font-size:$fontsize;
   color:$textcolor;
   line-height:1.6;
-  background: $primary;
+  background: $background;
 }
 
 p { text-rendering: optimizeLegibility; }
@@ -42,6 +42,11 @@ ul,li,ol {
 }
 
 .content {
-  background: $primary;
   height: 100%;
+}
+@media screen and (min-width: 1024px) {
+  .container-fluid {
+    padding-left:90px;
+    padding-right:0;
+  }
 }

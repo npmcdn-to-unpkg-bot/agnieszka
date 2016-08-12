@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class PortfolioPhoto extends Model
 {
@@ -13,5 +14,23 @@ class PortfolioPhoto extends Model
 	 * @var array
 	 */
     protected $fillable = ['path', 'category'];
+
+    protected $baseDir = 'images/portfolio_photos';
+
+    public static function fromForm($category, UploadedFile $file)
+    {
+    	$photo = new static;
+
+    	$name = time() . $file->getClientOriginalName();
+
+    	$photo->path = $photo->baseDir . '/' . $name;
+    	$photo->category = $category;
+
+    	$file->move($photo->baseDir, $name);
+
+    	$photo->save();
+
+    	return $photo;
+    }
 
 }
