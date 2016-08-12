@@ -6,7 +6,7 @@
 @section('content')
 
     <section id="portfolio">
-		<div role="tabpanel">
+		<div class="col-md-8 col-md-offset-2" role="tabpanel">
 
 			<!-- Nav tabs -->
 			<ul class="nav nav-tabs" role="tablist">
@@ -34,68 +34,93 @@
 
 					{{-- @if auth()->chech()->hasRole('admin') --}}
 					<div class="row">
-						<div class="col-xs-12">
+						<div class="col-xs-12 admin-add-photos">
 					    	@include('admin/partials/forms/add_photos', ['category' => 'family'])
 					    </div>
 					</div>
 				    {{-- @endif --}}
 
 				    <div class="row masonry-container">
-
-					    @foreach ($photos as $photo)
+					    @foreach ($photos->where('category', 'family') as $photo)
 				        	<div class="col-md-4 col-sm-6 item">
 								<img class="img-responsive" src="{{ $photo->path }}" alt="">
 							</div>
 					    @endforeach
-
 				    </div> {{-- ./masonry-container --}}
 				</div> {{-- ./tab-content --}}
 
-				<div role="tabpanel" class="tab-pane active" id="newborn">
-				    <div class="row masonry-container">
+				<div role="tabpanel" class="tab-pane" id="newborn">
 
-				        @foreach ($photos as $photo)
+					{{-- @if auth()->chech()->hasRole('admin') --}}
+					<div class="row">
+						<div class="col-xs-12 admin-add-photos">
+					    	@include('admin/partials/forms/add_photos', ['category' => 'newborn'])
+					    </div>
+					</div>
+				    {{-- @endif --}}
+
+				    <div class="row masonry-container">
+				        @foreach ($photos->where('category', 'newborn') as $photo)
 				        	<div class="col-md-4 col-sm-6 item">
 								<img class="img-responsive" src="{{ $photo->path }}" alt="">
 							</div>
 					    @endforeach
-
 				    </div> {{-- ./masonry-container --}}
 				</div> {{-- ./tab-content --}}
 
-				<div role="tabpanel" class="tab-pane active" id="maternity">
-				    <div class="row masonry-container">
+				<div role="tabpanel" class="tab-pane" id="maternity">
+					{{-- @if auth()->chech()->hasRole('admin') --}}
+					<div class="row">
+						<div class="col-xs-12 admin-add-photos">
+					    	@include('admin/partials/forms/add_photos', ['category' => 'maternity'])
+					    </div>
+					</div>
+				    {{-- @endif --}}
 
-				        @foreach ($photos as $photo)
+				    <div class="row masonry-container">
+				        @foreach ($photos->where('category', 'maternity') as $photo)
 				        	<div class="col-md-4 col-sm-6 item">
 								<img class="img-responsive" src="{{ $photo->path }}" alt="">
 							</div>
 					    @endforeach
-
 				    </div> {{-- ./masonry-container --}}
 				</div> {{-- ./tab-content --}}
 
-				<div role="tabpanel" class="tab-pane active" id="engagement">
-				    <div class="row masonry-container">
+				<div role="tabpanel" class="tab-pane" id="engagement">
 
-				        @foreach ($photos as $photo)
+					{{-- @if auth()->chech()->hasRole('admin') --}}
+					<div class="row">
+						<div class="col-xs-12 admin-add-photos">
+					    	@include('admin/partials/forms/add_photos', ['category' => 'engagement'])
+					    </div>
+					</div>
+				    {{-- @endif --}}
+
+				    <div class="row masonry-container">
+				        @foreach ($photos->where('category', 'engagement') as $photo)
 				        	<div class="col-md-4 col-sm-6 item">
 								<img class="img-responsive" src="{{ $photo->path }}" alt="">
 							</div>
 					    @endforeach
-
 				    </div> {{-- ./masonry-container --}}
 				</div> {{-- ./tab-content --}}
 
-				<div role="tabpanel" class="tab-pane active" id="artistic">
-				    <div class="row masonry-container">
+				<div role="tabpanel" class="tab-pane" id="artistic">
 
-				        @foreach ($photos as $photo)
+					{{-- @if auth()->chech()->hasRole('admin') --}}
+					<div class="row">
+						<div class="col-xs-12 admin-add-photos">
+					    	@include('admin/partials/forms/add_photos', ['category' => 'artistic'])
+					    </div>
+					</div>
+				    {{-- @endif --}}
+
+				    <div class="row masonry-container">
+				        @foreach ($photos->where('category', 'artistic') as $photo)
 				        	<div class="col-md-4 col-sm-6 item">
 								<img class="img-responsive" src="{{ $photo->path }}" alt="">
 							</div>
 					    @endforeach
-
 				    </div> {{-- ./masonry-container --}}
 				</div> {{-- ./tab-content --}}
 

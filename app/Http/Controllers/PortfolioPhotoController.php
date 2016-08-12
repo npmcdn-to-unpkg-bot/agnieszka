@@ -16,7 +16,9 @@ class PortfolioPhotoController extends Controller
     public function showAll()
     {
         $photos = PortfolioPhoto::all();
-        return view('pages.portfolio', compact('photos'));
+        $categories = ['family', 'newborn', 'maternity', 'engagement', 'artistic'];
+
+        return view('pages.portfolio', compact(['photos','categories']));
     }
 
 	public function addPhoto($category, Request $request)
@@ -35,14 +37,6 @@ class PortfolioPhotoController extends Controller
             'category' => $category
         ]);
 
-        // flash()->overlay('Welcome Abord!', 'Your photo has been created!');
+        flash()->success('Congrats', 'You have successfully uploaded the photos to $category!');
     }
-
-    // public function family()
-    // {
-    //     $photos = PortfolioPhoto::all();
-    //     $familyPhotos = Category::where('name', '=', 'family')->get();
-
-    //    return $familyPhotos;
-    // }
 }
