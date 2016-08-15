@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Image;
 use Illuminate\Database\Eloquent\Model;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
@@ -13,8 +14,13 @@ class Photo extends Model
      * @var array
      */
 	protected $table = 'photosession_photos';
-    protected $fillable = ['path'];
+    protected $fillable = ['path', 'name', 'thumbnail_path'];
 
+    /*
+     * The base directory where photos are stored.
+     *
+     * @var string
+     */
     protected $photosBaseDir = 'images/photosessions/photos';
 
     /**
@@ -25,17 +31,38 @@ class Photo extends Model
     {
         return $this->belongsTo('App\PhotoSession');
     }
-
-    public static function fromPhotoSessionPhotoForm(UploadedFile $file)
+    /**
+     * Build a new photo instance from a file upload
+     * @param  string $name
+     * @return self
+     */
+    public static function named($name)
     {
-        $photo = new static;
+        return (new static)->saveAs($name);
+    }
 
-        $name = time() . $file->getClientOriginalName();
+    protected function saveAs($name)
+    {
+        $this->name = sprintf("%s-%s", time(), $name);
+        $this->path = sprintf("%s/%s", $this->photosBaseDir, $this->name);
+        $this->thumbnail_path = sprintf("%s/tn-%s", $this->photosBaseDir, $this->name);
 
-        $photo->path = $photo->photosBaseDir . '/' . $name;
+        return $this;
+    }
 
-        $file->move($photo->photosBaseDir, $name);
+    public function move(UploadedFile $file)
+    {
+        $file->move($this->photosBaseDir, $this->name);
 
-        return $photo;
+        $this->makeThumbnail();
+
+        return $this;
+    }
+
+    protected function makeThumbnail()
+    {
+        Image::make($this->path)
+            ->fit(200)
+            ->save($this->thumbnail_path); // save() is an Image Intervention method, not Laravels.
     }
 }

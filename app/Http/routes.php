@@ -21,13 +21,13 @@ Route::group(['middleware' => 'admin'], function()
 {
 	// Admin Dashboard
     Route::get('admin', function() { return view('admin/pages/dashboard'); });
-    // Register new user
-    Route::post('register', 'App\Http\Controllers\Auth\AuthController@register');
     // Add portfolio photos
     Route::post('admin/portfolio_photos/{category}',[
 		'as' => 'store_photo',
 		'uses' => 'AdminPortfolioController@addPhoto'
 	]);
+
+	Route::post('register', 'App\Http\Controllers\Auth\AuthController@register');
 
 	// Add background image to photosession
 	Route::post('admin/photosessions/{id}/background-image',[
@@ -51,10 +51,10 @@ Route::group(['middleware' => 'web'], function()
 	Route::get('contact', ['as' => 'contact', function () { return view('pages.contact'); }]);
 	Route::get('my-offer', ['as' => 'services', function () { return view('pages.services'); }]);
 	Route::get('portfolio', ['as' => 'portfolio', 'uses' => 'PortfolioPhotoController@showAll']);
-
-	//Authentication
-	Route::auth();
 });
+
+//Authentication
+Route::auth();
 
 // Client Gallery
 Route::get('gallery/{id}', [

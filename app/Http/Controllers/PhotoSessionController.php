@@ -59,7 +59,7 @@ class PhotoSessionController extends Controller
         $file->move($this->backgroundsBaseDir, $name);
 
         //Find the photo session
-        $photosession = PhotoSession::find($id)->first();
+        $photosession = PhotoSession::find($id)->firstOrFail();
         $photosession->background_image_path = $this->backgroundsBaseDir . '/' . $name;
         $photosession->save();
 
@@ -79,22 +79,16 @@ class PhotoSessionController extends Controller
             'photo' => 'required|mimes:jpg,jpeg,png,bmp'
         ]);
 
-        $photo = Photo::fromPhotoSessionPhotoForm($request->file('photo'));
+        $photo = $this->makePhoto($request->file('photo'));
 
-        PhotoSession::find($id)->first()->addPhoto($photo);
-
-        // $photo = $this->makePhoto($request->file('photo'));
-        return flash()->success('Congrats', 'You have successfully uploaded the photos to the gallery!');
+        //Save and associate photo with PhotoSession
+        PhotoSession::find($id)->firstOrFail()->addPhoto($photo);
     }
 
-    public function makePhoto(UploadedFile $file)
+    protected function makePhoto(UploadedFile $file)
     {
-        
-    }
-
-    public function storePhoto()
-    {
-        
+        return Photo::named($file->getClientOriginalName())
+            ->move($file);
     }
 
     /**

@@ -19,6 +19,8 @@
                 <li>List of awaiting requests</li>
             </ul>
         </div>
+
+{{--        {{ dd(\App\User::all()) }} --}}
         
         <div class="col-xs-12 col-md-12 forms">
             <div class="form-error-msg">

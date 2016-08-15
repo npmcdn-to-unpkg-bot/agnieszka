@@ -18,7 +18,9 @@ class CreatePhotosessionPhotosTable extends Migration
             $table->integer('photosession_id')->unsigned();
             $table->foreign('photosession_id')->references('id')->on('photosessions')->onDelete('cascade');
 
+            $table->string('name');
             $table->string('path');
+            $table->string('thumbnail_path');
             $table->timestamps();
         });
     }
