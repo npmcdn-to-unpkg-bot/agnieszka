@@ -14,11 +14,15 @@ class CreatePhotosessionsTable extends Migration
     {
         Schema::create('photosessions', function (Blueprint $table) {
             $table->increments('id');
+
+            $table->integer('user_id')->unsigned()->index();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            
             $table->string('title');
             $table->string('category');
             $table->string('background_image_path')->nullable();
+            $table->timestamp('date_of_photosession');
             $table->timestamps();
-            $table->timestamps('date_of_photosession');
         });
     }
 

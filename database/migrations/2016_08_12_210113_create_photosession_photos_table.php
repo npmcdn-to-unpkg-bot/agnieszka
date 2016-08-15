@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRolesTable extends Migration
+class CreatePhotosessionPhotosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +12,13 @@ class CreateRolesTable extends Migration
      */
     public function up()
     {
-        Schema::create('roles', function (Blueprint $table) {
+        Schema::create('photosession_photos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->unique();
+
+            $table->integer('photosession_id')->unsigned();
+            $table->foreign('photosession_id')->references('id')->on('photosessions')->onDelete('cascade');
+
+            $table->string('path');
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ class CreateRolesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('roles');
+        Schema::drop('photosession_photos');
     }
 }

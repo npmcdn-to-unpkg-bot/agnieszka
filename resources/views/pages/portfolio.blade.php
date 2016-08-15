@@ -2,6 +2,9 @@
 
 @section('title', 'Portfolio')
 @section('meta_description', 'Agnieszka Krol portfolio photos')
+@section('customCSS')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/dropzone.css">
+@stop
 
 @section('content')
 
@@ -31,13 +34,13 @@
 			<div class="tab-content portfolio-photos">
 
 				<div role="tabpanel" class="tab-pane active" id="family">
-					{{-- @if (Auth::user()->hasRole('admin') --}}
+					@if(\Auth::check() && \Auth::user()->hasRole('admin'))
 					<div class="row">
 						<div class="col-xs-12 admin-add-photos">
 					    	@include('admin/partials/forms/add_photos', ['category' => 'family'])
 					    </div>
 					</div>
-				    {{-- @endif --}}
+				    @endif
 
 				    @if (count($photos->where('category', 'family')) > 0)
 				    	<div class="row masonry-container">
@@ -51,13 +54,13 @@
 				</div> {{-- ./tab-pane family --}}
 
 				<div role="tabpanel" class="tab-pane" id="newborn">
-					{{-- @if (Auth::user()->hasRole('admin') --}}
+					@if(\Auth::check() && \Auth::user()->hasRole('admin'))
 					<div class="row">
 						<div class="col-xs-12 admin-add-photos">
 					    	@include('admin/partials/forms/add_photos', ['category' => 'newborn'])
 					    </div>
 					</div>
-				    {{-- @endif --}}
+				    @endif
 
 				    @if (count($photos->where('category', 'newborn')) > 0)
 				    	<div class="row masonry-container">
@@ -71,13 +74,13 @@
 				</div> {{-- ./tab-pane newborn --}}
 
 				<div role="tabpanel" class="tab-pane" id="maternity">
-					{{-- @if (Auth::user()->hasRole('admin') --}}
+					@if(\Auth::check() && \Auth::user()->hasRole('admin'))
 					<div class="row">
 						<div class="col-xs-12 admin-add-photos">
 					    	@include('admin/partials/forms/add_photos', ['category' => 'maternity'])
 					    </div>
 					</div>
-				    {{-- @endif --}}
+				    @endif
 
 				    @if (count($photos->where('category', 'maternity')) > 0)
 				    	<div class="row masonry-container">
@@ -91,13 +94,13 @@
 				</div> {{-- ./tab-pane maternity --}}
 
 				<div role="tabpanel" class="tab-pane" id="engagement">
-					{{-- @if (Auth::user()->hasRole('admin') --}}
+					@if(\Auth::check() && \Auth::user()->hasRole('admin'))
 					<div class="row">
 						<div class="col-xs-12 admin-add-photos">
 					    	@include('admin/partials/forms/add_photos', ['category' => 'engagement'])
 					    </div>
 					</div>
-				    {{-- @endif --}}
+				    @endif
 
 				    @if (count($photos->where('category', 'engagement')) > 0)
 				    	<div class="row masonry-container">
@@ -111,13 +114,13 @@
 				</div> {{-- ./tab-pane engagement --}}
 
 				<div role="tabpanel" class="tab-pane" id="artistic">
-					{{-- @if (Auth::user()->hasRole('admin') --}}
+					@if(\Auth::check() && \Auth::user()->hasRole('admin'))
 					<div class="row">
 						<div class="col-xs-12 admin-add-photos">
 					    	@include('admin/partials/forms/add_photos', ['category' => 'artistic'])
 					    </div>
 					</div>
-				    {{-- @endif --}}
+				    @endif
 
 				    @if (count($photos->where('category', 'artistic')) > 0)
 				    	<div class="row masonry-container">

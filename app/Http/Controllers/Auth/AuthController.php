@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use Validator;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -28,7 +29,7 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/gallery';
+    protected $redirectTo = '/';
     protected $redirectAfterLogout = '/';
 
     /**
@@ -73,12 +74,38 @@ class AuthController extends Controller
         ]);
     }
 
-    protected function authenticated($request, $user)
+    public function authenticated($request, $user)
     {
-        if($user->hasRole === 'admin') {
-            return redirect()->intended('/admin');
+        if($request->user()->hasRole('admin')) {
+            return redirect('/admin');
         }
 
-        return redirect()->intended('/gallery/{{ $user->id }}');
+        return redirect('/gallery/{{ $user->id }}');
+    }
+
+    /**
+     * Handle a registration request for the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    protected function register(Request $request)
+    {
+        $validator = $this->validator($request->all());
+
+        if ($validator->fails()) {
+            $this->throwValidationException(
+                $request, $validator
+            );
+        }
+        // Removed to prevent auto login
+        // Auth::guard($this->getGuard())->login($this->create($request->all()));
+        $this->create($request->all());
+
+        // Removed to prevent redirect
+        // return redirect($this->redirectPath());
+        
+        //Show flash message to admin upon succesfully registering a new user
+        return flash()->success('Nice one! :)', 'You have successfully added a new client!');
     }
 }

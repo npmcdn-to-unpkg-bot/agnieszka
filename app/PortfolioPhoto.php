@@ -2,7 +2,6 @@
 
 namespace App;
 
-use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
@@ -32,5 +31,4 @@ class PortfolioPhoto extends Model
 
     	return $photo;
     }
-
 }
