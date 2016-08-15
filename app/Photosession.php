@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Photo;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -43,5 +44,10 @@ class PhotoSession extends Model
     public function setDateOfPhotosessionAttribute($date)
     {
     	$this->attributes['date_of_photosession'] = Carbon::createFromFormat('d/m/Y',$date);   
+    }
+
+    public function addPhoto(Photo $photo)
+    {
+        return $this->photos()->save($photo);
     }
 }

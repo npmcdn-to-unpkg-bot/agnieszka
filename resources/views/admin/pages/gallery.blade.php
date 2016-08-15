@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Client gallery / Admin')
-@section('meta_description', 'Client gallery to edit by Admin')
+@section('title', 'Edit Client gallery')
+@section('meta_description', 'Edit Client gallery')
 @section('customCSS')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/dropzone.css">
 @stop
@@ -9,23 +9,14 @@
 @section('content')
 
 <section class="client-gallery">
-	<h1>Client gallery</h1>
+	<h1>Show Client gallery</h1>
 
-		<div class="col-md-6 add-photosession">
-                <div class="row">
-                    <h1>Add Background Image</h1>
-            
-                    @include('admin.partials.forms.add_background_image',['id' => $id, 'photosessionId' => $photosessionId])
-            
-                </div>
-
-                <div class="row">
-                    <h1>Add Photos Image</h1>
-            
-                    @include('admin.partials.forms.add_photos',['id' => $id, 'photosessionId' => $photosessionId])
-            
-                </div>
-            </div>
+		<div class="col-md-6 col-md-offset-2 add-photosession">
+		{{ $photosession->user->first_name }}
+		<img src="{{ asset($photosession->background_image_path) }}" alt="">
+		<br>
+		<a href="/admin/photosessions/{{ $photosession->id }}/edit">Edit photosession</a>
+        </div>
 
 		{{-- <div class="col-xs-12 bg-img">
 			@if( $photosession->background_image == null)
@@ -65,7 +56,6 @@
 @section('customJS')
     <script src="https://npmcdn.com/masonry-layout@4.1/dist/masonry.pkgd.min.js"></script>
 	<script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/dropzone.js"></script>
     <script>
     	var $container = $('.masonry-container');
 			$container.imagesLoaded(
@@ -76,19 +66,5 @@
 			    		itemSelector: '.item'
 				});   
 		});
-
-        $( function() {
-            Dropzone.options.addBackgroundImageToGalleryForm = {
-                paramName: 'photo',
-                maxFilesize: 5,
-                acceptedFiles: '.jpg, .jpeg, .png,'
-            };
-
-            Dropzone.options.addPortfolioPhotosForm = {
-                paramName: 'photo',
-                maxFilesize: 3,
-                acceptedFiles: '.jpg, .jpeg, .png,'
-            };
-        });
     </script>
 @stop

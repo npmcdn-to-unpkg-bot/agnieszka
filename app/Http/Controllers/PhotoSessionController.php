@@ -11,7 +11,6 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class PhotoSessionController extends Controller
 {
-    protected $photosBaseDir = 'images/photosessions/photos';
     protected $backgroundsBaseDir = 'images/photosessions/backgrounds';
 
     /**
@@ -48,28 +47,6 @@ class PhotoSessionController extends Controller
         return redirect('/admin/photosessions/' . $photosession->id . '/edit');
     }
 
-    //Add photo(s) to the Database
-    public function addPhotos($id,Request $request)
-    {
-        $this->validate($request, [
-            'photo' => 'required|mimes:jpg,jpeg,png,bmp'
-        ]);
-
-        $file = $request->file('photo');
-        $name = time() . $file->getClientOriginalName();
-        // Move photo to folder
-        $file->move($this->photosBaseDir, $name);
-
-        //Find the photo session
-        $photosession = PhotoSession::where('id',$id)->first();
-        //Add connection to Photo Model
-        $photosession->photos()->create(['path' => $this->photosBaseDir ."/{$name}"]);
-
-        flash()->success('Congrats', 'You have successfully uploaded the photos to the gallery!');
-
-        return redirect()->back();
-    }
-
     //Add background image to the Database
     public function addBackgroundImage($id, Request $request)
     {
@@ -79,17 +56,45 @@ class PhotoSessionController extends Controller
         
         $file = $request->file('background');
         $name = time() . $file->getClientOriginalName();
-        // Move background image to folder
         $file->move($this->backgroundsBaseDir, $name);
 
         //Find the photo session
-        $photosession = PhotoSession::where('id',$id)->first();
+        $photosession = PhotoSession::find($id)->first();
         $photosession->background_image_path = $this->backgroundsBaseDir . '/' . $name;
         $photosession->save();
 
         flash()->success('Congrats', 'You have successfully uploaded a new background for the gallery!');
 
         return redirect()->back();
+    }
+
+    /**
+     * Apply a photo to the referenced PhotoSession
+     * @param integer   $id
+     * @param Request   $request
+     */
+    public function addPhoto($id, Request $request)
+    {
+        $this->validate($request, [
+            'photo' => 'required|mimes:jpg,jpeg,png,bmp'
+        ]);
+
+        $photo = Photo::fromPhotoSessionPhotoForm($request->file('photo'));
+
+        PhotoSession::find($id)->first()->addPhoto($photo);
+
+        // $photo = $this->makePhoto($request->file('photo'));
+        return flash()->success('Congrats', 'You have successfully uploaded the photos to the gallery!');
+    }
+
+    public function makePhoto(UploadedFile $file)
+    {
+        
+    }
+
+    public function storePhoto()
+    {
+        
     }
 
     /**
@@ -100,9 +105,9 @@ class PhotoSessionController extends Controller
      */
     public function show($id)
     {
-        $photosession = PhotoSession::findOrFail($id);
+        $photosession = PhotoSession::find($id);
 
-        return view('admin.pages.gallery', compact($photosession));
+        return view('admin.pages.gallery', compact('photosession'));
     }
 
     /**
@@ -113,8 +118,8 @@ class PhotoSessionController extends Controller
      */
     public function edit($id)
     {
-        $photosession = PhotoSession::findOrFail($id);
-        return view('admin.pages.editgallery', ['photosession' => $photosession]);
+        $photosession = PhotoSession::find($id);
+        return view('admin.pages.editgallery', compact('photosession'));
     }
 
     /**

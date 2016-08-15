@@ -37,7 +37,7 @@ Route::group(['middleware' => 'admin'], function()
 	// Add photos to photosession
 	Route::post('admin/photosessions/{id}/photos',[
 		'as' => 'add_photos_to_gallery',
-		'uses' => 'PhotoSessionController@addPhotos'
+		'uses' => 'PhotoSessionController@addPhoto'
 	]);
 	
 	// Photo Sessions
