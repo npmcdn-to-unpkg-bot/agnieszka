@@ -21,6 +21,7 @@ class PhotoSession extends Model
     	'background_image_path',
     	'date_of_photosession'
     ];
+    
     protected $table = 'photosessions';
 
     /**

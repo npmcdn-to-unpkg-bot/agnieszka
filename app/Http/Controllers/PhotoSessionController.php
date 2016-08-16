@@ -34,7 +34,7 @@ class PhotoSessionController extends Controller
      */
     public function store(PhotoSessionRequest $request)
     {
-        $user = User::findOrFail ($request->client);
+        $user = User::findOrFail($request->client);
 
         $photosession = PhotoSession::create([
             'user_id' => $request->client,
@@ -42,6 +42,8 @@ class PhotoSessionController extends Controller
             'category' => $request->category,
             'date_of_photosession' => $request->date_of_photosession
         ]);
+
+        $user->photosessions()->save($photosession);
 
         //Show flash message to admin upon succesfully creating a new photo session
         flash()->success('Nice one! :)', 'You have successfully created a new photo session!');
