@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Image;
 use App\User;
 use App\Photo;
 use App\PhotoSession;
@@ -61,6 +62,12 @@ class PhotoSessionController extends Controller
         //Find the photo session
         $photosession = PhotoSession::find($id)->firstOrFail();
         $photosession->background_image_path = $this->backgroundsBaseDir . '/' . $name;
+        $photosession->background_image_path_thumbnail = sprintf("%s/tn-%s", $this->backgroundsBaseDir, $name);
+
+        Image::make($photosession->background_image_path)
+            ->fit(400)
+            ->save($photosession->background_image_path_thumbnail); // save() is an Image Intervention method, not Laravels.
+
         $photosession->save();
 
         flash()->success('Congrats', 'You have successfully uploaded a new background for the gallery!');
