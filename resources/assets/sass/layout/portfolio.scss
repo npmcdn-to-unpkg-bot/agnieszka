@@ -5,4 +5,19 @@
 	.nav-tabs {
 	    border: 0;
 	}
+	.masonry-container {
+		.item {
+			margin-bottom: 30px;
+		}
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	#portfolio {
+		.masonry-container {
+			.item {
+				margin-bottom: 30px;
+			}
+		}
+	}
 }

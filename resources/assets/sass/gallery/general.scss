@@ -1,5 +1,5 @@
 /* =======================================
-   General Styles
+   General Styles for Gallery
    =======================================*/
 
 $primary: #ff4081;
@@ -44,9 +44,9 @@ ul,li,ol {
 .content {
   height: 100%;
 }
-
 @media screen and (min-width: 1024px) {
   .container-fluid {
-    padding-left:105px;
+    padding-left:90px;
+    padding-right:0;
   }
 }

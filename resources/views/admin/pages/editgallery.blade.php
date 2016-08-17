@@ -14,7 +14,7 @@
 		<div class="col-md-6 col-md-offset-2 add-photosession">
                 <div class="row">
                     <h1>Add Background Image</h1>
-                    {{-- {{ dd($photosession->user->first_name) }} --}}
+                    {{-- {{ dd($photosession->photos) }} --}}
             
                     @include('admin/partials/forms/addbackgroundimage')
             
@@ -74,7 +74,8 @@
 			 	function () {
 					$container.masonry({
 						columnWidth: '.item',
-			    		itemSelector: '.item'
+			    		itemSelector: '.item',
+			    		percentPosition: true
 				});   
 		});
 
@@ -82,13 +83,13 @@
             Dropzone.options.addBackgroundImageToGalleryForm = {
                 paramName: 'background',
                 maxFilesize: 5,
-                acceptedFiles: '.jpg, .jpeg, .png,'
+                acceptedFiles: '.jpg, .jpeg, .png'
             };
 
             Dropzone.options.addPhotosToGallery = {
                 paramName: 'photo',
                 maxFilesize: 3,
-                acceptedFiles: '.jpg, .jpeg, .png,'
+                acceptedFiles: '.jpg, .jpeg, .png'
             };
         });
     </script>

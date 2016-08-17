@@ -1,14 +1,18 @@
-@extends('layouts.app')
+@extends('layouts.client')
 
-@section('title', 'Client gallery')
-@section('meta_description', 'Client gallery')
+@section('title'){{ Auth::user()->getFullName() }} Profile @endsection
+@section('meta_description')Find the profile of {{ Auth::user()->getFullName() }} on Agnieszka Krol Photographery client gallery. @endsection
 
 @section('content')
-
-<section class="client-gallery">
-	<h1>Client gallery</h1>
-
-</section>
+	@if ($photosession->user_id === Auth::id())
+		 {{ "gllaojdio we w" }}
+	@endif
+	<section class="row client-gallery">
+		<h1>Client gallery</h1>
+			<div class="col-md-12">
+				
+			</div>
+	</section>
 
 @endsection
 

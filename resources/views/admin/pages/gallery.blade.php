@@ -9,13 +9,29 @@
 @section('content')
 
 <section class="client-gallery">
-	<h1>Show Client gallery</h1>
-
+	@if ($photosession != null)
+		<h1>Show Client gallery</h1>
 		<div class="col-md-6 col-md-offset-2 add-photosession">
 		{{ $photosession->user->first_name }}
-		<img src="{{ asset($photosession->background_image_path) }}" alt="">
+		<img src="{{ asset($photosession->background_image_path) }}" width="300" height="300" alt="Photosession background image">
 		<br>
 		<a href="/admin/photosessions/{{ $photosession->id }}/edit">Edit photosession</a>
+        </div>
+
+        <div class="row">
+
+        	<div class="col-md-12 gallery">
+        		@foreach ($photosession->photos->chunk(4) as $set)
+	        		<div class="row">
+	        			@foreach ($set as $photo)
+	        				<div class="col-md-3 gallery__image">
+	        					<img src="{{ asset($photo->thumbnail_path) }}" alt="Thumbnail photo">
+	        				</div>
+	        			@endforeach
+	        		</div>
+	        	@endforeach
+        	</div>
+
         </div>
 
 		{{-- <div class="col-xs-12 bg-img">
@@ -48,6 +64,7 @@
 				</div> --}} {{-- ./masonry-container --}}
 		    {{-- @endif --}}
 		{{-- </div> --}}
+	@endif
 
 </section>
 

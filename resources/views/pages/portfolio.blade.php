@@ -9,133 +9,130 @@
 @section('content')
 
     <section id="portfolio">
+		<div class="row">
+			
+			<div class="col-xs-12" role="tabpanel">
+				<!-- Tapanel tabs -->
+				<ul class="nav nav-tabs" role="tablist">
+				    <li role="presentation" class="active">
+				    	<a href="#family" aria-controls="family" role="tab" data-toggle="tab">Family</a>
+				    </li>
+				    <li role="presentation">
+				    	<a href="#newborn" aria-controls="newborn" role="tab" data-toggle="tab">Newborn</a>
+				    </li>
+				    <li role="presentation">
+				    	<a href="#maternity" aria-controls="maternity" role="tab" data-toggle="tab">Maternity</a>
+				    </li>
+				    <li role="presentation">
+				    	<a href="#engagement" aria-controls="engagement" role="tab" data-toggle="tab">Engagement</a>
+				    </li>
+				    <li role="presentation">
+				    	<a href="#artistic" aria-controls="artistic" role="tab" data-toggle="tab">Artistic</a>
+				    </li>
+				</ul>
 
-		<div class="col-md-8 col-md-offset-2" role="tabpanel">
-			<!-- Nav tabs -->
-			<ul class="nav nav-tabs" role="tablist">
-			    <li role="presentation" class="active">
-			    	<a href="#family" aria-controls="family" role="tab" data-toggle="tab">Family</a>
-			    </li>
-			    <li role="presentation">
-			    	<a href="#newborn" aria-controls="newborn" role="tab" data-toggle="tab">Newborn</a>
-			    </li>
-			    <li role="presentation">
-			    	<a href="#maternity" aria-controls="maternity" role="tab" data-toggle="tab">Maternity</a>
-			    </li>
-			    <li role="presentation">
-			    	<a href="#engagement" aria-controls="engagement" role="tab" data-toggle="tab">Engagement</a>
-			    </li>
-			    <li role="presentation">
-			    	<a href="#artistic" aria-controls="artistic" role="tab" data-toggle="tab">Artistic</a>
-			    </li>
-			</ul>
+				<!-- Tab panels -->
+				<div class="tab-content portfolio-photos">
+					<div role="tabpanel" class="tab-pane fade in active" id="family">
+						@if(Auth::check() && Auth::user()->hasRole('admin'))
+						    @include('admin/partials/forms/add_photos', ['category' => 'family'])
+					    @endif
 
-			<!-- Tab panels -->
-			<div class="tab-content portfolio-photos">
+					    @if (count($photos->where('category', 'family')) > 0)
+					    	<div class="row masonry-container">
+							    @foreach ($photos->where('category', 'family') as $photo)
+						        	<div class="col-xs-6 col-sm-4 item">
+										<img class="img-responsive" src="{{ $photo->path }}" alt="Agnieszka Krol Family photo">
+									</div>
+							    @endforeach
+						    </div> {{-- ./masonry-container --}}
+					    @endif
+					</div> {{-- ./tab-pane family --}}
 
-				<div role="tabpanel" class="tab-pane active" id="family">
-					@if(\Auth::check() && \Auth::user()->hasRole('admin'))
-					<div class="row">
-						<div class="col-xs-12 admin-add-photos">
-					    	@include('admin/partials/forms/add_photos', ['category' => 'family'])
-					    </div>
-					</div>
-				    @endif
+					<div role="tabpanel" class="tab-pane" id="newborn">
+						@if(Auth::check() && Auth::user()->hasRole('admin'))
+						<div class="row">
+							<div class="col-xs-12 admin-add-photos">
+						    	@include('admin/partials/forms/add_photos', ['category' => 'newborn'])
+						    </div>
+						</div>
+					    @endif
 
-				    @if (count($photos->where('category', 'family')) > 0)
-				    	<div class="row masonry-container">
-						    @foreach ($photos->where('category', 'family') as $photo)
-					        	<div class="col-md-4 col-sm-6 item">
-									<img class="img-responsive" src="{{ $photo->path }}" alt="">
-								</div>
-						    @endforeach
-					    </div> {{-- ./masonry-container --}}
-				    @endif
-				</div> {{-- ./tab-pane family --}}
+					    @if (count($photos->where('category', 'newborn')) > 0)
+					    	<div class="row masonry-container">
+							    @foreach ($photos->where('category', 'newborn') as $photo)
+						        	<div class="col-md-4 col-sm-6 item">
+										<img class="img-responsive" src="{{ $photo->path }}" alt="">
+									</div>
+							    @endforeach
+						    </div> {{-- ./masonry-container --}}
+					    @endif
+					</div> {{-- ./tab-pane newborn --}}
 
-				<div role="tabpanel" class="tab-pane" id="newborn">
-					@if(\Auth::check() && \Auth::user()->hasRole('admin'))
-					<div class="row">
-						<div class="col-xs-12 admin-add-photos">
-					    	@include('admin/partials/forms/add_photos', ['category' => 'newborn'])
-					    </div>
-					</div>
-				    @endif
+					<div role="tabpanel" class="tab-pane" id="maternity">
+						@if(Auth::check() && Auth::user()->hasRole('admin'))
+						<div class="row">
+							<div class="col-xs-12 admin-add-photos">
+						    	@include('admin/partials/forms/add_photos', ['category' => 'maternity'])
+						    </div>
+						</div>
+					    @endif
 
-				    @if (count($photos->where('category', 'newborn')) > 0)
-				    	<div class="row masonry-container">
-						    @foreach ($photos->where('category', 'newborn') as $photo)
-					        	<div class="col-md-4 col-sm-6 item">
-									<img class="img-responsive" src="{{ $photo->path }}" alt="">
-								</div>
-						    @endforeach
-					    </div> {{-- ./masonry-container --}}
-				    @endif
-				</div> {{-- ./tab-pane newborn --}}
+					    @if (count($photos->where('category', 'maternity')) > 0)
+					    	<div class="row masonry-container">
+							    @foreach ($photos->where('category', 'maternity') as $photo)
+						        	<div class="col-md-4 col-sm-6 item">
+										<img class="img-responsive" src="{{ $photo->path }}" alt="">
+									</div>
+							    @endforeach
+						    </div> {{-- ./masonry-container --}}
+					    @endif
+					</div> {{-- ./tab-pane maternity --}}
 
-				<div role="tabpanel" class="tab-pane" id="maternity">
-					@if(\Auth::check() && \Auth::user()->hasRole('admin'))
-					<div class="row">
-						<div class="col-xs-12 admin-add-photos">
-					    	@include('admin/partials/forms/add_photos', ['category' => 'maternity'])
-					    </div>
-					</div>
-				    @endif
+					<div role="tabpanel" class="tab-pane" id="engagement">
+						@if(Auth::check() && Auth::user()->hasRole('admin'))
+						<div class="row">
+							<div class="col-xs-12 admin-add-photos">
+						    	@include('admin/partials/forms/add_photos', ['category' => 'engagement'])
+						    </div>
+						</div>
+					    @endif
 
-				    @if (count($photos->where('category', 'maternity')) > 0)
-				    	<div class="row masonry-container">
-						    @foreach ($photos->where('category', 'maternity') as $photo)
-					        	<div class="col-md-4 col-sm-6 item">
-									<img class="img-responsive" src="{{ $photo->path }}" alt="">
-								</div>
-						    @endforeach
-					    </div> {{-- ./masonry-container --}}
-				    @endif
-				</div> {{-- ./tab-pane maternity --}}
+					    @if (count($photos->where('category', 'engagement')) > 0)
+					    	<div class="row masonry-container">
+							    @foreach ($photos->where('category', 'engagement') as $photo)
+						        	<div class="col-md-4 col-sm-6 item">
+										<img class="img-responsive" src="{{ $photo->path }}" alt="">
+									</div>
+							    @endforeach
+						    </div> {{-- ./masonry-container --}}
+					    @endif
+					</div> {{-- ./tab-pane engagement --}}
 
-				<div role="tabpanel" class="tab-pane" id="engagement">
-					@if(\Auth::check() && \Auth::user()->hasRole('admin'))
-					<div class="row">
-						<div class="col-xs-12 admin-add-photos">
-					    	@include('admin/partials/forms/add_photos', ['category' => 'engagement'])
-					    </div>
-					</div>
-				    @endif
+					<div role="tabpanel" class="tab-pane" id="artistic">
+						@if(Auth::check() && Auth::user()->hasRole('admin'))
+						<div class="row">
+							<div class="col-xs-12 admin-add-photos">
+						    	@include('admin/partials/forms/add_photos', ['category' => 'artistic'])
+						    </div>
+						</div>
+					    @endif
 
-				    @if (count($photos->where('category', 'engagement')) > 0)
-				    	<div class="row masonry-container">
-						    @foreach ($photos->where('category', 'engagement') as $photo)
-					        	<div class="col-md-4 col-sm-6 item">
-									<img class="img-responsive" src="{{ $photo->path }}" alt="">
-								</div>
-						    @endforeach
-					    </div> {{-- ./masonry-container --}}
-				    @endif
-				</div> {{-- ./tab-pane engagement --}}
+					    @if (count($photos->where('category', 'artistic')) > 0)
+					    	<div class="row masonry-container">
+							    @foreach ($photos->where('category', 'artistic') as $photo)
+						        	<div class="col-md-4 col-sm-6 item">
+										<img class="img-responsive" src="{{ $photo->path }}" alt="">
+									</div>
+							    @endforeach
+						    </div> {{-- ./masonry-container --}}
+					    @endif
+					</div> {{-- ./tab-pane artistic --}}
 
-				<div role="tabpanel" class="tab-pane" id="artistic">
-					@if(\Auth::check() && \Auth::user()->hasRole('admin'))
-					<div class="row">
-						<div class="col-xs-12 admin-add-photos">
-					    	@include('admin/partials/forms/add_photos', ['category' => 'artistic'])
-					    </div>
-					</div>
-				    @endif
+				</div> {{-- ./portfolio-photos --}}
+			</div> {{-- ./tabpanel --}}
 
-				    @if (count($photos->where('category', 'artistic')) > 0)
-				    	<div class="row masonry-container">
-						    @foreach ($photos->where('category', 'artistic') as $photo)
-					        	<div class="col-md-4 col-sm-6 item">
-									<img class="img-responsive" src="{{ $photo->path }}" alt="">
-								</div>
-						    @endforeach
-					    </div> {{-- ./masonry-container --}}
-				    @endif
-				</div> {{-- ./tab-pane artistic --}}
-
-			</div> {{-- ./portfolio-photos --}}
-		</div> {{-- ./tabpanel --}}
-
+		</div> {{-- ./row --}}
 	</section>
 
 @endsection
@@ -152,7 +149,8 @@
 		 	function () {
 				$container.masonry({
 					columnWidth: '.item',
-		    		itemSelector: '.item'
+		    		itemSelector: '.item',
+		    		percentPosition: true
 			});   
 	});
 
@@ -163,7 +161,8 @@
 				$container.imagesLoaded( function () {
 					$container.masonry({
 						columnWidth: '.item',
-						itemSelector: '.item'
+						itemSelector: '.item',
+						percentPosition: true
 					});   
 				});
 			});

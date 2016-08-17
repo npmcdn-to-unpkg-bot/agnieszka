@@ -1,0 +1,19 @@
+/*
+			  	Agnieszka Krol
+				  Photography
+					 2016
+++++++++++++++++++++++++++++++++++++++++++++++++
+======= Webdesing by www.istvanlovas.com =======
+++++++++++++++++++++++++++++++++++++++++++++++++
+			  Client gallery CSS
+*/
+
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+@import "mixins/border_bottom_transition";
+@import "mixins/vertical_and_horizontal_align";
+@import "mixins/vh_unit_workaround";
+
+@import 'gallery/general';
+@import 'gallery/header';
+@import 'gallery/client-gallery';

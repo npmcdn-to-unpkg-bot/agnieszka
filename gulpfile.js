@@ -14,6 +14,9 @@ var elixir = require('laravel-elixir');
 elixir(function(mix) {
     mix
     	.sass('app.scss')
+        .sass([
+            'gallery.scss'
+        ],'./public/css/gallery.css')
     	.scripts([
     		'libs/sweetalert-dev.js',
             'libs/smoothscroll.js'

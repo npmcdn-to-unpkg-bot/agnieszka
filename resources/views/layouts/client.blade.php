@@ -7,7 +7,6 @@
 
     <title>@yield('title') | Agnieszka Krol Photography</title>
     <meta name="description" content="@yield('meta_description')">
-    <meta name="keywords" content="@yield('keywords')">
     <meta name="author" content="Istvan Lovas">
 
     <!-- Fonts -->
@@ -15,7 +14,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/gallery.css') }}" rel="stylesheet">
     <link href="{{ asset('css/libs.css') }}" rel="stylesheet">
     
     @yield('customCSS')
@@ -23,11 +22,12 @@
 </head>
 <body id="app-layout">
 
-    @include('pages.partial.header')
+    @include('client.partials.header')
 
     <div class="container-fluid content" role="document">
         @yield('content')
-        @include('pages.partial.footer')
     </div>
+
+    @include('client.partials.footer')
 </body>
 </html>
