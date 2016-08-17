@@ -20,11 +20,11 @@
 Route::group(['middleware' => 'admin'], function()
 {
 	// Admin Dashboard
-    Route::get('admin', function() { return view('admin/pages/dashboard'); });
+    Route::get('admin', 'Admin\AdminController@dashboard');
     // Add portfolio photos
     Route::post('admin/portfolio_photos/{category}',[
 		'as' => 'store_photo',
-		'uses' => 'AdminPortfolioController@addPhoto'
+		'uses' => 'Admin\AdminPortfolioController@addPhoto'
 	]);
 
 	Route::post('register', 'App\Http\Controllers\Auth\AuthController@register');
@@ -32,16 +32,17 @@ Route::group(['middleware' => 'admin'], function()
 	// Add background image to photosession
 	Route::post('admin/photosessions/{id}/background-image',[
 		'as' => 'add_bg_to_gallery',
-		'uses' => 'PhotoSessionController@addBackgroundImage'
+		'uses' => 'Admin\PhotoSessionController@addBackgroundImage'
 	]);
 	// Add photos to photosession
 	Route::post('admin/photosessions/{id}/photos',[
 		'as' => 'add_photos_to_gallery',
-		'uses' => 'PhotoSessionController@addPhoto'
+		'uses' => 'Admin\PhotoSessionController@addPhoto'
 	]);
 	
 	// Photo Sessions
-	Route::resource('admin/photosessions','PhotoSessionController', ['except' => ['create']]);
+	Route::delete('photos/{id}', 'Admin\PhotosessionPhotoController@destroy' );
+	Route::resource('admin/photosessions','Admin\PhotoSessionController', ['except' => ['create']]);
 });
 
 Route::group(['middleware' => 'web'], function()

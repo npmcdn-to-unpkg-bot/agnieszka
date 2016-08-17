@@ -65,4 +65,13 @@ class Photo extends Model
             ->fit(200)
             ->save($this->thumbnail_path); // save() is an Image Intervention method, not Laravels.
     }
+    public function delete()
+    {
+        \File::delete([
+            $this->path,
+            $this->thumbnail_path
+        ]);
+
+        parent::delete();
+    }
 }

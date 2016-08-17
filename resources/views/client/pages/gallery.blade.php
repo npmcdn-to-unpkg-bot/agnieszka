@@ -4,15 +4,14 @@
 @section('meta_description')Find the profile of {{ Auth::user()->getFullName() }} on Agnieszka Krol Photographery client gallery. @endsection
 
 @section('content')
-	@if ($photosession->user_id === Auth::id())
-		 {{ "gllaojdio we w" }}
+	@if (Auth::user() && Auth::user()->owns($photosession))
+		<section class="row client-gallery">
+			<h1>Client gallery</h1>
+				<div class="col-md-12">
+					
+				</div>
+		</section>
 	@endif
-	<section class="row client-gallery">
-		<h1>Client gallery</h1>
-			<div class="col-md-12">
-				
-			</div>
-	</section>
 
 @endsection
 

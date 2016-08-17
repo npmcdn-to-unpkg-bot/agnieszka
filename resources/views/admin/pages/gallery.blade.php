@@ -25,7 +25,15 @@
 	        		<div class="row">
 	        			@foreach ($set as $photo)
 	        				<div class="col-md-3 gallery__image">
-	        					<img src="{{ asset($photo->thumbnail_path) }}" alt="Thumbnail photo">
+	        				<form method="POST" action="/photos/{{ $photo->id }}">
+	        					{!! csrf_field() !!}
+	        					<input type="hidden" name="_method" value="DELETE">
+
+	        					<button type="submit">Delete Photo</button>
+	        				</form>
+	        					<a href="/{{ $photo->path }}">
+	        						<img src="{{ asset($photo->thumbnail_path) }}" alt="Thumbnail photo">
+	        					</a>
 	        				</div>
 	        			@endforeach
 	        		</div>

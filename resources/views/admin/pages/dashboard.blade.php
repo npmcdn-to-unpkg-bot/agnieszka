@@ -13,14 +13,12 @@
 
         <div class="col-xs-12 col-md-10 col-md-offset-1 top-nav">
             <ul class="inline">
-                <li>List of photosessions</li>
-                <li>List of clients</li>
+                <li>All PhotoSessions: {{ $photosessions->count() }}</li>
+                <li>List of clients: {{ $users->count() }}</li>
                 <li>List of submitted requests</li>
                 <li>List of awaiting requests</li>
             </ul>
         </div>
-
-{{--        {{ dd(\App\User::all()) }} --}}
         
         <div class="col-xs-12 col-md-12 forms">
             <div class="form-error-msg">

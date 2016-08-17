@@ -2,6 +2,7 @@
 
 namespace App;
 
+use PhotoSession;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -66,6 +67,11 @@ class User extends Authenticatable
         if (is_string($role)) {
             return $this->roles()->detach($role);
         }
+    }
+
+    public function owns($relation)
+    {
+        return $relation->user_id == $this->id;
     }
 
     /**

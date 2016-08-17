@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Image;
 use App\User;
 use App\Photo;
 use App\PhotoSession;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\PhotoSessionRequest;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
@@ -23,7 +24,7 @@ class PhotoSessionController extends Controller
     {
         $photosessions = PhotoSession::all();
 
-        return view('admin.pages.photosessions',compact('photosessions'));
+        return view('admin.pages.photosessions', compact('photosessions'));
     }
 
     /**
@@ -45,7 +46,6 @@ class PhotoSessionController extends Controller
 
         $user->photosessions()->save($photosession);
 
-        //Show flash message to admin upon succesfully creating a new photo session
         flash()->success('Nice one! :)', 'You have successfully created a new photo session!');
         return redirect('/admin/photosessions/' . $photosession->id . '/edit');
     }

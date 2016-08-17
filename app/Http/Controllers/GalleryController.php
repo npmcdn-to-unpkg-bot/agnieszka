@@ -13,8 +13,8 @@ class GalleryController extends Controller
 {
     public function show($id)
     {
-        $user = User::findOrFail($id);
-		dd($user->photosessions);
-        return view('client.pages.gallery', compact($user));
+    	$photosession = Photosession::find($id);
+
+		return view('client.pages.gallery', compact('photosession'));
     }
 }
