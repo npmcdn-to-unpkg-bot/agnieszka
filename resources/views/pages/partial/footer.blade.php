@@ -1,9 +1,5 @@
 <footer>
-	<div class="row">
-		<div class="col-xs-12">
-			&copy; {{ \Carbon\Carbon::now()->year }} Agnieszka Krol
-		</div>
-	</div>
+<p>&copy; {{ \Carbon\Carbon::now()->year }} Agnieszka Krol</p>
 </footer>
 
 <!-- JavaScripts -->

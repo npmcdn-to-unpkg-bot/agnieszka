@@ -4,20 +4,51 @@
 
 #home {
 	position: relative;
-	background-image: url('/images/background.jpg');
+	background-image: url('/images/background-xs.jpg');
 	background-repeat:no-repeat;
-	background-position: center center;
+	background-position: 100% center;
 	background-size: cover;
 	@include viewport-unit(height, 100vh);
-	.welcome-intro {
-		h2 {
+	.welcome {
+		position: absolute;
+		top: 50%;
+	    left: $sidebarSmall + $paddingSmall;
+	    transform: translateY(-50%);
+	    color: #fff;
+		h1 {
 			margin: 0;
+		    font-size: 78px;
+		    font-family:'Shannon W04 Extra Bold';
+			// font-family:'Praxis W01 Heavy';
+			// font-family:'Praxis W01 Bold';
+			// font-family:'Shannon W04 Bold';
 		}
 		p {
 			margin: $paddingSmall 0;
+		    max-width: 520px;
+		    font-size: 21px;
 			a {
-				@include border-bottom-transition($accentLight, $accent, 2px)
+				color:$accentDark;
+				@include border-bottom-transition($accentDark, $accentLight, 2px)
+				&:hover, &:focus {
+					color: $accentLight;
+				}
 			}
 		}
+	}
+}
+
+@media screen and (min-width: 768px) {
+	#home {
+		background-image: url('/images/background-sm.jpg');
+	  	.welcome {
+		    left: $sidebarLarge + $paddingLarge;
+		}
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	#home {
+		background-image: url('/images/background-lg.jpg');
 	}
 }

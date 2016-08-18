@@ -15,8 +15,7 @@ class PortfolioPhotoController extends Controller
     public function showAll()
     {
         $photos = PortfolioPhoto::all();
-        $categories = ['family', 'newborn', 'maternity', 'engagement', 'artistic'];
 
-        return view('pages.portfolio', compact(['photos','categories']));
+        return view('pages.portfolio', compact(['photos']));
     }
 }

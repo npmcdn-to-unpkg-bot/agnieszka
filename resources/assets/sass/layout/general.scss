@@ -2,22 +2,27 @@
    General Styles
    =======================================*/
 
+// font-family:'Praxis W01 Bold';
+// font-family:'Praxis W01 Heavy';
+// font-family:'Shannon W04 Extra Bold';
+// font-family:'Shannon W04 Bold';
+
 $primary: #ff4081;
 $primaryLight: #ff80ab;
 $primaryDark: #f50057;
 
-$secondary: #ffffff;
+$accentDark: #EA1D63;
+$accentLight: #ff80ab;
 
-$accent: #7c7c7c;
-$accentDark: #565656;
-$accentLight: #a2a2a2;
+$fontsize: 16px;
+$textcolor: rgba(0,0,0,.87);
 
 $background: #fbfbfb;
 
-$textcolor: rgba(0,0,0,.87);
-
-$paddingSmall: 30px;
-$fontsize: 16px;
+$paddingSmall: 40px;
+$paddingLarge: 60px;
+$sidebarSmall: 8px;
+$sidebarLarge: 90px;
 
 html,body {
   width:100%;

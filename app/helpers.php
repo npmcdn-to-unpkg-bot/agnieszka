@@ -10,3 +10,10 @@ function flash($title = null,$message = null)
 
 	return $flash->info($title,$message);
 }
+
+function categories()
+{
+	$categories = ['family', 'newborn', 'maternity', 'engagement', 'artistic'];
+
+	return $categories;
+}

@@ -23,12 +23,17 @@
                             <label for="category" class="col-md-4 control-label">Category</label>
 
                             <div class="col-md-6">
-                                <input id="category" type="text" class="form-control" name="category" value="{{ old('category') }}">
-                                @if ($errors->has('category'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('category') }}</strong>
-                                    </span>
-                                @endif
+                                <select id="category" name="category" class="form-control">
+                                    <option selected disabled>Please select a category</option>
+                                    @foreach(categories() as $key => $value)
+                                        <option value="{{ $value }}">{{ $value }}</option>
+                                    @endforeach
+                                    @if ($errors->has('category'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('category') }}</strong>
+                                        </span>
+                                    @endif
+                                </select>
                             </div>
                         </div>
 

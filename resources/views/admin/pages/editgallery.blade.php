@@ -82,8 +82,20 @@
         $( function() {
             Dropzone.options.addBackgroundImageToGalleryForm = {
                 paramName: 'background',
+                maxFiles: 1,
                 maxFilesize: 5,
-                acceptedFiles: '.jpg, .jpeg, .png'
+                acceptedFiles: '.jpg, .jpeg, .png',
+                accept: function(file, done) {
+				    console.log("uploaded");
+				    done();
+				},
+                init: function() {
+				    this.on("addedfile", function() {
+				    	if (this.files[1]!=null){
+				    		this.removeFile(this.files[0]);
+				    	}
+				    });
+				}
             };
 
             Dropzone.options.addPhotosToGallery = {

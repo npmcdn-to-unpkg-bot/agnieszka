@@ -24,7 +24,7 @@ Route::group(['middleware' => 'admin'], function()
     // Add portfolio photos
     Route::post('admin/portfolio_photos/{category}',[
 		'as' => 'store_photo',
-		'uses' => 'Admin\AdminPortfolioController@addPhoto'
+		'uses' => 'Admin\AdminController@addPhoto'
 	]);
 
 	Route::post('register', 'App\Http\Controllers\Auth\AuthController@register');
