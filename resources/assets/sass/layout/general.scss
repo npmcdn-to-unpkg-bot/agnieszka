@@ -2,17 +2,15 @@
    General Styles
    =======================================*/
 
-// font-family:'Praxis W01 Bold';
-// font-family:'Praxis W01 Heavy';
-// font-family:'Shannon W04 Extra Bold';
-// font-family:'Shannon W04 Bold';
+// font-family:'Sheila W00';
+// font-family:'LinotypeBreweryW01-Ligh';
+// font-family:'LinotypeBreweryW01-Regu';
+// font-family:'LinotypeBreweryW01-Medi';
+// font-family:'LinotypeBreweryW01-Bold';
 
-$primary: #ff4081;
-$primaryLight: #ff80ab;
-$primaryDark: #f50057;
-
-$accentDark: #EA1D63;
-$accentLight: #ff80ab;
+$secondaryText: #f2c7cc;
+$accentLight:#e48993;
+$accentDark: #f50057;
 
 $fontsize: 16px;
 $textcolor: rgba(0,0,0,.87);
@@ -31,6 +29,7 @@ html,body {
 
 body {
   font-size:$fontsize;
+  font-family:'LinotypeBreweryW01-Ligh';
   color:$textcolor;
   line-height:1.6;
   background: $background;
@@ -48,6 +47,7 @@ ul,li,ol {
 
 .content {
   height: 100%;
+  position: relative;
 }
 
 @media screen and (min-width: 1024px) {

@@ -5790,6 +5790,7 @@ ul, li, ol {
   padding: 0; }
 
 .content {
+  position: relative;
   height: 100%; }
 
 .dz-max-files-reached {

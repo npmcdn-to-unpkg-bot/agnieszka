@@ -1,9 +1,5 @@
 <footer>
-	<div class="row">
-		<div class="col-xs-12">
-			&copy; {{ \Carbon\Carbon::now()->year }} Agnieszka Krol
-		</div>
-	</div>
+<p>&copy; {{ \Carbon\Carbon::now()->year }} Agnieszka Krol</p>
 </footer>
 
 <!-- JavaScripts -->
@@ -15,7 +11,6 @@
 <script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.js"></script>
 <script src="{{ asset('js/app.js') }}"></script>
-<script src="{{ asset('js/libs.js') }}"></script>
 
 @yield('customJS')
 @include('flash')

@@ -51,6 +51,7 @@
 @section('customJS')
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/dropzone.js"></script>
+    <script src="{{ asset('js/libs.js') }}"></script>
     <script>
         $( function() {
             Dropzone.options.addPhotoSessionPhotosForm = {

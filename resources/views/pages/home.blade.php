@@ -7,9 +7,15 @@
 
     <section id="home">
     	<div class="welcome">
-    		<h1>agnieszka krol<br>photography</h1>
-    		<p>{{ trans('home.intro') }}</p>
-    		<p>{{ trans('home.findOutMore') }} <a href="#about" title="fmore about me">{{ trans('home.aboutMeLink') }}</a></p>
+    		<div class="intro">
+    			<h1>AGNIESZKA KROL<br><span>Photography</span></h1>
+    		</div>
+    	</div>
+    			
+    	<div class="social-icons">
+    	    <li>{!! file_get_contents("images/social-icons/facebook.svg") !!}</li>
+    	    <li>{!! file_get_contents("images/social-icons/twitter.svg") !!}</li>
+    	    <li>{!! file_get_contents("images/social-icons/instagramm.svg") !!}</li>
     	</div>
 	</section>
 

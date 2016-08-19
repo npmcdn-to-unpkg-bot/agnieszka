@@ -1,4 +1,27 @@
 <header id="header">
+    <nav id="navigation" role="navigation">
+        <div class="logo"><a href="{{ route('home') }}">agnieszka krol</a></div>
+        <ul id="main-navigation">
+            <li><a href="{{ route('portfolio') }}">Portfolio</a></li>
+            <li><a href="{{ route('about') }}">About</a></li>
+            <li><a href="{{ route('services') }}">Prices</a></li>
+            <li><a href="{{ route('contact') }}">Contact</a></li>
+            <li><a href="{{ url('login') }}" class="btn-client-login">Login</a></li>
+        </ul>
+    </nav>
+
+    {{-- <div class="language-chooser">
+        <form action="" method="post" accept-charset="utf-8">
+            <select name="language">
+                <option value="en">English</option>
+                <option value="de">Deutsch</option>
+            </select>
+            <input type="submit" name="choose" value="Choose">
+        </form>
+    </div> --}}
+</header>
+
+{{-- <header id="header">
 
     <div class="overlay"></div>
     
@@ -23,7 +46,7 @@
             </ul>
         </nav>
 
-            {{-- <footer>
+            <footer>
                 <div class="social-icons">
                     <li>{!! file_get_contents("images/social-icons/facebook.svg") !!}</li>
                     <li>{!! file_get_contents("images/social-icons/twitter.svg") !!}</li>
@@ -37,13 +60,13 @@
                         </select>
                         <input type="submit" name="choose" value="Choose">
                 </form>
-            </footer> --}}
+            </footer>
             <div id="label">
                 <p>Agnieszka Krol</p>
             </div>
     </div>
 
-</header>
+</header> --}}
 
 {{-- 
 <div class="navbar-header">

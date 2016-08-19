@@ -1,146 +1,71 @@
 /* =======================================
    Header
    =======================================*/
-   
-// Left transitioning sidebar
-// header {
-// 	position: absolute;
-//     user-select: none;
-//     z-index: 100;
-// 	.overlay {
-// 		background-color: #000;
-// 	    position: fixed;
-// 	    top: 0;
-// 	    bottom: 0;
-// 	    left: 0;
-// 	    right: 0;
-// 	    z-index: 100;
-// 	    opacity: 0;
-// 	    transition: opacity .5s ease-in-out .2s;
-// 	    pointer-events: none;
-// 	}
-// 	#sidebar {
-// 	    pointer-events: all;
-// 	    position: fixed;
-// 	    left: 0;
-// 	    top: 0;
-// 	    bottom: 0;
-// 	    z-index: 100;
-// 	    background-color: #fff;
-// 	    width: $sidebarSmall;
-// 	    transition: width .54s cubic-bezier(.9,0,.33,1) .2s,
-// 	    			opacity .45s linear .2s;
-// 	    nav {
-// 		    position: absolute;
-// 		    height: 100%;
-// 		    right: 0;
-// 		    display: table;
-// 		    table-layout: fixed;
-// 		    pointer-events: none;
-// 		    z-index: 100;
-// 	    	#main-navigation {
-// 			    position: relative;
-// 			    display: table-cell;
-// 			    vertical-align: middle;
-// 			    z-index: 2;
-// 			    li {
-// 				    display: list-item;
-// 				    a {
-// 				    	@include border-bottom-transition(#000, #000, 3px);
-// 				    	display: inline-block;
-// 				    	color:#000;
-// 					    font-size: 56px;
-// 					    text-rendering: geometricPrecision;
-// 					    font-variant-ligatures: no-common-ligatures;
-// 					    text-decoration: none;
-// 					    margin-left: $paddingSmall;
-// 					    will-change: transform;
-// 					    transform: translateX(-766px);
-// 					}
-// 				}
-// 			}
-// 		}
-// 	}
-//     #label {
-// 	    transform: translateY(388px) rotate(-90deg);
-// 	}
-//     .social-icons {
-// 		margin-top: $paddingSmall;
-// 		li {
-// 			position: relative;
-// 			float: left;
-// 			margin-right:3px;
-// 			cursor:pointer;
-// 			transition: all 0.270s ease-out 0s;
-// 			&:hover, &:focus {
-// 				.svg-icon path {
-// 					fill: $accentLight;
-// 				}
-// 			}
-// 		}
-// 	}
-// }
 
-// header.open {
-//     pointer-events: auto;
-// 	.overlay {
-// 		pointer-events: all;
-// 	    opacity: .5;
-// 	    transition: opacity .5s ease-in-out 0ms;
-// 	}
-// 	#sidebar {
-// 		@include viewport-unit(width, 80vw);
-// 	    transition: width .54s cubic-bezier(.6,.035,.25,1) 0s,
-// 	    			opacity .64s linear .8s;
-// 	    nav {
-// 		    pointer-events: auto;
-// 		}
-// 	}
-// }
+header {
+	width:100%;
+	position: fixed;
+	top:0;
+	left:0;
+	right:0;
+    z-index: 100;
+	nav {
+	    position: relative;
+	    .logo {
+	    	display:none;
+	    	position: absolute;
+	    	top:$paddingSmall;
+	    	left:$paddingSmall;
+	    }
+    	#main-navigation {
+    		max-width: 480px;
+		    position: absolute;
+		    top:$paddingSmall;
+	    	right:$paddingSmall;
+	    	margin:0;
+	    	text-align: right;
+		    li {
+		    	font-family:'LinotypeBreweryW01-Regu';
+			    display: inline-block;
+			    margin-left:15px;
+			    a:not(.btn-client-login) {
+			    	@include border-bottom-transition(#fff, $accentLight, 2px);
+			    	display: block;
+			    	color:#fff;
+				    font-size: 21px;
+				    text-rendering: geometricPrecision;
+				    font-variant-ligatures: no-common-ligatures;
+				    text-decoration: none;
+				    transform: translateY(0px);
+				    &:hover, &:focus {
+				    	color:$accentLight;
+				    }
+				}
+				.btn-client-login {
+					padding: 8px 26px;
+				    color: #fff;
+				    font-size: 18px;
+				    border-radius: 20px;
+					background-color:$accentDark;
+					&:hover, &:focus {
+				    	opacity:0.7;
+				    }
+				}
+			}
+		}
+	}
+}
 
-// @media screen and (min-width: 768px) {
-// 	.overlay {
-// 	    border-top: 1px solid rgba(0,0,0,.04);
-// 	    bottom: 0;
-// 	}
-// 	#sidebar {
-// 		#label {
-// 		    position: absolute;
-// 		    display: block;
-// 		    z-index: 101;
-// 		    width: 89px;
-// 		    top: 90px;
-// 		    bottom: 90px;
-// 		    right: 0;
-// 		    -webkit-transition: color .45s ease-in-out,opacity .8s linear 1.4s;
-// 		    cursor: pointer;
-// 		    p {
-// 			    position: absolute;
-// 			    margin: auto;
-// 			    left: -166px;
-// 			    width: 400px;
-// 			    height: 0;
-// 			    will-change: transform;
-// 			    text-transform: uppercase;
-// 			    font-weight: 400;
-// 			    text-align: center;
-// 			    font-size: 16px;
-// 			    letter-spacing: .8px;
-// 			    -webkit-transform-origin: center middle;
-// 			    transform-origin: center middle;
-// 			}
-// 		}
-// 	}
-// }
-
-// @media screen and (min-width: 1024px) {
-// 	header #sidebar {
-// 		width:$sidebarLarge;
-// 	}
-// 	header.open #sidebar {
-// 		@include viewport-unit(width, 35vw);
-// 	}
-// 	header nav {
-// 		@include viewport-unit(width, 35vw);
-// 	}
-// }
+@media screen and (min-width: 1200px) {
+	header {
+		nav {
+			.logo {
+		    	top:$paddingSmall;
+		    	left:$paddingLarge;
+		    }
+			#main-navigation {
+	    		right:$paddingLarge;
+			}
+		}
+	}
+}
