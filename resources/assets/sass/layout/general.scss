@@ -10,7 +10,7 @@
 
 $secondaryText: #f2c7cc;
 $accentLight:#e48993;
-$accentDark: #f50057;
+$accentDark: rgb(245, 0, 87);
 
 $fontsize: 16px;
 $textcolor: rgba(0,0,0,.87);
@@ -21,6 +21,8 @@ $paddingSmall: 40px;
 $paddingLarge: 60px;
 $sidebarSmall: 8px;
 $sidebarLarge: 90px;
+
+$borderRadius:20px;
 
 html,body {
   width:100%;

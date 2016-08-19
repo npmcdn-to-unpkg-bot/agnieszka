@@ -5855,9 +5855,10 @@ header {
           color: #fff;
           font-size: 18px;
           border-radius: 20px;
-          background-color: #f50057; }
+          background-color: #f50057;
+          transition: all 0.270s ease-out 0s; }
           header nav #main-navigation li .btn-client-login:hover, header nav #main-navigation li .btn-client-login:focus {
-            opacity: 0.7; }
+            background-color: #ff4385; }
 
 @media screen and (min-width: 1200px) {
   header nav .logo {
@@ -5969,5 +5970,78 @@ footer {
     font-family: 'LinotypeBreweryW01-Regu';
     margin: 0;
     font-size: 11px; }
+
+/* =======================================
+   Login
+   =======================================*/
+#login {
+  position: relative;
+  background-image: url("/images/bg-lg.jpg");
+  background-repeat: no-repeat;
+  background-position: 100%;
+  background-size: cover;
+  height: 100vh; }
+  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
+    #login {
+      height: 1024px; } }
+  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape) {
+    #login {
+      height: 768px; } }
+  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: portrait) {
+    #login {
+      height: 480px; } }
+  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: landscape) {
+    #login {
+      height: 320px; } }
+  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: portrait) {
+    #login {
+      height: 568px; } }
+  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: landscape) {
+    #login {
+      height: 320px; } }
+  #login .login-wrapper {
+    width: 320px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+    #login .login-wrapper .login-heading {
+      font-size: 48px;
+      font-family: 'Sheila W00';
+      letter-spacing: 0.07em;
+      color: #fff;
+      text-align: center; }
+    #login .login-wrapper .login-panel {
+      margin: 40px 0 25px;
+      background-color: rgba(255, 255, 255, 0.92);
+      padding: 40px;
+      border-radius: 20px; }
+      #login .login-wrapper .login-panel .form-error-msg .alert {
+        padding: 10px 15px; }
+    #login .login-wrapper .form-group a {
+      font-size: 13px;
+      float: right; }
+    #login .login-wrapper .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      padding: 0;
+      text-align: center; }
+    #login .login-wrapper .form-group .checkbox label {
+      text-align: left;
+      font-size: 15px; }
+    #login .login-wrapper .form-group .checkbox input {
+      position: relative;
+      top: -1px;
+      margin-left: 0;
+      margin-right: 2px; }
+    #login .login-wrapper .form-group .btn-primary {
+      display: block;
+      width: 100%;
+      background-color: #f50057;
+      border: 1px solid #f50057;
+      transition: all 0.270s ease-out 0s; }
+      #login .login-wrapper .form-group .btn-primary:hover, #login .login-wrapper .form-group .btn-primary:focus {
+        background-color: #ff4385;
+        border: 1px solid #ff4385; }
 
 /*# sourceMappingURL=app.css.map */

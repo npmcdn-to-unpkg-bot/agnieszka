@@ -87,7 +87,6 @@
                 maxFilesize: 5,
                 acceptedFiles: '.jpg, .jpeg, .png',
                 accept: function(file, done) {
-				    console.log("uploaded");
 				    done();
 				},
                 init: function() {

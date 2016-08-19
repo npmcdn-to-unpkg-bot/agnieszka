@@ -9,6 +9,7 @@
     	<div class="welcome">
     		<div class="intro">
     			<h1>AGNIESZKA KROL<br><span>Photography</span></h1>
+
     		</div>
     	</div>
     			
