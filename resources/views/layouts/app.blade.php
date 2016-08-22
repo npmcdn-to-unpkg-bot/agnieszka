@@ -26,7 +26,7 @@
 </head>
 <body id="app-layout">
     
-    @if (! Request::is('login')) @include('pages.partial.header') @endif
+    @include('pages.partial.header')
 
     <div class="content" role="document">
         @yield('content')

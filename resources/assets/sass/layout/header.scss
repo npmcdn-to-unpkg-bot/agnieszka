@@ -1,71 +1,194 @@
 /* =======================================
    Header
    =======================================*/
-
-header {
-	width:100%;
+.top-navbar {
 	position: fixed;
 	top:0;
 	left:0;
 	right:0;
-    z-index: 100;
-	nav {
-	    position: relative;
-	    .logo {
-	    	display:none;
-	    	position: absolute;
-	    	top:$paddingSmall;
-	    	left:$paddingSmall;
+	backface-visibility: hidden;
+	text-align: center;
+	z-index:100;
+	.logo {
+		position: relative;
+		display:inline-block;
+		font-size: 22px;
+		font-family:'LinotypeBreweryW01-Medi';
+		line-height: 1;
+		color: #000;
+		padding:$paddingSmall;
+		text-align: center;
+		z-index:150;
+	    span {
+	    	font-size:20px;
+	    	font-family:'Sheila W00';
+	    	letter-spacing: 0.07em;
+	    	color:$secondaryText;
+	    	position: relative;
 	    }
-    	#main-navigation {
-    		max-width: 480px;
-		    position: absolute;
-		    top:$paddingSmall;
-	    	right:$paddingSmall;
-	    	margin:0;
-	    	text-align: right;
-		    li {
-		    	font-family:'LinotypeBreweryW01-Regu';
-			    display: inline-block;
-			    margin-left:15px;
-			    a:not(.btn-client-login) {
-			    	@include border-bottom-transition(#fff, $accentLight, 2px);
-			    	display: block;
-			    	color:#fff;
-				    font-size: 21px;
-				    text-rendering: geometricPrecision;
-				    font-variant-ligatures: no-common-ligatures;
-				    text-decoration: none;
-				    transform: translateY(0px);
-				    &:hover, &:focus {
-				    	color:$accentLight;
-				    }
-				}
-				.btn-client-login {
-					padding: 8px 26px;
-				    color: #fff;
-				    font-size: 18px;
-				    border-radius: $borderRadius;
-					background-color:$accentDark;
-					transition: all 0.270s ease-out 0s;
-					&:hover, &:focus {
-				    	background-color:lighten($accentDark,15%);
-				    }
-				}
-			}
+	}
+	.user-link {
+		position: absolute;
+	    top: $paddingSmall + 10px;
+	    right: $paddingSmall;
+	    span {
+	    	color:#454545;
+	    	top: -7px;
+    		position: relative;
+	    }
+		.icon-profile {
+			position: relative;
+			top: -4px;
+		}
+		.btn-client-login {
+			font-size:$fontsize;
+			font-family:'Proxima N W15 Smbd';
+			padding: 7px 22px;
+		    color: #fff;
+		    border-radius: $borderRadius;
+			background-color:$accentDark;
+			text-decoration: none;
+			text-rendering: geometricPrecision;
+		    font-variant-ligatures: no-common-ligatures;
+			box-shadow: 0 6px 12px rgba(0,0,0,.1);
+			transition: all 0.270s ease-out 0s;
+			&:hover, &:focus {
+				color: #fff;
+		    	background-color:lighten($accentDark,15%)
+		    }
 		}
 	}
 }
 
-@media screen and (min-width: 1200px) {
+header {
+	position: absolute;
+	padding:$paddingSmall 0 0 $paddingSmall;
+	user-select: none;
+    z-index: 99;
+    #sidebar {
+		pointer-events: all;
+	    position: fixed;
+	    left: 0;
+	    top: 0;
+	    bottom: 0;
+	    z-index: 99;
+	    background-color: #fff;
+	    width: 8px;
+	    transition: width .54s cubic-bezier(.9,0,.33,1) .2s,
+    				opacity .45s linear .2s,
+    				background-color .45s ease-in-out;
+		#top-navigation {
+			position: absolute;
+	    	height: 100%;
+	    	width: 100%;
+			pointer-events: none;
+	    	z-index: 100;
+	    	ul {
+	    		font-size:$fontsize;
+	    		padding-top:$paddingSmall + 128px;
+		    	margin:0;
+		    	position: relative;
+			    li {
+				    font-family:'Proxima N W15 Smbd';
+				    display: list-item;
+				    .top-nav-link {
+				    	display: inline-block;
+				    	backface-visibility: hidden;
+				    	color:#000;
+				    	padding:8px 0 0;
+				    	margin-left:$paddingSmall;
+				    	margin-bottom:8px;
+				    	text-decoration: none;
+				    	text-rendering: geometricPrecision;
+				    	font-size: 20px;
+					    font-variant-ligatures: no-common-ligatures;
+					    will-change: transform;
+					    transform:translateX(-460px);
+					    z-index: 2;
+				    	@include border-bottom-transition(#000, #000, 2px);
+				    	&:hover, &:focus {
+					    	color:#000;
+					    }
+					}
+				}
+			}
+		}
+	}
+	.overlay {
+		background-color: #000;
+	    position: fixed;
+	    top: 0;
+	    bottom: 0;
+	    left: 0;
+	    right: 0;
+	    z-index: 99;
+	    opacity: 0;
+	    transition: opacity .5s ease-in-out .2s;
+	    pointer-events: none;
+	}
+}
+
+header.open {
+    pointer-events: auto;
+	.overlay {
+		pointer-events: all;
+	    opacity: .5;
+	    transition: opacity .5s ease-in-out 0ms;
+	}
+	#sidebar {
+		background-color: $primary;
+		@include viewport-unit(width, 50vw);
+	    transition: width .54s cubic-bezier(.6,.035,.25,1) 0s,
+	    			opacity .64s linear .8s,
+	    			background-color .54s ease-in-out;
+	    #top-navigation {
+		    pointer-events: auto;
+		}
+	}
+}
+.white-color, .white-link {
+	color:#fff !important;
+}
+.white-link {
+	&:focus:after, &:hover:after { background-color: #fff !important; }
+  	&:after { background-color: #fff !important; }
+	&:hover, &:focus { color:#fff !important; }
+}
+
+@media screen and (min-width: 1024px) {
+	.noBackGroundColor {
+		background:0 !important;
+	}
+	.top-navbar {
+		text-align:left;
+		.logo {
+			text-align:inherit;
+		}
+	}
 	header {
-		nav {
-			.logo {
-		    	top:$paddingSmall;
-		    	left:$paddingLarge;
-		    }
-			#main-navigation {
-	    		right:$paddingLarge;
+		#sidebar {
+			width:240px;
+			#top-navigation {
+				position: absolute;
+		    	height: 100%;
+		    	width: 100%;
+				pointer-events: all;
+		    	ul {
+				    li {
+					    .top-nav-link {
+					    	color:#000;
+					    	padding:2px 0 0;
+					    	margin-left:$paddingSmall;
+					    	margin-bottom:2px;
+					    	font-size: 20px;
+						    transform:translateX(0px);
+						    @include border-bottom-transition(#000, #000, 2px);
+						    &:hover, &:focus {
+						    	color:#000;
+					   		}
+						}
+					}
+				}
 			}
 		}
 	}

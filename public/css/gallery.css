@@ -5797,8 +5797,7 @@ ul, li, ol {
   background-color: red; }
 
 @media screen and (min-width: 1024px) {
-  .container-fluid {
-    padding-left: 90px;
-    padding-right: 0; } }
+  section {
+    padding-left: 240px; } }
 
 /*# sourceMappingURL=gallery.css.map */

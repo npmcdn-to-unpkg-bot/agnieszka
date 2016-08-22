@@ -2,14 +2,11 @@
    Footer
    =======================================*/
 footer {
-	position: absolute;
-	width:100%;
-	right:15px;
+	font-size:13px;
+	font-family:'LinotypeBreweryW01-Regu';
+	position: fixed;
 	bottom:15px;
-	text-align: right;
-	p {
-		font-family:'LinotypeBreweryW01-Regu';
-		margin:0;
-		font-size:11px;
-	}
+	left:$paddingSmall;
+	margin:0;
+	z-index:200;
 }

@@ -58,7 +58,7 @@ class AuthController extends Controller
             return redirect('/admin');
         }
 
-        return redirect('/gallery/{{ $user->id }}');
+        return redirect('/client/{{ $user->id }}');
     }
 
     /**

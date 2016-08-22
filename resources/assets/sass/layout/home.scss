@@ -4,45 +4,12 @@
 
 #home {
 	position: relative;
-	padding:$paddingSmall;
+	padding:$paddingLarge;
 	background-image: url('/images/bg-sm.jpg');
 	background-repeat:no-repeat;
 	background-position: 100%;
 	background-size: cover;
 	@include viewport-unit(height, 100vh);
-	.welcome {
-		position: absolute;
-		padding-top: 220px;
-	    color: #fff;
-		h1 {
-			margin: 0;
-		    font-size: 64px;
-		    font-family:'LinotypeBreweryW01-Medi';
-		    span {
-		    	font-size:48px;
-		    	font-family:'Sheila W00';
-		    	letter-spacing: 0.07em;
-		    	color:$secondaryText;
-		    	position: relative;
-		    	float:right;
-		    }
-		}
-	}
-	.social-icons {
-		position: absolute;
-		bottom:$paddingSmall - 7px;
-		li {
-			display: inline-block;
-			margin-right:5px;
-			cursor:pointer;
-			transition: all 0.270s ease-out 0s;
-			&:hover, &:focus {
-				.svg-icon path {
-					opacity:0.7;
-				}
-			}
-		}
-	}
 }
 
 @media screen and (min-width: 768px) {
@@ -53,7 +20,6 @@
 
 @media screen and (min-width: 1200px) {
 	#home {
-		padding:$paddingSmall $paddingLarge;
 		background-image: url('/images/bg-lg.jpg');
 	}
 }

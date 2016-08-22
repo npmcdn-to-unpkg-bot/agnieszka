@@ -9,43 +9,57 @@
 @section('content')
 
     <section id="portfolio">
-		<div class="row">
+    	<div class="container-fluid">
+
+    		<h2>{{ trans('portfolio.header') }}</h2>
+
+    		<div class="row intro">
+
+	    		<div class="col-xs-12 col-sm-10 col-sm-offset-1">
+	    			<p class="lead">{{ trans('portfolio.intro') }}</p>
+	    		</div>
+
+	    	</div>
+
+	    	<div class="row">
 			
-			<div class="col-xs-12" role="tabpanel">
-				<!-- Tapanel tabs -->
-				<ul class="nav nav-tabs" role="tablist">
-					 @foreach(categories() as $key => $value)
-					 	<li role="presentation">
-					    	<a href="#{{ $value }}" aria-controls="{{ $value }}" role="tab" data-toggle="tab">{{ ucfirst($value) }}</a>
-					    </li>
-                    @endforeach
-				</ul>
+				<div class="col-xs-12" role="tabpanel" class="tabpanel">
+					<ul class="nav nav-tabs" role="tablist">
+						 @foreach(categories() as $key => $value)
+						 	<li role="presentation">
+						    	<a href="#{{ $value }}" aria-controls="{{ $value }}" role="tab" data-toggle="tab">
+						    		@if(Lang::has('categories.' . $value))
+										{{ trans('categories.' . $value) }}
+						    		@endif
+						    	</a>
+						    </li>
+	                    @endforeach
+					</ul> {{-- Tapanel tabs --}}
 
-				<!-- Tab panels -->
-				<div class="tab-content portfolio-photos">
+					<div class="tab-content portfolio-photos">
+						@foreach(categories() as $key => $value)
+							<div role="tabpanel" class="tab-pane" id="{{ $value }}">
+							
+							    @if (count($photos->where('category', $value)) > 0)
+							    	<div class="row masonry-container">
+									    @foreach ($photos->where('category', $value) as $photo)
+								        	<div class="col-xs-6 col-sm-4 item">
+												<img class="img-responsive" src="{{ $photo->path }}" alt="Agnieszka Krol Family photo">
+											</div>
+									    @endforeach
+								    </div> {{-- ./masonry-container --}}
+							    @endif
 
-					@foreach(categories() as $key => $value)
-						<div role="tabpanel" class="tab-pane" id="{{ $value }}">
-							@if(Auth::check() && Auth::user()->hasRole('admin'))
-							    @include('admin/partials/forms/add_photos', ['category' => $value])
-						    @endif
+							    @if(Auth::check() && Auth::user()->hasRole('admin'))
+								    @include('admin/partials/forms/add_photos', ['category' => $value])
+							    @endif
+							</div> {{-- ./tab-pane --}}
+	                    @endforeach
+					</div> {{-- ./portfolio-photos --}}
+				</div> {{-- ./tabpanel --}}
 
-						    @if (count($photos->where('category', $value)) > 0)
-						    	<div class="row masonry-container">
-								    @foreach ($photos->where('category', $value) as $photo)
-							        	<div class="col-xs-6 col-sm-4 item">
-											<img class="img-responsive" src="{{ $photo->path }}" alt="Agnieszka Krol Family photo">
-										</div>
-								    @endforeach
-							    </div> {{-- ./masonry-container --}}
-						    @endif
-						</div> {{-- ./tab-pane --}}
-                    @endforeach
-
-				</div> {{-- ./portfolio-photos --}}
-			</div> {{-- ./tabpanel --}}
-
-		</div> {{-- ./row --}}
+			</div> {{-- ./row --}}
+    	</div> {{-- /.container-fluid --}}
 	</section>
 
 @endsection

@@ -18,8 +18,7 @@ elixir(function(mix) {
             'gallery.scss'
         ],'./public/css/gallery.css')
     	.scripts([
-    		'libs/sweetalert-dev.js',
-            'libs/smoothscroll.js'
+    		'libs/sweetalert-dev.js'
     	],'./public/js/libs.js')
     	.styles([
             'toggle.css',

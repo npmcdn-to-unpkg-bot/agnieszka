@@ -5777,7 +5777,8 @@ body {
   background: #fbfbfb; }
 
 p {
-  text-rendering: optimizeLegibility; }
+  text-rendering: optimizeLegibility;
+  margin-bottom: 15px; }
 
 a {
   transition: all 0.270s ease-out 0s; }
@@ -5794,85 +5795,263 @@ ul, li, ol {
   height: 100%;
   position: relative; }
 
+section {
+  padding-bottom: 60px; }
+  section h2 {
+    margin: 0;
+    padding-top: 135px;
+    font-size: 96px;
+    font-family: 'Sheila W00';
+    letter-spacing: 0.07em;
+    color: #f2c7cc;
+    text-align: center; }
+  section .intro, section .outro {
+    padding: 60px 15px; }
+    section .intro p, section .outro p {
+      font-size: 18px;
+      margin: 0 auto;
+      max-width: 920px; }
+
+.social-icons {
+  position: fixed;
+  bottom: 33px;
+  right: 40px;
+  z-index: 999; }
+  .social-icons li {
+    cursor: pointer;
+    transition: all 0.270s ease-out 0s; }
+    .social-icons li:hover .svg-icon path, .social-icons li:focus .svg-icon path {
+      fill: #f50057; }
+
+@media screen and (min-width: 992px) {
+  section .intro p, section .outro p {
+    text-align: center;
+    font-size: 21px; } }
+
+@media screen and (min-width: 1200px) {
+  section .intro p, section .outro p {
+    font-size: 25px; } }
+
 @media screen and (min-width: 1024px) {
   .container-fluid {
-    padding-left: 105px; } }
+    padding-left: 280px;
+    padding-right: 40px; } }
 
 /* =======================================
    Header
    =======================================*/
-header {
-  width: 100%;
+.top-navbar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
+  backface-visibility: hidden;
+  text-align: center;
   z-index: 100; }
-  header nav {
-    position: relative; }
-    header nav .logo {
-      display: none;
-      position: absolute;
-      top: 40px;
-      left: 40px; }
-    header nav #main-navigation {
-      max-width: 480px;
-      position: absolute;
-      top: 40px;
-      right: 40px;
-      margin: 0;
-      text-align: right; }
-      header nav #main-navigation li {
-        font-family: 'LinotypeBreweryW01-Regu';
-        display: inline-block;
-        margin-left: 15px; }
-        header nav #main-navigation li a:not(.btn-client-login) {
-          position: relative;
-          transition: all 0.270s ease-out 0s;
-          display: block;
-          color: #fff;
-          font-size: 21px;
-          text-rendering: geometricPrecision;
-          font-variant-ligatures: no-common-ligatures;
-          text-decoration: none;
-          transform: translateY(0px); }
-          header nav #main-navigation li a:not(.btn-client-login):focus:after, header nav #main-navigation li a:not(.btn-client-login):hover:after {
-            width: 100%;
-            background-color: #e48993; }
-          header nav #main-navigation li a:not(.btn-client-login):after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -1px;
-            background-color: #fff;
-            width: 0;
-            height: 2px;
-            transition: all 0.270s ease-out 0s; }
-          header nav #main-navigation li a:not(.btn-client-login):hover, header nav #main-navigation li a:not(.btn-client-login):focus {
-            color: #e48993; }
-        header nav #main-navigation li .btn-client-login {
-          padding: 8px 26px;
-          color: #fff;
-          font-size: 18px;
-          border-radius: 20px;
-          background-color: #f50057;
-          transition: all 0.270s ease-out 0s; }
-          header nav #main-navigation li .btn-client-login:hover, header nav #main-navigation li .btn-client-login:focus {
-            background-color: #ff4385; }
+  .top-navbar .logo {
+    position: relative;
+    display: inline-block;
+    font-size: 22px;
+    font-family: 'LinotypeBreweryW01-Medi';
+    line-height: 1;
+    color: #000;
+    padding: 40px;
+    text-align: center;
+    z-index: 150; }
+    .top-navbar .logo span {
+      font-size: 20px;
+      font-family: 'Sheila W00';
+      letter-spacing: 0.07em;
+      color: #f2c7cc;
+      position: relative; }
+  .top-navbar .user-link {
+    position: absolute;
+    top: 50px;
+    right: 40px; }
+    .top-navbar .user-link span {
+      color: #454545;
+      top: -7px;
+      position: relative; }
+    .top-navbar .user-link .icon-profile {
+      position: relative;
+      top: -4px; }
+    .top-navbar .user-link .btn-client-login {
+      font-size: 16px;
+      font-family: 'Proxima N W15 Smbd';
+      padding: 7px 22px;
+      color: #fff;
+      border-radius: 20px;
+      background-color: #f50057;
+      text-decoration: none;
+      text-rendering: geometricPrecision;
+      font-variant-ligatures: no-common-ligatures;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      transition: all 0.270s ease-out 0s; }
+      .top-navbar .user-link .btn-client-login:hover, .top-navbar .user-link .btn-client-login:focus {
+        color: #fff;
+        background-color: #ff4385; }
 
-@media screen and (min-width: 1200px) {
-  header nav .logo {
-    top: 40px;
-    left: 60px; }
-  header nav #main-navigation {
-    right: 60px; } }
+header {
+  position: absolute;
+  padding: 40px 0 0 40px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  z-index: 99; }
+  header #sidebar {
+    pointer-events: all;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 99;
+    background-color: #fff;
+    width: 8px;
+    transition: width 0.54s cubic-bezier(0.9, 0, 0.33, 1) 0.2s, opacity 0.45s linear 0.2s, background-color 0.45s ease-in-out; }
+    header #sidebar #top-navigation {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      pointer-events: none;
+      z-index: 100; }
+      header #sidebar #top-navigation ul {
+        font-size: 16px;
+        padding-top: 168px;
+        margin: 0;
+        position: relative; }
+        header #sidebar #top-navigation ul li {
+          font-family: 'Proxima N W15 Smbd';
+          display: list-item; }
+          header #sidebar #top-navigation ul li .top-nav-link {
+            display: inline-block;
+            backface-visibility: hidden;
+            color: #000;
+            padding: 8px 0 0;
+            margin-left: 40px;
+            margin-bottom: 8px;
+            text-decoration: none;
+            text-rendering: geometricPrecision;
+            font-size: 20px;
+            font-variant-ligatures: no-common-ligatures;
+            will-change: transform;
+            transform: translateX(-460px);
+            z-index: 2;
+            position: relative;
+            transition: all 0.270s ease-out 0s; }
+            header #sidebar #top-navigation ul li .top-nav-link:focus:after, header #sidebar #top-navigation ul li .top-nav-link:hover:after {
+              width: 100%;
+              background-color: #000; }
+            header #sidebar #top-navigation ul li .top-nav-link:after {
+              content: '';
+              position: absolute;
+              left: 0;
+              bottom: -1px;
+              background-color: #000;
+              width: 0;
+              height: 2px;
+              transition: all 0.270s ease-out 0s; }
+            header #sidebar #top-navigation ul li .top-nav-link:hover, header #sidebar #top-navigation ul li .top-nav-link:focus {
+              color: #000; }
+  header .overlay {
+    background-color: #000;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    opacity: 0;
+    transition: opacity .5s ease-in-out .2s;
+    pointer-events: none; }
+
+header.open {
+  pointer-events: auto; }
+  header.open .overlay {
+    pointer-events: all;
+    opacity: .5;
+    transition: opacity .5s ease-in-out 0ms; }
+  header.open #sidebar {
+    background-color: #f079b3;
+    width: 50vw;
+    transition: width 0.54s cubic-bezier(0.6, 0.035, 0.25, 1) 0s, opacity 0.64s linear 0.8s, background-color 0.54s ease-in-out; }
+    @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
+      header.open #sidebar {
+        width: 384px; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape) {
+      header.open #sidebar {
+        width: 512px; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: portrait) {
+      header.open #sidebar {
+        width: 160px; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: landscape) {
+      header.open #sidebar {
+        width: 240px; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: portrait) {
+      header.open #sidebar {
+        width: 160px; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: landscape) {
+      header.open #sidebar {
+        width: 284px; } }
+    header.open #sidebar #top-navigation {
+      pointer-events: auto; }
+
+.white-color, .white-link {
+  color: #fff !important; }
+
+.white-link:focus:after, .white-link:hover:after {
+  background-color: #fff !important; }
+
+.white-link:after {
+  background-color: #fff !important; }
+
+.white-link:hover, .white-link:focus {
+  color: #fff !important; }
+
+@media screen and (min-width: 1024px) {
+  .noBackGroundColor {
+    background: 0 !important; }
+  .top-navbar {
+    text-align: left; }
+    .top-navbar .logo {
+      text-align: inherit; }
+  header #sidebar {
+    width: 240px; }
+    header #sidebar #top-navigation {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      pointer-events: all; }
+      header #sidebar #top-navigation ul li .top-nav-link {
+        color: #000;
+        padding: 2px 0 0;
+        margin-left: 40px;
+        margin-bottom: 2px;
+        font-size: 20px;
+        transform: translateX(0px);
+        position: relative;
+        transition: all 0.270s ease-out 0s; }
+        header #sidebar #top-navigation ul li .top-nav-link:focus:after, header #sidebar #top-navigation ul li .top-nav-link:hover:after {
+          width: 100%;
+          background-color: #000; }
+        header #sidebar #top-navigation ul li .top-nav-link:after {
+          content: '';
+          position: absolute;
+          left: 0;
+          bottom: -1px;
+          background-color: #000;
+          width: 0;
+          height: 2px;
+          transition: all 0.270s ease-out 0s; }
+        header #sidebar #top-navigation ul li .top-nav-link:hover, header #sidebar #top-navigation ul li .top-nav-link:focus {
+          color: #000; } }
 
 /* =======================================
    Home
    =======================================*/
 #home {
   position: relative;
-  padding: 40px;
+  padding: 60px;
   background-image: url("/images/bg-sm.jpg");
   background-repeat: no-repeat;
   background-position: 100%;
@@ -5896,31 +6075,6 @@ header {
   @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: landscape) {
     #home {
       height: 320px; } }
-  #home .welcome {
-    position: absolute;
-    padding-top: 220px;
-    color: #fff; }
-    #home .welcome h1 {
-      margin: 0;
-      font-size: 64px;
-      font-family: 'LinotypeBreweryW01-Medi'; }
-      #home .welcome h1 span {
-        font-size: 48px;
-        font-family: 'Sheila W00';
-        letter-spacing: 0.07em;
-        color: #f2c7cc;
-        position: relative;
-        float: right; }
-  #home .social-icons {
-    position: absolute;
-    bottom: 33px; }
-    #home .social-icons li {
-      display: inline-block;
-      margin-right: 5px;
-      cursor: pointer;
-      transition: all 0.270s ease-out 0s; }
-      #home .social-icons li:hover .svg-icon path, #home .social-icons li:focus .svg-icon path {
-        opacity: 0.7; }
 
 @media screen and (min-width: 768px) {
   #home {
@@ -5928,7 +6082,6 @@ header {
 
 @media screen and (min-width: 1200px) {
   #home {
-    padding: 40px 60px;
     background-image: url("/images/bg-lg.jpg"); } }
 
 @media screen and (min-width: 1480px) {
@@ -5951,25 +6104,159 @@ header {
 /* =======================================
    About
    =======================================*/
+#about .profile-picture {
+  display: block;
+  margin: 60px auto 0; }
+
+#about .middle {
+  max-width: 1200px;
+  margin: 0 auto; }
+
+#about .outro span {
+  font-family: 'Sheila W00'; }
+
+@media screen and (min-width: 992px) {
+  #about .profile-picture {
+    display: none; }
+  #about .images {
+    position: relative; }
+    #about .images .picture {
+      position: relative;
+      width: 100%;
+      height: 450px;
+      overflow: hidden; }
+      #about .images .picture div {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover; }
+    #about .images .one {
+      z-index: 2; }
+      #about .images .one div {
+        background-image: url("/images/about_page_photos/about-2.png"); }
+  #about .texts {
+    padding-top: 60px; } }
+
+@media screen and (min-width: 1200px) {
+  #about .texts {
+    max-width: 460px; }
+  #about .images {
+    padding-left: 40px; }
+    #about .images .picture {
+      position: relative;
+      width: 80%;
+      height: 300px; }
+    #about .images .one {
+      top: 20px;
+      left: 40px; }
+    #about .images .two {
+      bottom: 20px;
+      right: 40px;
+      z-index: 1; }
+      #about .images .two div {
+        background-image: url("/images/about_page_photos/about-1.png"); } }
+
 /* =======================================
    Contact
    =======================================*/
-#contact h2 {
-  text-align: center; }
+#contact {
+  background-color: #dae4e6;
+  color: #454545; }
+  #contact h2 {
+    color: #fff; }
+  #contact .contact-details {
+    padding: 90px 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center; }
+    #contact .contact-details .contact-links a {
+      color: #e48993; }
+      #contact .contact-details .contact-links a:hover, #contact .contact-details .contact-links a:focus {
+        color: #f50057; }
+      #contact .contact-details .contact-links a i {
+        color: #333;
+        margin-right: 5px; }
+    #contact .contact-details h3 {
+      margin: 0;
+      margin-bottom: 10px;
+      font-family: 'LinotypeBreweryW01-Medi'; }
+  #contact .get-social ul li {
+    display: inline-block;
+    margin-right: 5px;
+    cursor: pointer;
+    transition: all 0.270s ease-out 0s; }
+    #contact .get-social ul li:hover .svg-icon path, #contact .get-social ul li:focus .svg-icon path {
+      fill: #f50057; }
+
+.contact-details > div {
+  margin-bottom: 40px; }
+
+.contact-details > div:last-child {
+  margin-bottom: 0; }
+
+@media screen and (min-width: 992px) {
+  #contact .contact-details h3 {
+    margin-bottom: 20px; } }
+
+@media screen and (min-width: 1200px) {
+  #contact {
+    height: 100vh; } }
+  @media only screen and (min-width: 1200px) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
+    #contact {
+      height: 1024px; } }
+  @media only screen and (min-width: 1200px) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape) {
+    #contact {
+      height: 768px; } }
+  @media only screen and (min-width: 1200px) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: portrait) {
+    #contact {
+      height: 480px; } }
+  @media only screen and (min-width: 1200px) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: landscape) {
+    #contact {
+      height: 320px; } }
+  @media only screen and (min-width: 1200px) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: portrait) {
+    #contact {
+      height: 568px; } }
+  @media only screen and (min-width: 1200px) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: landscape) {
+    #contact {
+      height: 320px; } }
+
+@media screen and (min-width: 1200px) {
+    #contact .contact-details {
+      text-align: left; }
+      #contact .contact-details .contact-links h3,
+      #contact .contact-details .get-social h3 {
+        margin-bottom: 40px; }
+      #contact .contact-details .address i {
+        display: inline-block;
+        position: relative;
+        float: left; }
+      #contact .contact-details .address p {
+        width: 90%;
+        position: relative;
+        top: -4px;
+        padding-left: 5px;
+        float: left; } }
+
+@media screen and (min-width: 1366px) {
+  .contact-details .contact-links {
+    width: 33.3333333333%; } }
 
 /* =======================================
    Footer
    =======================================*/
 footer {
-  position: absolute;
-  width: 100%;
-  right: 15px;
+  font-size: 13px;
+  font-family: 'LinotypeBreweryW01-Regu';
+  position: fixed;
   bottom: 15px;
-  text-align: right; }
-  footer p {
-    font-family: 'LinotypeBreweryW01-Regu';
-    margin: 0;
-    font-size: 11px; }
+  left: 40px;
+  margin: 0;
+  z-index: 200; }
 
 /* =======================================
    Login

@@ -99,18 +99,39 @@ $(window).on('load', function() {
 
   preloader.active(false);
 
+  var topNavLinks = $('#top-navigation li a'),
+      header = $('#header');
+
+  $('.toggle').click(function() {
+    $(this).toggleClass('open');
+    $(header).toggleClass('open');
+
+    if($(header).hasClass('open')) {
+      TweenMax.staggerTo(topNavLinks, 0.27, {ease: Power2.easeOut,x:0, delay:0.27},0.08);
+    } else {
+      TweenMax.staggerTo(topNavLinks, 0.27,{ease: Power2.easeIn,x:-460},0.08);
+    }
+  }); //$('.toggle').click(function()
+
+  $(document).scroll(function() {
+    if($(header).hasClass('open')) {
+      $('.toggle').toggleClass('open');
+      $(header).toggleClass('open');
+      TweenMax.staggerTo(topNavLinks, 0.18,{ease: Power2.easeOut,x:-766},0.08);
+    }
+  }); //$(document).scroll(function()
 
   $(document).on('submit', '.form', function() {
     var $form = $(this),
         $button,
         label;
-        $form.find(':submit').each(function() {
-          $button = $(this);
-          label = $button.data('after-submit-value');
-          if (typeof label != 'undefined') {
-            $button.val(label).prop('disabled', true);
-          }
-        });
+    $form.find(':submit').each(function() {
+      $button = $(this);
+      label = $button.data('after-submit-value');
+      if (typeof label != 'undefined') {
+        $button.val(label).prop('disabled', true);
+      }
+    });
   });
 
-});
+}); // ./ $(window).on('load', function()

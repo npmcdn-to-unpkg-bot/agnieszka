@@ -1,11 +1,11 @@
 .toggle {
 	pointer-events: all;
     position: fixed;
-    padding:30px;
+    padding:54px 40px;
     top:0;
     left:0;
     cursor: pointer;
-    z-index: 101;
+    z-index: 150;
 }
 .toggle > div {
     height: 20px;
@@ -16,18 +16,20 @@
     height: 2px;
     margin: 0 0 .35em 0;
     background-color: #fff;
-    transition-duration: .27s;
-    transition-delay: 0s, 0s, 0s, 0s;
+    transition-duration: .54s;
+    transition-delay: 0.27s;
 }
 .toggle > div > div:last-child {
     margin:0;
 }
 .toggle > div > div:nth-child(3) {
-    width: 50%;
     float: left;
 }
 .toggle:hover > div > div:nth-child(3) {
-    width: 100%;
+    width: 50%;
+}
+.toggle.open > div > div {
+    background-color: #fff;
 }
 .toggle.open > div > div:nth-child(1) {
     transform: translateY(9px) rotate(45deg) !important;
@@ -38,4 +40,10 @@
 .toggle.open > div > div:nth-child(3) {
     width: 100%;
     transform: translateY(-6px) rotate(-45deg) !important;
+}
+
+@media screen and (min-width: 1024px) {
+    .toggle {
+        display:none;
+    }
 }

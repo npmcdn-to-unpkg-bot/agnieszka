@@ -42,3 +42,11 @@
     </div>
 </div>
 @endsection
+
+@section('customJS')
+
+<script>
+    $('.top-navbar .logo').addClass('white-logo');
+</script>
+
+@endsection

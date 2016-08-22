@@ -20,7 +20,10 @@
 Route::group(['middleware' => 'admin'], function()
 {
 	// Admin Dashboard
-    Route::get('admin', 'Admin\AdminController@dashboard');
+    Route::get('admin',[
+    	'as' => 'admin',
+		'uses' => 'Admin\AdminController@dashboard'
+	]);
     // Add portfolio photos
     Route::post('admin/portfolio_photos/{category}',[
 		'as' => 'store_photo',
@@ -52,16 +55,20 @@ Route::group(['middleware' => 'web'], function()
 	Route::get('contact', ['as' => 'contact', function () { return view('pages.contact'); }]);
 	Route::get('my-offer', ['as' => 'services', function () { return view('pages.services'); }]);
 	Route::get('portfolio', ['as' => 'portfolio', 'uses' => 'PortfolioPhotoController@showAll']);
+
+	Route::get('/language/{lang}', [
+		'as' => 'language-chooser',
+		'uses' => 'LanguageController@chooser'
+	]);
 });
 
 //Authentication
 Route::auth();
 
 // Client Gallery
-Route::get('gallery/{id}', [
-	'before'	=> 'auth',
-	'as'		=> 'gallery',
-	'uses'		=> 'GalleryController@show'
+Route::get('client/{id}', [
+	'as'		=> 'client-dashboard',
+	'uses'		=> 'GalleryController@showClientDashboard'
 ]);
 
 

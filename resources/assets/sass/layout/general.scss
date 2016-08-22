@@ -3,12 +3,18 @@
    =======================================*/
 
 // font-family:'Sheila W00';
+// font-family:'Sheila W00 Bd';
+// font-family:'Aller W01 Light';
+// font-family:'Aller W01 Bold';
 // font-family:'LinotypeBreweryW01-Ligh';
 // font-family:'LinotypeBreweryW01-Regu';
 // font-family:'LinotypeBreweryW01-Medi';
 // font-family:'LinotypeBreweryW01-Bold';
+// font-family:'Proxima N W15 Smbd';
 
+$primary: #f079b3;
 $secondaryText: #f2c7cc;
+
 $accentLight:#e48993;
 $accentDark: rgb(245, 0, 87);
 
@@ -37,7 +43,7 @@ body {
   background: $background;
 }
 
-p { text-rendering: optimizeLegibility; }
+p { text-rendering: optimizeLegibility; margin-bottom:15px; }
 a { transition: all 0.270s ease-out 0s; }
 a:hover,a:focus { text-decoration:none; }
 
@@ -52,8 +58,63 @@ ul,li,ol {
   position: relative;
 }
 
+section {
+  padding-bottom:$paddingLarge;
+  h2 {
+    margin:0;
+    padding-top: 135px;
+    font-size:96px;
+    font-family:'Sheila W00';
+    letter-spacing: 0.07em;
+    color:$secondaryText;
+    text-align:center;
+  }
+  .intro,.outro {
+    padding:$paddingLarge 15px;
+    p {
+      font-size:18px;
+      margin:0 auto;
+      max-width:920px;
+    }
+  }
+}
+
+.social-icons {
+  position: fixed;
+  bottom:$paddingSmall - 7px;
+  right:$paddingSmall;
+  z-index: 999;
+  li {
+    cursor:pointer;
+    transition: all 0.270s ease-out 0s;
+    &:hover, &:focus {
+      .svg-icon path {
+        fill:$accentDark;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 992px) {
+  section {
+    .intro p, .outro p {
+      text-align:center;
+      font-size:21px;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  section {
+    .intro p, .outro p {
+      font-size:25px;
+    }
+  }
+}
+
 @media screen and (min-width: 1024px) {
   .container-fluid {
-    padding-left:105px;
+    padding-left:280px;
+    padding-right:$paddingSmall;
   }
 }
