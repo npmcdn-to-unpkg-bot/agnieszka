@@ -11,9 +11,9 @@
     <section id="portfolio">
     	<div class="container-fluid">
 
-    		<h2>{{ trans('portfolio.header') }}</h2>
+			<h2>{{ trans('portfolio.header') }}</h2>
 
-    		<div class="row intro">
+			<div class="row intro">
 
 	    		<div class="col-xs-12 col-sm-10 col-sm-offset-1">
 	    			<p class="lead">{{ trans('portfolio.intro') }}</p>
@@ -24,18 +24,6 @@
 	    	<div class="row">
 			
 				<div class="col-xs-12" role="tabpanel" class="tabpanel">
-					<ul class="nav nav-tabs" role="tablist">
-						 @foreach(categories() as $key => $value)
-						 	<li role="presentation">
-						    	<a href="#{{ $value }}" aria-controls="{{ $value }}" role="tab" data-toggle="tab">
-						    		@if(Lang::has('categories.' . $value))
-										{{ trans('categories.' . $value) }}
-						    		@endif
-						    	</a>
-						    </li>
-	                    @endforeach
-					</ul> {{-- Tapanel tabs --}}
-
 					<div class="tab-content portfolio-photos">
 						@foreach(categories() as $key => $value)
 							<div role="tabpanel" class="tab-pane" id="{{ $value }}">
@@ -43,15 +31,36 @@
 							    @if (count($photos->where('category', $value)) > 0)
 							    	<div class="row masonry-container">
 									    @foreach ($photos->where('category', $value) as $photo)
-								        	<div class="col-xs-6 col-sm-4 item">
-												<img class="img-responsive" src="{{ $photo->path }}" alt="Agnieszka Krol Family photo">
+								        	<div class="col-xs-12 col-sm-6 col-md-4 item">
+								        		 @if(Auth::check() && Auth::user()->hasRole('admin'))
+								        		 	<div class="delete-photo">
+								        		 		<form method="POST" action="/portfoliophoto/{{ $photo->id }}">
+								        					{!! csrf_field() !!}
+								        					<input type="hidden" name="_method" value="DELETE">
+
+								        					<button type="submit" class="btn btn-danger">
+								        						<i class="fa fa-trash" aria-hidden="true"></i>
+								        					</button>
+								        				</form>
+								        		 	</div>
+							        			@endif
+												<img class="lazy img-responsive" src="{{ $photo->path }}" alt="Agnieszka Krol Portfolio photo">
 											</div>
 									    @endforeach
 								    </div> {{-- ./masonry-container --}}
 							    @endif
 
 							    @if(Auth::check() && Auth::user()->hasRole('admin'))
-								    @include('admin/partials/forms/add_photos', ['category' => $value])
+							    	<div class="row photo-upload">
+							    		<div class="col-xs-12">
+							    			 @include('admin/partials/forms/add_photos', ['category' => $value])
+							    		</div>
+							    		<div class="text-center col-xs-4 col-xs-offset-4">
+							    		<a href="{{ route('refresh-page') }}" role="button" class="btn btn-success refresh-page">
+							    			<i class="fa fa-refresh" aria-hidden="true"></i>
+							    		</a>
+							    		</div>
+							    	</div>
 							    @endif
 							</div> {{-- ./tab-pane --}}
 	                    @endforeach
@@ -65,17 +74,15 @@
 @endsection
 
 @section('customJS')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/plugins/ScrollToPlugin.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.js"></script>
 <script src="https://npmcdn.com/masonry-layout@4.1/dist/masonry.pkgd.min.js"></script>
 <script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/dropzone.js"></script>
+<script src="{{ asset('js/libs.js') }}"></script>
 
 <script>
-	$('.nav-tabs > li:first').addClass('active');
+	$('.portfolio-tabs > li:first').addClass('active');
 	$('.tab-content > .tab-pane:first').addClass('active fade in');
+
 	var $container = $('.masonry-container');
 		$container.imagesLoaded(
 			{background: true},
@@ -103,7 +110,7 @@
 	// Dropzone
 	Dropzone.options.addPortfolioPhotosForm = {
         paramName: 'photo',
-        maxFilesize: 3,
+        maxFilesize: 1,
         acceptedFiles: '.jpg, .jpeg, .png, .bmp'
     };
 </script>

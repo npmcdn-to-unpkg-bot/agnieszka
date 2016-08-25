@@ -17,3 +17,7 @@ function categories()
 
 	return $categories;
 }
+
+function setActiveNavigation($path, $active = 'activeNav') {
+	return Request::is($path) ? $active : '';
+}

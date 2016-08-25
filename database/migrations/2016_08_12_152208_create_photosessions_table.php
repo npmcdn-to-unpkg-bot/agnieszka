@@ -23,6 +23,7 @@ class CreatePhotosessionsTable extends Migration
             $table->string('background_image_path')->nullable();
             $table->string('background_image_path_thumbnail')->nullable();
             $table->timestamp('date_of_photosession');
+            $table->boolean('request_submitted');
             $table->timestamps();
         });
     }

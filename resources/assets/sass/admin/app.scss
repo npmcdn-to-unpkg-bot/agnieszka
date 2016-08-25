@@ -5,21 +5,11 @@
 ++++++++++++++++++++++++++++++++++++++++++++++++
 ======= Webdesing by www.istvanlovas.com =======
 ++++++++++++++++++++++++++++++++++++++++++++++++
-					 CSS
+					Admin SCSS
 */
 
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
-@import "mixins/border_bottom_transition";
-@import "mixins/vertical_and_horizontal_align";
-@import "mixins/vh_unit_workaround";
-
 @import 'layout/general';
 @import 'layout/header';
-@import 'layout/home';
-@import 'layout/portfolio';
-@import 'layout/about';
-@import 'layout/contact';
-@import 'layout/services';
-// @import 'layout/footer';
-@import 'auth/login';
+@import 'layout/sidebar';

@@ -2,22 +2,48 @@
    Portfolio
    =======================================*/
 #portfolio {
-	.nav-tabs {
-	    border: 0;
+	background-color: #fff;
+	// background-image: url('/images/bg-white-lg.jpg');
+	// background-repeat:no-repeat;
+	// background-position: 100%;
+	// background-attachment:fixed;
+	// background-size: contain;
+	.tab-content {
+		margin-top: $paddingLarge;
 	}
 	.masonry-container {
 		.item {
 			margin-bottom: 30px;
 		}
 	}
+	.photo-upload {
+		padding:$paddingLarge 0;
+		a {
+			display:block;
+			width:100%;
+			font-size:36px;
+			padding-top:$paddingSmall;
+			padding-bottom:$paddingSmall;
+			margin-top:30px;
+		}
+	}
 }
 
-@media screen and (min-width: 1024px) {
-	#portfolio {
-		.masonry-container {
-			.item {
-				margin-bottom: 30px;
-			}
+.delete-photo {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+	.btn-danger {
+		border-radius:50%;
+		opacity: .4;
+		transition: all 0.270s ease-out 0s;
+		.fa {
+			padding: 7px;
+	    	font-size: 25px;
+		}
+		&:hover,&:focus {
+			opacity: 1;
 		}
 	}
 }

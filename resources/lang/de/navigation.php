@@ -1,9 +1,9 @@
 <?php
 return [
-	'portfolio' => 'Portfolio',
-	'about' => 'Über mich',
-	'prices' => 'Preise',
-	'contact' => 'Kontakt',
+	'home' => 'Zuhause',
 	'portfolio' => 'Mappe',
+	'about' => 'Über mich',
+	'services' => 'Dienste',
+	'contact' => 'Kontakt',
 	'login' => 'Klient',
 ];

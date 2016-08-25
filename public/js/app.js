@@ -114,9 +114,9 @@ $(window).on('load', function () {
     $(header).toggleClass('open');
 
     if ($(header).hasClass('open')) {
-      TweenMax.staggerTo(topNavLinks, 0.27, { ease: Power2.easeOut, x: 0, delay: 0.27 }, 0.08);
+      TweenMax.staggerTo(topNavLinks, 0.18, { ease: Power2.easeOut, x: 0, delay: 0.1 }, 0.04);
     } else {
-      TweenMax.staggerTo(topNavLinks, 0.27, { ease: Power2.easeIn, x: -460 }, 0.08);
+      TweenMax.staggerTo(topNavLinks, 0.18, { ease: Power2.easeIn, x: -460 }, 0.04);
     }
   }); //$('.toggle').click(function()
 

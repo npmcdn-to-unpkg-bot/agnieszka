@@ -31,4 +31,13 @@ class PortfolioPhoto extends Model
 
     	return $photo;
     }
+    public function delete()
+    {
+        \File::delete([
+            $this->path,
+            $this->category
+        ]);
+
+        parent::delete();
+    }
 }

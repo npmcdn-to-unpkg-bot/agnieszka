@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests;
 use App\PortfolioPhoto;
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
 
 class PortfolioPhotoController extends Controller
 {
@@ -17,5 +16,12 @@ class PortfolioPhotoController extends Controller
         $photos = PortfolioPhoto::all();
 
         return view('pages.portfolio', compact(['photos']));
+    }
+
+    public function destroy($id)
+    {
+    	PortfolioPhoto::findOrFail($id)->delete();
+
+    	return back();
     }
 }

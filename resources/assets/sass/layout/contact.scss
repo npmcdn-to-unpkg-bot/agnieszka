@@ -3,11 +3,10 @@
    =======================================*/
 
 #contact {
-	background-color:#dae4e6;
+	position: relative;
+	background-color:#f2f2f2;
 	color:#454545;
-	h2 {
-		color:#fff;
-	}
+	@include viewport-unit(height, 100vh);
 	.contact-details{
 		padding:$paddingLarge * 1.5 15px;
 	    max-width: 1200px;
@@ -15,9 +14,9 @@
     	text-align: center;
 		.contact-links {
 			a {
-				color:$accentLight;
+				color:$primary;
 				&:hover, &:focus {
-			    	color:$accentDark;
+			    	color:$primaryLight;
 				}
 				i {
 					color:#333;
@@ -36,11 +35,22 @@
 		margin-right:5px;
 		cursor:pointer;
 		transition: all 0.270s ease-out 0s;
+		.svg-icon path {
+			fill:$primary;
+		}
 		&:hover, &:focus {
 	    	.svg-icon path {
-	        	fill:$accentDark;
+	        	fill:$primaryLight;
 	      	}
 	    }
+	}
+	.footer {
+		font-size:13px;
+		p {
+			opacity:0.54;
+			text-align:center;
+			margin-bottom:5px;
+		}
 	}
 }
 .contact-details > div {
@@ -83,14 +93,6 @@
 					float:left;
 				}
 			}
-		}
-	}
-}
-
-@media screen and (min-width: 1366px) {
-	.contact-details {
-		.contact-links {
-			width: 33.3333333333%;
 		}
 	}
 }

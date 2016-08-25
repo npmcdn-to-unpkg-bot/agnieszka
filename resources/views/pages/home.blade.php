@@ -10,10 +10,8 @@
 @endsection
 
 @section('customJS')
-
 <script>
-	$('.top-navbar .logo, .user-link span').addClass('white-color');
-    $('.top-nav-link').addClass('white-link');
+	$('.top-navbar .logo, .user-link span').addClass('white-logo');
     $('#header #sidebar').addClass('noBackGroundColor');
 </script>
 

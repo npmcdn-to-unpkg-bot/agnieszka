@@ -1,5 +1,5 @@
 /* =======================================
-   Header
+   Admin Header
    =======================================*/
 .top-navbar {
 	position: fixed;
@@ -39,22 +39,6 @@
 		.icon-profile {
 			position: relative;
 			top: -4px;
-		}
-		.btn-client-login {
-			font-size:$fontsize;
-			font-family:'Proxima N W15 Smbd';
-			padding: 7px 22px;
-		    color: #fff;
-		    border-radius: $borderRadius;
-			background-color:$accentDark;
-			text-decoration: none;
-			text-rendering: geometricPrecision;
-		    font-variant-ligatures: no-common-ligatures;
-			box-shadow: 0 2px 6px rgba(0,0,0,.1);
-			transition: all 0.270s ease-out 0s;
-			&:hover, &:focus {
-		    	background-color:$accent;
-		    }
 		}
 	}
 }
@@ -97,33 +81,6 @@ header {
 					}
 				}
 	    	}
-	    	ul.portfolio-tabs {
-	    		font-size:$fontsize - 2px;
-	    		margin: 6px 0;
-	    		li {
-				    a {
-				    	font-family:'Proxima Nova Soft W04 Regular';
-				    	color:#fff;
-				    	opacity:.84;
-				    	padding:1px 0;
-				    	margin-left:$paddingLarge;
-				    	margin-bottom:4px;
-				    	font-size:$fontsize - 1px;
-				    	@include border-bottom-transition(#fff, #fff, 1px);
-				    	&:hover, &:focus {
-					    	color:#fff;
-					    }
-				    }
-	    		}
-	    		li.active a {
-	    			opacity:1;
-		    		&:after {
-					    background-color: #fff;
-					    width:100% !important;
-					    height:2px;
-					}
-	    		}
-	    	}
 	    	ul.main-navigation {
 	    		padding-top:$paddingSmall + 128px;
 		    	margin:0;
@@ -135,7 +92,6 @@ header {
 				    	padding:6px 0 0;
 				    	margin-left:$paddingSmall;
 				    	font-size: 18px;
-				    	@include border-bottom-transition(#fff, #fff, 2px);
 				    	&:hover, &:focus {
 					    	color:#fff;
 					    }
@@ -144,52 +100,9 @@ header {
 			}
 		}
 	}
-	.overlay {
-		background-color: #000;
-	    position: fixed;
-	    top: 0;
-	    bottom: 0;
-	    left: 0;
-	    right: 0;
-	    z-index: 99;
-	    opacity: 0;
-	    transition: opacity .5s ease-in-out .2s;
-	    pointer-events: none;
-	}
-}
-
-header.open {
-    pointer-events: auto;
-	.overlay {
-		pointer-events: all;
-	    opacity: .5;
-	    transition: opacity .5s ease-in-out 0ms;
-	}
-	#sidebar {
-		background-color: $primary;
-		@include viewport-unit(width, 50vw);
-	    transition: width .54s cubic-bezier(.6,.035,.25,1) 0s,
-	    			opacity .64s linear .8s,
-	    			background-color .54s ease-in-out;
-	    #top-navigation {
-		    pointer-events: auto;
-		}
-	}
-}
-.white-logo {
-	color:#fff !important;
 }
 
 @media screen and (min-width: 1024px) {
-	.noBackGroundColor {
-		background:0 !important;
-	}
-	.top-navbar {
-		text-align:left;
-		.logo {
-			text-align:inherit;
-		}
-	}
 	header {
 		#sidebar {
 			width:240px;
@@ -198,13 +111,6 @@ header.open {
 		    	height: 100%;
 		    	width: 100%;
 				pointer-events: all;
-				ul.portfolio-tabs {
-		    		li {
-					    a {
-						    transform:translateX(0px);
-					    }
-		    		}
-		    	}
 		    	ul.main-navigation {
 		    		li.home {
 		    			display:none !important;

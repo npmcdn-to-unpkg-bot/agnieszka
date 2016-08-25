@@ -6,7 +6,7 @@
 ++++++++++++++++++++++++++++++++++++++++++++++++
 ======= Webdesing by www.istvanlovas.com =======
 ++++++++++++++++++++++++++++++++++++++++++++++++
-					 CSS
+					Admin SCSS
 */
 /*!
  * Bootstrap v3.3.6 (http://getbootstrap.com)
@@ -5742,28 +5742,8 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
-/**
- * Fix for vw, vh, vmin, vmax on iOS 7.
- * http://caniuse.com/#feat=viewport-units
- *
- * This fix works by replacing viewport units with px values on known screen sizes.
- *
- * iPhone 6 and 6 Plus cannot run iOS 7, so are not targeted by this fix.
- * Target devices running iOS 8+ will incidentally execute the media query,
- * but this will still produce the expected result; so this is not a problem.
- *
- * As an example, replace:
- *
- *   height: 50vh;
- *   font-size: 5vmin;
- *
- * with:
- *
- *   @include viewport-unit(height, 50vh);
- *   @include viewport-unit(font-size, 5vmin);
- */
 /* =======================================
-   General Styles
+   General Styles for Admin Dasboard
    =======================================*/
 html, body {
   width: 100%;
@@ -5799,55 +5779,13 @@ ul, li, ol {
   height: 100%;
   position: relative; }
 
-section {
-  padding-bottom: 60px; }
-  section h2 {
-    margin: 0;
-    padding-top: 135px;
-    font-size: 96px;
-    font-family: 'Sheila W00';
-    letter-spacing: 0.07em;
-    color: #ffcbe2;
-    text-align: center; }
-  section .intro, section .outro {
-    padding: 60px 15px; }
-    section .intro p, section .outro p {
-      font-size: 18px;
-      margin: 0 auto;
-      max-width: 920px; }
-
-.social-icons {
-  display: none; }
-
-@media screen and (min-width: 992px) {
-  section .intro p, section .outro p {
-    text-align: center;
-    font-size: 21px; } }
-
 @media screen and (min-width: 1024px) {
   .container-fluid {
     padding-left: 280px;
-    padding-right: 40px; }
-  .social-icons {
-    display: block;
-    position: fixed;
-    bottom: 33px;
-    left: 40px;
-    z-index: 999; }
-    .social-icons li {
-      display: inline-block;
-      margin-right: 5px;
-      cursor: pointer;
-      transition: all 0.270s ease-out 0s; }
-      .social-icons li:hover .svg-icon path, .social-icons li:focus .svg-icon path {
-        fill: #ffdedc; } }
-
-@media screen and (min-width: 1200px) {
-  section .intro p, section .outro p {
-    font-size: 25px; } }
+    padding-right: 40px; } }
 
 /* =======================================
-   Header
+   Admin Header
    =======================================*/
 .top-navbar {
   position: fixed;
@@ -5884,20 +5822,6 @@ section {
     .top-navbar .user-link .icon-profile {
       position: relative;
       top: -4px; }
-    .top-navbar .user-link .btn-client-login {
-      font-size: 16px;
-      font-family: 'Proxima N W15 Smbd';
-      padding: 7px 22px;
-      color: #fff;
-      border-radius: 20px;
-      background-color: #66e65c;
-      text-decoration: none;
-      text-rendering: geometricPrecision;
-      font-variant-ligatures: no-common-ligatures;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      transition: all 0.270s ease-out 0s; }
-      .top-navbar .user-link .btn-client-login:hover, .top-navbar .user-link .btn-client-login:focus {
-        background-color: #a9ffad; }
 
 header {
   position: absolute;
@@ -5934,39 +5858,6 @@ header {
           will-change: transform;
           transform: translateX(-460px);
           z-index: 2; }
-      header #sidebar #top-navigation ul.portfolio-tabs {
-        font-size: 14px;
-        margin: 6px 0; }
-        header #sidebar #top-navigation ul.portfolio-tabs li a {
-          font-family: 'Proxima Nova Soft W04 Regular';
-          color: #fff;
-          opacity: .84;
-          padding: 1px 0;
-          margin-left: 60px;
-          margin-bottom: 4px;
-          font-size: 15px;
-          position: relative;
-          transition: all 0.270s ease-out 0s; }
-          header #sidebar #top-navigation ul.portfolio-tabs li a:focus:after, header #sidebar #top-navigation ul.portfolio-tabs li a:hover:after {
-            width: 100%;
-            background-color: #fff; }
-          header #sidebar #top-navigation ul.portfolio-tabs li a:after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 2px;
-            background-color: #fff;
-            width: 0;
-            height: 1px;
-            transition: all 0.270s ease-out 0s; }
-          header #sidebar #top-navigation ul.portfolio-tabs li a:hover, header #sidebar #top-navigation ul.portfolio-tabs li a:focus {
-            color: #fff; }
-        header #sidebar #top-navigation ul.portfolio-tabs li.active a {
-          opacity: 1; }
-          header #sidebar #top-navigation ul.portfolio-tabs li.active a:after {
-            background-color: #fff;
-            width: 100% !important;
-            height: 2px; }
       header #sidebar #top-navigation ul.main-navigation {
         padding-top: 168px;
         margin: 0;
@@ -5976,76 +5867,11 @@ header {
           color: #fff;
           padding: 6px 0 0;
           margin-left: 40px;
-          font-size: 18px;
-          position: relative;
-          transition: all 0.270s ease-out 0s; }
-          header #sidebar #top-navigation ul.main-navigation li .top-nav-link:focus:after, header #sidebar #top-navigation ul.main-navigation li .top-nav-link:hover:after {
-            width: 100%;
-            background-color: #fff; }
-          header #sidebar #top-navigation ul.main-navigation li .top-nav-link:after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 2px;
-            background-color: #fff;
-            width: 0;
-            height: 2px;
-            transition: all 0.270s ease-out 0s; }
+          font-size: 18px; }
           header #sidebar #top-navigation ul.main-navigation li .top-nav-link:hover, header #sidebar #top-navigation ul.main-navigation li .top-nav-link:focus {
             color: #fff; }
-  header .overlay {
-    background-color: #000;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 99;
-    opacity: 0;
-    transition: opacity .5s ease-in-out .2s;
-    pointer-events: none; }
-
-header.open {
-  pointer-events: auto; }
-  header.open .overlay {
-    pointer-events: all;
-    opacity: .5;
-    transition: opacity .5s ease-in-out 0ms; }
-  header.open #sidebar {
-    background-color: #FFADA9;
-    width: 50vw;
-    transition: width 0.54s cubic-bezier(0.6, 0.035, 0.25, 1) 0s, opacity 0.64s linear 0.8s, background-color 0.54s ease-in-out; }
-    @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
-      header.open #sidebar {
-        width: 384px; } }
-    @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape) {
-      header.open #sidebar {
-        width: 512px; } }
-    @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: portrait) {
-      header.open #sidebar {
-        width: 160px; } }
-    @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: landscape) {
-      header.open #sidebar {
-        width: 240px; } }
-    @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: portrait) {
-      header.open #sidebar {
-        width: 160px; } }
-    @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: landscape) {
-      header.open #sidebar {
-        width: 284px; } }
-    header.open #sidebar #top-navigation {
-      pointer-events: auto; }
-
-.white-logo {
-  color: #fff !important; }
 
 @media screen and (min-width: 1024px) {
-  .noBackGroundColor {
-    background: 0 !important; }
-  .top-navbar {
-    text-align: left; }
-    .top-navbar .logo {
-      text-align: inherit; }
   header #sidebar {
     width: 240px; }
     header #sidebar #top-navigation {
@@ -6053,378 +5879,9 @@ header.open {
       height: 100%;
       width: 100%;
       pointer-events: all; }
-      header #sidebar #top-navigation ul.portfolio-tabs li a {
-        transform: translateX(0px); }
       header #sidebar #top-navigation ul.main-navigation li.home {
         display: none !important; }
       header #sidebar #top-navigation ul.main-navigation li .top-nav-link {
         transform: translateX(0px); } }
-
-/* =======================================
-   Home
-   =======================================*/
-#home {
-  background-image: url("/images/bg-sm.jpg");
-  background-repeat: no-repeat;
-  background-position: 100%;
-  background-size: cover;
-  height: 100vh; }
-  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
-    #home {
-      height: 1024px; } }
-  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape) {
-    #home {
-      height: 768px; } }
-  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: portrait) {
-    #home {
-      height: 480px; } }
-  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: landscape) {
-    #home {
-      height: 320px; } }
-  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: portrait) {
-    #home {
-      height: 568px; } }
-  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: landscape) {
-    #home {
-      height: 320px; } }
-
-@media screen and (min-width: 768px) {
-  #home {
-    background-image: url("/images/bg-md.jpg"); } }
-
-@media screen and (min-width: 1200px) {
-  #home {
-    background-image: url("/images/bg-lg.jpg"); } }
-
-@media screen and (min-width: 1480px) {
-  #home {
-    background-image: url("/images/bg-xl.jpg"); } }
-
-/* =======================================
-   Portfolio
-   =======================================*/
-#portfolio {
-  background-color: #fff; }
-  #portfolio .tab-content {
-    margin-top: 60px; }
-  #portfolio .masonry-container .item {
-    margin-bottom: 30px; }
-  #portfolio .photo-upload {
-    padding: 60px 0; }
-    #portfolio .photo-upload a {
-      display: block;
-      width: 100%;
-      font-size: 36px;
-      padding-top: 40px;
-      padding-bottom: 40px;
-      margin-top: 30px; }
-
-.delete-photo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); }
-  .delete-photo .btn-danger {
-    border-radius: 50%;
-    opacity: .4;
-    transition: all 0.270s ease-out 0s; }
-    .delete-photo .btn-danger .fa {
-      padding: 7px;
-      font-size: 25px; }
-    .delete-photo .btn-danger:hover, .delete-photo .btn-danger:focus {
-      opacity: 1; }
-
-/* =======================================
-   About
-   =======================================*/
-#about .profile-picture {
-  display: block;
-  margin: 60px auto 0; }
-
-#about .middle {
-  max-width: 1200px;
-  margin: 60px auto 0; }
-
-#about .outro span {
-  font-family: 'Sheila W00'; }
-
-@media screen and (min-width: 992px) {
-  #about .profile-picture {
-    display: none; }
-  #about .images {
-    position: relative; }
-    #about .images .picture {
-      position: relative;
-      width: 100%;
-      height: 450px;
-      overflow: hidden; }
-      #about .images .picture div {
-        width: 100%;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: cover; }
-    #about .images .one {
-      z-index: 2; }
-      #about .images .one div {
-        background-image: url("/images/about_page_photos/about-2.png"); }
-  #about .texts {
-    padding-top: 60px; } }
-
-@media screen and (min-width: 1200px) {
-  #about .texts {
-    max-width: 460px; }
-  #about .images {
-    padding-left: 40px; }
-    #about .images .picture {
-      position: relative;
-      width: 80%;
-      height: 300px; }
-    #about .images .one {
-      top: 20px;
-      left: 40px; }
-    #about .images .two {
-      bottom: 20px;
-      right: 40px;
-      z-index: 1; }
-      #about .images .two div {
-        background-image: url("/images/about_page_photos/about-1.png"); } }
-
-/* =======================================
-   Contact
-   =======================================*/
-#contact {
-  position: relative;
-  background-color: #f2f2f2;
-  color: #454545;
-  height: 100vh; }
-  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
-    #contact {
-      height: 1024px; } }
-  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape) {
-    #contact {
-      height: 768px; } }
-  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: portrait) {
-    #contact {
-      height: 480px; } }
-  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: landscape) {
-    #contact {
-      height: 320px; } }
-  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: portrait) {
-    #contact {
-      height: 568px; } }
-  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: landscape) {
-    #contact {
-      height: 320px; } }
-  #contact .contact-details {
-    padding: 90px 15px;
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center; }
-    #contact .contact-details .contact-links a {
-      color: #FFADA9; }
-      #contact .contact-details .contact-links a:hover, #contact .contact-details .contact-links a:focus {
-        color: #ffdedc; }
-      #contact .contact-details .contact-links a i {
-        color: #333;
-        margin-right: 5px; }
-    #contact .contact-details h3 {
-      margin: 0;
-      margin-bottom: 10px;
-      font-family: 'LinotypeBreweryW01-Medi'; }
-  #contact .get-social ul li {
-    display: inline-block;
-    margin-right: 5px;
-    cursor: pointer;
-    transition: all 0.270s ease-out 0s; }
-    #contact .get-social ul li .svg-icon path {
-      fill: #FFADA9; }
-    #contact .get-social ul li:hover .svg-icon path, #contact .get-social ul li:focus .svg-icon path {
-      fill: #ffdedc; }
-  #contact .footer {
-    font-size: 13px; }
-    #contact .footer p {
-      opacity: 0.54;
-      text-align: center;
-      margin-bottom: 5px; }
-
-.contact-details > div {
-  margin-bottom: 40px; }
-
-.contact-details > div:last-child {
-  margin-bottom: 0; }
-
-@media screen and (min-width: 992px) {
-  #contact .contact-details h3 {
-    margin-bottom: 20px; } }
-
-@media screen and (min-width: 1200px) {
-  #contact {
-    height: 100vh; } }
-  @media only screen and (min-width: 1200px) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
-    #contact {
-      height: 1024px; } }
-  @media only screen and (min-width: 1200px) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape) {
-    #contact {
-      height: 768px; } }
-  @media only screen and (min-width: 1200px) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: portrait) {
-    #contact {
-      height: 480px; } }
-  @media only screen and (min-width: 1200px) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: landscape) {
-    #contact {
-      height: 320px; } }
-  @media only screen and (min-width: 1200px) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: portrait) {
-    #contact {
-      height: 568px; } }
-  @media only screen and (min-width: 1200px) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: landscape) {
-    #contact {
-      height: 320px; } }
-
-@media screen and (min-width: 1200px) {
-    #contact .contact-details {
-      text-align: left; }
-      #contact .contact-details .contact-links h3,
-      #contact .contact-details .get-social h3 {
-        margin-bottom: 40px; }
-      #contact .contact-details .address i {
-        display: inline-block;
-        position: relative;
-        float: left; }
-      #contact .contact-details .address p {
-        width: 90%;
-        position: relative;
-        top: -4px;
-        padding-left: 5px;
-        float: left; } }
-
-/* =======================================
-   Services
-   =======================================*/
-#services .services-by-catgory {
-  margin-top: 60px; }
-  #services .services-by-catgory .service {
-    margin-bottom: 30px; }
-    #services .services-by-catgory .service .prices {
-      font-sizes: 16px;
-      padding: 40px 0 30px;
-      text-align: center;
-      font-family: 'LinotypeBreweryW01-Medi'; }
-    #services .services-by-catgory .service .banner {
-      overflow: hidden; }
-      #services .services-by-catgory .service .banner img {
-        border-radius: 20px 20px 0 0; }
-    #services .services-by-catgory .service h3 {
-      text-align: center;
-      padding: 10px 0;
-      background-color: #ffa9d0;
-      color: #fff;
-      margin: 0; }
-    #services .services-by-catgory .service .content {
-      background-color: #fff;
-      border-radius: 0 0 20px 20px; }
-      #services .services-by-catgory .service .content .prices p {
-        margin-bottom: 5px; }
-      #services .services-by-catgory .service .content .whats-included {
-        margin: 0 0 15px;
-        padding: 0 15px 10px;
-        text-align: center; }
-        #services .services-by-catgory .service .content .whats-included li {
-          font-size: 13px;
-          line-height: 1.3;
-          padding: 3px 0;
-          margin: 2px 0;
-          border-bottom: 1px solid #f2f2f2; }
-        #services .services-by-catgory .service .content .whats-included li:last-child {
-          border: 0; }
-      #services .services-by-catgory .service .content .footer {
-        font-size: 13px;
-        padding: 15px 40px;
-        background-color: #ffcbe2;
-        border-radius: 0 0 20px 20px; }
-        #services .services-by-catgory .service .content .footer .whats-not-included {
-          color: #fff;
-          margin: 0; }
-
-@media screen and (min-width: 1200px) {
-  #services .services-by-catgory .service {
-    padding-right: 10px;
-    padding-left: 10px; } }
-
-/* =======================================
-   Login
-   =======================================*/
-#login {
-  position: relative;
-  background-image: url("/images/bg-lg.jpg");
-  background-repeat: no-repeat;
-  background-position: 100%;
-  background-size: cover;
-  height: 100vh; }
-  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
-    #login {
-      height: 1024px; } }
-  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape) {
-    #login {
-      height: 768px; } }
-  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: portrait) {
-    #login {
-      height: 480px; } }
-  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: landscape) {
-    #login {
-      height: 320px; } }
-  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: portrait) {
-    #login {
-      height: 568px; } }
-  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: landscape) {
-    #login {
-      height: 320px; } }
-  #login .login-wrapper {
-    width: 320px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); }
-    #login .login-wrapper .login-heading {
-      font-size: 48px;
-      font-family: 'Sheila W00';
-      letter-spacing: 0.07em;
-      color: #fff;
-      text-align: center; }
-    #login .login-wrapper .login-panel {
-      margin: 40px 0 25px;
-      background-color: rgba(255, 255, 255, 0.92);
-      padding: 40px;
-      border-radius: 20px; }
-      #login .login-wrapper .login-panel .form-error-msg .alert {
-        padding: 10px 15px; }
-    #login .login-wrapper .form-group a {
-      font-size: 13px;
-      float: right; }
-    #login .login-wrapper .form-group label {
-      display: block;
-      margin-bottom: 5px;
-      padding: 0;
-      text-align: center; }
-    #login .login-wrapper .form-group .checkbox label {
-      text-align: left;
-      font-size: 15px; }
-    #login .login-wrapper .form-group .checkbox input {
-      position: relative;
-      top: -1px;
-      margin-left: 0;
-      margin-right: 2px; }
-    #login .login-wrapper .form-group .btn-primary {
-      display: block;
-      width: 100%;
-      background-color: #66e65c;
-      border: 1px solid #66e65c;
-      transition: all 0.270s ease-out 0s; }
-      #login .login-wrapper .form-group .btn-primary:hover, #login .login-wrapper .form-group .btn-primary:focus {
-        background-color: #a9ffad;
-        border: 1px solid #a9ffad; }
 
 /*# sourceMappingURL=app.css.map */

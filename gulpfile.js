@@ -17,8 +17,12 @@ elixir(function(mix) {
         .sass([
             'gallery.scss'
         ],'./public/css/gallery.css')
+        .sass([
+            'admin/app.scss'
+        ],'./public/css/admin/app.css')
     	.scripts([
-    		'libs/sweetalert-dev.js'
+    		'libs/sweetalert-dev.js',
+            'libs/img-lazyload.js'
     	],'./public/js/libs.js')
     	.styles([
             'toggle.css',

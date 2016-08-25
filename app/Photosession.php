@@ -19,7 +19,8 @@ class PhotoSession extends Model
     	'title',
     	'category',
     	'background_image_path',
-    	'date_of_photosession'
+    	'date_of_photosession',
+        'request_submitted'
     ];
     
     protected $table = 'photosessions';

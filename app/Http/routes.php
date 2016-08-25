@@ -1,6 +1,6 @@
 <?php
 
-// Initalize on production
+//Initalize on production
 // Route::get('/', ['as' => 'home', function () {
 
 // 	\App\Role::create(['name' => 'admin']);
@@ -29,6 +29,10 @@ Route::group(['middleware' => 'admin'], function()
 		'as' => 'store_photo',
 		'uses' => 'Admin\AdminController@addPhoto'
 	]);
+    // Refresh page
+	Route::get('refresh',[ 'as' => 'refresh-page', function(){
+		return back();
+	}]);
 
 	Route::post('register', 'App\Http\Controllers\Auth\AuthController@register');
 
@@ -42,6 +46,8 @@ Route::group(['middleware' => 'admin'], function()
 		'as' => 'add_photos_to_gallery',
 		'uses' => 'Admin\PhotoSessionController@addPhoto'
 	]);
+	// Delete Portfolio Photo
+	Route::delete('portfoliophoto/{id}', 'PortfolioPhotoController@destroy' );
 	
 	// Photo Sessions
 	Route::delete('photos/{id}', 'Admin\PhotosessionPhotoController@destroy' );
@@ -53,7 +59,7 @@ Route::group(['middleware' => 'web'], function()
 	Route::get('/', ['as' => 'home', function () { return view('pages.home'); }]);
 	Route::get('about', ['as' => 'about', function () { return view('pages.about'); }]);
 	Route::get('contact', ['as' => 'contact', function () { return view('pages.contact'); }]);
-	Route::get('my-offer', ['as' => 'services', function () { return view('pages.services'); }]);
+	Route::get('services', ['as' => 'services', function () { return view('pages.services'); }]);
 	Route::get('portfolio', ['as' => 'portfolio', 'uses' => 'PortfolioPhotoController@showAll']);
 
 	Route::get('/language/{lang}', [

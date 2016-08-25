@@ -15,7 +15,7 @@
     width: 100%;
     height: 2px;
     margin: 0 0 .35em 0;
-    background-color: #fff;
+    background-color: #ff7c76;
     transition-duration: .54s;
     transition-delay: 0.27s;
 }
@@ -29,7 +29,7 @@
     width: 50%;
 }
 .toggle.open > div > div {
-    background-color: #fff;
+    background-color: #ffdedc;
 }
 .toggle.open > div > div:nth-child(1) {
     transform: translateY(9px) rotate(45deg) !important;
@@ -983,16 +983,17 @@ body.stop-scrolling {
 .svg-icon {
   width: 1.5em;
   height: 1.5em;
+  transition: all 0.270s ease-out 0s;
 }
 
 .svg-icon path,
 .svg-icon polygon,
 .svg-icon rect {
-  fill: #e48993;
+  fill: #fff;
 }
 
 .svg-icon circle {
-  stroke: #e48993;
+  stroke: #fff;
   stroke-width: 1;
 }
 /*# sourceMappingURL=libs.css.map */

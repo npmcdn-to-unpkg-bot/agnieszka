@@ -12,7 +12,7 @@
 
 			<div class="row contact-details">
 
-				<div class="col-xs-12 col-lg-4 address">
+				<div class="col-xs-12 col-lg-5 address">
 					<h3>Agnieszka Krol <br>Photography</h3>
 
 					<div class="clearfix">
@@ -21,7 +21,7 @@
 					</div>
 				</div>
 
-				<div class="col-xs-12 col-lg-5 col-lg-offset-0 contact-links">
+				<div class="col-xs-12 col-lg-5 contact-links">
 					<h3>Say hi!</h3>
 					<a href="mailto:agnieszkakrolphotography@gmail.com">
 						<i class="fa fa-envelope-o" aria-hidden="true"></i>
@@ -33,7 +33,7 @@
 					</a>
 				</div>
 
-				<div class="col-xs-12 col-lg-2 col-lg-offset-0 get-social">
+				<div class="col-xs-12 col-lg-2 get-social">
 					<h3>Get social!</h3>
 		    	    <ul>
 		    	    	<li>{!! file_get_contents("images/social-icons/facebook.svg") !!}</li>
@@ -45,12 +45,12 @@
 	    	</div> {{-- ./row --}}
 
 	    	<div class="row footer">
-	    		<footer>
-					<p>&copy; {{ \Carbon\Carbon::now()->year }} Agnieszka Krol</p>
-				</footer>
+    			<p>&copy; {{ \Carbon\Carbon::now()->year }} Agnieszka Krol</p>
+    			<p>Crafted with love by Istvan Lovas</p>
 	    	</div>
 	    </div> {{-- ./container-fluid --}}
 
 </section>
 
 @endsection
+

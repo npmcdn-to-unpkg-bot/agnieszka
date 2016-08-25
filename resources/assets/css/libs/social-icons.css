@@ -1,15 +1,16 @@
 .svg-icon {
   width: 1.5em;
   height: 1.5em;
+  transition: all 0.270s ease-out 0s;
 }
 
 .svg-icon path,
 .svg-icon polygon,
 .svg-icon rect {
-  fill: #e48993;
+  fill: #fff;
 }
 
 .svg-icon circle {
-  stroke: #e48993;
+  stroke: #fff;
   stroke-width: 1;
 }

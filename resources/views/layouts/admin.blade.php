@@ -5,9 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
-    <title>@yield('title') | Agnieszka Krol Photography</title>
-    <meta name="description" content="@yield('meta_description')">
-    <meta name="keywords" content="@yield('keywords')">
+    <title>Admin | Agnieszka Krol Photography</title>
+    <meta name="description" content="Admin Area of Agnieszka Krol">
     <meta name="author" content="Istvan Lovas">
 
     <!-- Fonts -->
@@ -20,19 +19,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     {{-- Uncomment the below link if developing on local machine --}}
     {{-- <link href="{{ asset('css/local/lcal-app.css') }}" rel="stylesheet"> --}}
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/admin/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/libs.css') }}" rel="stylesheet">
-    
-    @yield('customCSS')
 
 </head>
 <body id="app-layout">
     
-    @include('pages.partial.header')
+    @include('admin.pages.partial.header')
 
     <div class="content" role="document">
         @yield('content')
-        @include('pages.partial.footer')
+        @include('admin.pages.partial.footer')
     </div>
 </body>
 </html>

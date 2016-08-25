@@ -63,8 +63,8 @@
 				border:1px solid $accentDark;
 				transition: all 0.270s ease-out 0s;
 					&:hover, &:focus {
-				    	background-color:lighten($accentDark,15%);
-				    	border:1px solid lighten($accentDark,15%);
+				    	background-color:$accent;
+				    	border:1px solid $accent;
 
 				    }
 			}

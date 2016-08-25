@@ -1,0 +1,77 @@
+/* =======================================
+   Services
+   =======================================*/
+
+#services {
+	.services-by-catgory {
+		margin-top:$paddingLarge;
+		.service {
+			margin-bottom:30px;
+			.prices {
+				font-sizes:16px;
+				padding:$paddingSmall 0 $paddingSmall - 10px;
+				text-align:center;
+				font-family:'LinotypeBreweryW01-Medi';
+			}
+			.banner {
+				overflow:hidden;
+				img {
+					border-radius: $borderRadius $borderRadius 0 0;
+				}
+			}
+			h3 {
+				text-align:center;
+				padding:10px 0;
+				background-color:$secondary;
+				color:$textColor;
+				margin:0;
+			}
+			.content {
+				background-color: $textColor;
+				border-radius:0 0 $borderRadius $borderRadius;
+				.prices {
+					p {
+						margin-bottom:5px;
+					}
+				}
+				.whats-included {
+					margin:0 0 15px;
+					padding: 0 15px 10px;
+					text-align:center;
+					li {
+						font-size:13px;
+						line-height: 1.3;
+						padding:3px 0;
+						margin:2px 0;
+						border-bottom: 1px solid darken(#fff, 5%);
+					}
+					li:last-child {
+						border:0;
+					}
+				}
+				.footer {
+					font-size:13px;
+					padding:15px $paddingSmall;
+					background-color:$secondaryLight;
+					border-radius:0 0 $borderRadius $borderRadius;
+					.whats-not-included {
+						color:$textColor;
+						margin:0;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	#services {
+		.services-by-catgory {
+			.service {
+				padding-right:10px;
+				padding-left:10px;
+			}
+		}
+	}
+}
+
