@@ -22,6 +22,13 @@ class AdminController extends Controller
 		]));
 	}
 
+	public function clients()
+	{
+		$users = User::all();
+
+		return view('admin.pages.clients', compact('users'));
+	}
+
 	//Add photo(s) to the Database
     public function addPhoto($category, Request $request)
     {

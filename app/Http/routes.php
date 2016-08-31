@@ -20,21 +20,24 @@
 Route::group(['middleware' => 'admin'], function()
 {
 	// Admin Dashboard
-    Route::get('admin',[
-    	'as' => 'admin',
-		'uses' => 'Admin\AdminController@dashboard'
-	]);
-    // Add portfolio photos
+    Route::get('admin',['as' => 'dashboard','uses' => 'Admin\AdminController@dashboard']);
+	Route::get('admin/clients', ['as' => 'clients', 'uses' => 'Admin\AdminController@clients']);
+
+	// ================
+	// Portfolio Photos
+	// ================
+
+	// Add portfolio photos
     Route::post('admin/portfolio_photos/{category}',[
 		'as' => 'store_photo',
 		'uses' => 'Admin\AdminController@addPhoto'
 	]);
-    // Refresh page
-	Route::get('refresh',[ 'as' => 'refresh-page', function(){
-		return back();
-	}]);
-
-	Route::post('register', 'App\Http\Controllers\Auth\AuthController@register');
+	// Delete Portfolio Photo
+	Route::delete('portfoliophoto/{id}', 'PortfolioPhotoController@destroy' );
+	
+	// =============
+	// PhotoSessions
+	// =============
 
 	// Add background image to photosession
 	Route::post('admin/photosessions/{id}/background-image',[
@@ -46,12 +49,19 @@ Route::group(['middleware' => 'admin'], function()
 		'as' => 'add_photos_to_gallery',
 		'uses' => 'Admin\PhotoSessionController@addPhoto'
 	]);
-	// Delete Portfolio Photo
-	Route::delete('portfoliophoto/{id}', 'PortfolioPhotoController@destroy' );
-	
-	// Photo Sessions
+	// Delete photos from photosession
 	Route::delete('photos/{id}', 'Admin\PhotosessionPhotoController@destroy' );
+	// Photosession Resource controller
 	Route::resource('admin/photosessions','Admin\PhotoSessionController', ['except' => ['create']]);
+
+	// Refresh page
+	Route::get('refresh',[ 'as' => 'refresh-page', function(){
+		return back();
+	}]);
+	
+	//Register user
+	Route::post('register', 'App\Http\Controllers\Auth\AuthController@register');
+
 });
 
 Route::group(['middleware' => 'web'], function()
@@ -75,6 +85,11 @@ Route::auth();
 Route::get('client/{id}', [
 	'as'		=> 'client-dashboard',
 	'uses'		=> 'GalleryController@showClientDashboard'
+]);
+
+Route::get('client/{id}/photosession/{photosession}', [
+	'as'		=> 'client-gallery',
+	'uses'		=> 'GalleryController@showGallery'
 ]);
 
 

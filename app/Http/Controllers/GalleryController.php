@@ -13,11 +13,12 @@ class GalleryController extends Controller
        $this->middleware('auth');
   	}
 
-    public function showGallery($id)
+    public function showGallery($id, $photosession)
     {
-    	$photosession = Photosession::find($id);
+    	$user = User::findOrFail($id);
+        $photosession = Photosession::findOrFail($photosession);
 
-		return view('client.pages.gallery', compact('photosession'));
+		return view('client.pages.gallery', compact(['photosession', 'user']));
     }
 
     public function showClientDashboard($id)

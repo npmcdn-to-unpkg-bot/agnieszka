@@ -18,8 +18,6 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    {{-- Uncomment the below link if developing on local machine --}}
-    {{-- <link href="{{ asset('css/local/lcal-app.css') }}" rel="stylesheet"> --}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/libs.css') }}" rel="stylesheet">
     
@@ -28,7 +26,7 @@
 </head>
 <body id="app-layout">
     
-    @include('pages.partial.header')
+    {{-- @include('pages.partial.header') --}}
 
     <div class="content" role="document">
         @yield('content')

@@ -1,56 +1,10 @@
 /* =======================================
    Admin Header
    =======================================*/
-.top-navbar {
-	position: fixed;
-	top:0;
-	left:0;
-	right:0;
-	backface-visibility: hidden;
-	text-align: center;
-	z-index:100;
-	.logo {
-		position: relative;
-		display:inline-block;
-		font-size: 22px;
-		font-family:'LinotypeBreweryW01-Medi';
-		line-height: 1;
-		color: $textColor;
-		padding:$paddingSmall;
-		text-align: center;
-		z-index:150;
-	    span {
-	    	font-size:20px;
-	    	font-family:'Sheila W00';
-	    	letter-spacing: 0.07em;
-	    	color:$primaryLight;
-	    	position: relative;
-	    }
-	}
-	.user-link {
-		position: absolute;
-	    top: $paddingSmall + 10px;
-	    right: $paddingSmall;
-	    span {
-	    	color:#454545;
-	    	top: -7px;
-    		position: relative;
-	    }
-		.icon-profile {
-			position: relative;
-			top: -4px;
-		}
-	}
-}
 
-header {
-	position: absolute;
-	padding:$paddingSmall 0 0 $paddingSmall;
-	user-select: none;
-    z-index: 99;
-    #sidebar {
-		pointer-events: all;
-	    position: fixed;
+#admin-header {
+	#sidebar {
+		position: fixed;
 	    left: 0;
 	    top: 0;
 	    bottom: 0;
@@ -60,34 +14,14 @@ header {
 	    transition: width .54s cubic-bezier(.9,0,.33,1) .2s,
     				opacity .45s linear .2s,
     				background-color .45s ease-in-out;
-		#top-navigation {
-			position: absolute;
-	    	height: 100%;
-	    	width: 100%;
-			pointer-events: none;
-	    	z-index: 100;
-	    	ul {
-				li {
-					display: list-item;
-					a {
-						display: inline-block;
-				    	backface-visibility: hidden;
-				    	text-decoration: none;
-				    	text-rendering: geometricPrecision;
-				    	font-variant-ligatures: no-common-ligatures;
-					    will-change: transform;
-					    transform:translateX(-460px);
-					    z-index: 2;
-					}
-				}
-	    	}
-	    	ul.main-navigation {
-	    		padding-top:$paddingSmall + 128px;
-		    	margin:0;
+    	nav {
+    		ul {
+    			padding-top:$paddingSmall + 128px;
+    			margin:0;
 		    	position: relative;
-			    li {
-				    .top-nav-link {
-				    	font-family:'Proxima N W15 Smbd';
+    			li {
+    				a {
+    					font-family:'Proxima N W15 Smbd';
 				    	color:#fff;
 				    	padding:6px 0 0;
 				    	margin-left:$paddingSmall;
@@ -95,31 +29,18 @@ header {
 				    	&:hover, &:focus {
 					    	color:#fff;
 					    }
-					}
-				}
-			}
-		}
+    				}
+    			}
+    		}
+    	}
 	}
 }
 
+
 @media screen and (min-width: 1024px) {
-	header {
+	#admin-header {
 		#sidebar {
 			width:240px;
-			#top-navigation {
-				position: absolute;
-		    	height: 100%;
-		    	width: 100%;
-				pointer-events: all;
-		    	ul.main-navigation {
-		    		li.home {
-		    			display:none !important;
-		    		}
-		    		li .top-nav-link {
-					    transform:translateX(0px);
-					}
-				}
-			}
 		}
 	}
 }

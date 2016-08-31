@@ -21,3 +21,7 @@ function categories()
 function setActiveNavigation($path, $active = 'activeNav') {
 	return Request::is($path) ? $active : '';
 }
+
+function setActiveForAdminNavigation($path, $active = 'active') {
+	return Request::is($path) ? $active : '';
+}

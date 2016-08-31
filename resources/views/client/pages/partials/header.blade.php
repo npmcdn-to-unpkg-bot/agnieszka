@@ -19,13 +19,3 @@
         </form>
     </div>
 </header>
-
-{{-- 
-<div class="navbar-header">
-                    <a class="navbar-brand" href="{{ route('home') }}">Agnieszka Krol</a>
-                         <a class="navbar-brand" href="http://agnieszkakrol.com/">
-                            <img class="logo desktop" src="" alt="Agnieszka Krol Photographer">
-                            <img class="logo mobile" src="" alt="Agnieszka Krol Photographer">
-                        </a>
-                    </div>
- --}}

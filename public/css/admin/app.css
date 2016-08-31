@@ -9,8 +9,8 @@
 					Admin SCSS
 */
 /*!
- * Bootstrap v3.3.6 (http://getbootstrap.com)
- * Copyright 2011-2015 Twitter, Inc.
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
@@ -1081,7 +1081,6 @@ a {
     color: #23527c;
     text-decoration: underline; }
   a:focus {
-    outline: thin dotted;
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px; }
 
@@ -2293,7 +2292,6 @@ select[size] {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px; }
 
@@ -2798,7 +2796,6 @@ select[multiple].input-lg,
   -ms-user-select: none;
   user-select: none; }
   .btn:focus, .btn.focus, .btn:active:focus, .btn:active.focus, .btn.active:focus, .btn.active.focus {
-    outline: thin dotted;
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px; }
   .btn:hover, .btn:focus, .btn.focus {
@@ -5760,7 +5757,9 @@ p {
   margin-bottom: 15px; }
 
 a {
-  transition: all 0.270s ease-out 0s; }
+  transition: all 0.270s ease-out 0s;
+  text-rendering: geometricPrecision;
+  font-variant-ligatures: no-common-ligatures; }
 
 a:hover, a:focus {
   text-decoration: none; }
@@ -5776,112 +5775,121 @@ ul, li, ol {
   padding: 0; }
 
 .content {
-  height: 100%;
   position: relative; }
-
-@media screen and (min-width: 1024px) {
-  .container-fluid {
-    padding-left: 280px;
-    padding-right: 40px; } }
 
 /* =======================================
    Admin Header
    =======================================*/
-.top-navbar {
+#admin-header #sidebar {
   position: fixed;
-  top: 0;
   left: 0;
-  right: 0;
-  backface-visibility: hidden;
-  text-align: center;
-  z-index: 100; }
-  .top-navbar .logo {
-    position: relative;
-    display: inline-block;
-    font-size: 22px;
-    font-family: 'LinotypeBreweryW01-Medi';
-    line-height: 1;
-    color: #fff;
-    padding: 40px;
-    text-align: center;
-    z-index: 150; }
-    .top-navbar .logo span {
-      font-size: 20px;
-      font-family: 'Sheila W00';
-      letter-spacing: 0.07em;
-      color: #ffdedc;
-      position: relative; }
-  .top-navbar .user-link {
-    position: absolute;
-    top: 50px;
-    right: 40px; }
-    .top-navbar .user-link span {
-      color: #454545;
-      top: -7px;
-      position: relative; }
-    .top-navbar .user-link .icon-profile {
-      position: relative;
-      top: -4px; }
-
-header {
-  position: absolute;
-  padding: 40px 0 0 40px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  z-index: 99; }
-  header #sidebar {
-    pointer-events: all;
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 99;
-    background-color: #ff7c76;
-    width: 8px;
-    transition: width 0.54s cubic-bezier(0.9, 0, 0.33, 1) 0.2s, opacity 0.45s linear 0.2s, background-color 0.45s ease-in-out; }
-    header #sidebar #top-navigation {
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      pointer-events: none;
-      z-index: 100; }
-      header #sidebar #top-navigation ul li {
-        display: list-item; }
-        header #sidebar #top-navigation ul li a {
-          display: inline-block;
-          backface-visibility: hidden;
-          text-decoration: none;
-          text-rendering: geometricPrecision;
-          font-variant-ligatures: no-common-ligatures;
-          will-change: transform;
-          transform: translateX(-460px);
-          z-index: 2; }
-      header #sidebar #top-navigation ul.main-navigation {
-        padding-top: 168px;
-        margin: 0;
-        position: relative; }
-        header #sidebar #top-navigation ul.main-navigation li .top-nav-link {
-          font-family: 'Proxima N W15 Smbd';
-          color: #fff;
-          padding: 6px 0 0;
-          margin-left: 40px;
-          font-size: 18px; }
-          header #sidebar #top-navigation ul.main-navigation li .top-nav-link:hover, header #sidebar #top-navigation ul.main-navigation li .top-nav-link:focus {
-            color: #fff; }
+  top: 0;
+  bottom: 0;
+  z-index: 99;
+  background-color: #ff7c76;
+  width: 8px;
+  transition: width 0.54s cubic-bezier(0.9, 0, 0.33, 1) 0.2s, opacity 0.45s linear 0.2s, background-color 0.45s ease-in-out; }
+  #admin-header #sidebar nav ul {
+    padding-top: 168px;
+    margin: 0;
+    position: relative; }
+    #admin-header #sidebar nav ul li a {
+      font-family: 'Proxima N W15 Smbd';
+      color: #fff;
+      padding: 6px 0 0;
+      margin-left: 40px;
+      font-size: 18px; }
+      #admin-header #sidebar nav ul li a:hover, #admin-header #sidebar nav ul li a:focus {
+        color: #fff; }
 
 @media screen and (min-width: 1024px) {
-  header #sidebar {
-    width: 240px; }
-    header #sidebar #top-navigation {
-      position: absolute;
+  #admin-header #sidebar {
+    width: 240px; } }
+
+/* =======================================
+   Photosession
+   =======================================*/
+.ps-blue {
+  background: #30a5ff;
+  color: #fff; }
+
+.ps-teal {
+  background: #1ebfae;
+  color: #fff; }
+
+.ps-orange {
+  background: #ffb53e;
+  color: #fff; }
+
+.ps-red {
+  background: #f9243f;
+  color: #fff; }
+
+.ps-green {
+  background: #a9ffad;
+  color: #fff; }
+
+.photosession {
+  position: relative;
+  font-family: 'Proxima Nova Soft W04 Regular';
+  height: 150px;
+  margin-bottom: 10px;
+  border-radius: 10px; }
+  .photosession .row {
+    position: relative; }
+  .photosession .bg-img {
+    position: relative;
+    height: 150px;
+    padding: 15px; }
+    .photosession .bg-img div {
       height: 100%;
-      width: 100%;
-      pointer-events: all; }
-      header #sidebar #top-navigation ul.main-navigation li.home {
-        display: none !important; }
-      header #sidebar #top-navigation ul.main-navigation li .top-nav-link {
-        transform: translateX(0px); } }
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center; }
+  .photosession .details {
+    padding: 15px 15px 15px 0; }
+    .photosession .details .glyph {
+      height: 16px;
+      width: 16px;
+      margin: 0 3px 0 0;
+      stroke-width: 3px; }
+    .photosession .details .info .meta {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 12px; }
+      .photosession .details .info .meta .date {
+        margin-left: 15px; }
+        .photosession .details .info .meta .date span {
+          position: relative;
+          top: 1px; }
+    .photosession .details .info .title-and-name h3 {
+      margin: 0;
+      padding: 30px 0 15px 0;
+      font-family: 'Proxima N W15 Smbd'; }
+    .photosession .details .info .title-and-name h5 {
+      margin: 5px 0; }
+      .photosession .details .info .title-and-name h5 svg {
+        position: relative;
+        top: -2px; }
+  .photosession .controls {
+    position: absolute;
+    bottom: 10px;
+    right: 10px; }
+    .photosession .controls div {
+      position: relative; }
+      .photosession .controls div button {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        opacity: .7;
+        transition: all 0.270s ease-out 0s; }
+        .photosession .controls div button .glyph {
+          height: 16px;
+          width: 16px;
+          margin: 0;
+          stroke-width: 4px; }
+        .photosession .controls div button:hover, .photosession .controls div button:focus {
+          opacity: 1; }
 
 /*# sourceMappingURL=app.css.map */

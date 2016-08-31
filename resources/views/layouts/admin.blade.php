@@ -17,19 +17,18 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    {{-- Uncomment the below link if developing on local machine --}}
-    {{-- <link href="{{ asset('css/local/lcal-app.css') }}" rel="stylesheet"> --}}
     <link href="{{ asset('css/admin/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/admin/admin-style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/libs.css') }}" rel="stylesheet">
+
+    @yield('customCSS')
 
 </head>
 <body id="app-layout">
-    
-    @include('admin.pages.partial.header')
-
+    @include('admin.layout.header')
     <div class="content" role="document">
         @yield('content')
-        @include('admin.pages.partial.footer')
+        @include('admin.layout.footer')
     </div>
 </body>
 </html>

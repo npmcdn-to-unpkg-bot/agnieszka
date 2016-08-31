@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('title', 'Edit Client gallery')
 @section('meta_description', 'Edit Client gallery')
@@ -9,58 +9,59 @@
 @section('content')
 
 <section class="client-gallery">
-	<h1>Edit Client gallery</h1>
+@if( $photosession->background_image === null)
+	<div class="row">
+		<h2>Add Background Image</h2>
+		<div class="col-xs-12 admin-add-background-image">
+	    	@include('admin/partials/forms/addbackgroundimage')
+	    </div>
+	</div>
+@else
+<div class="background-image" style="background-image: url('/{{ asset($photosession->background_image_path) }}')">
+	<button>Change background image</button>
+</div>
+@endif
 
-		<div class="col-md-6 col-md-offset-2 add-photosession">
-                <div class="row">
-                    <h1>Add Background Image</h1>
-                    {{-- {{ dd($photosession->photos) }} --}}
-            
-                    @include('admin/partials/forms/addbackgroundimage')
-            
-                </div>
+	<div class="container-fluid">
+		<div class="row">
 
-                <div class="row">
-                    <h1>Add Photos</h1>
-            
-                    @include('admin/partials/forms/addphotostogallery')
-            
-                </div>
-            </div>
+			<div class="col-xs-12">
+				@if(count($photosession->photos) > 0)
+                    <div class="row masonry-container photos">
+                        @foreach($photosession->photos as $photo)
+                            <div class="col-xs-6 col-sm-3 col-lg-2 item">
+                            	<div class="delete-photo">
+			        		 		<form method="POST" action="/photos/{{ $photo->id }}">
+			        					{{ csrf_field() }}
+			        					<input type="hidden" name="_method" value="DELETE">
 
-		{{-- <div class="col-xs-12 bg-img">
-			@if( $photosession->background_image == null)
-				@if(\Auth::user()->hasRole('admin'))
-					<div class="row">
-						<div class="col-xs-12 admin-add-background-image">
-					    	@include('admin/partials/forms/add_background_image')
-					    </div>
-					</div>
-				@endif
-				@if(\Auth::user()->hasRole('admin'))
-					<button id="background-image-upload" class="btn btn-img">
-						<i class="fa fa-plus-circle"> Change Image</i>
-					</button>
-				@endif
-				<div id="background-image" style="background-image: url('{{ asset('/images/photosession-bg-placeholder.jpg') }}');"></div>
-			@else
-			<div id="background-image" style="background-image: url('{{ $photosession->background_image }}');"></div>
-		</div> --}} {{-- ./bg-img --}}
+			        					<button type="submit" class="btn btn-danger">
+			        						<i class="fa fa-trash" aria-hidden="true"></i>
+			        					</button>
+			        				</form>
+			        		 	</div>
+                                <img class="img-responsive" src="{{ asset($photo->thumbnail_pat) }}" alt="Gallery photo">
+                            </div>
+                        @endforeach
+                    </div>
+                @endif
+			</div>
 
-		{{-- <div class="col-md-12 photosession-photos"> --}}
-			{{-- @if (count($photosession->photos() > 0)) --}}
-				{{-- <div class="row masonry-container">
-					@foreach ($photosession->photos()->all() as $photo)
-					  	<div class="col-md-4 col-sm-6 item">
-							<img class="img-responsive" src="{{ $photosession->path }}" alt="">
-						</div>
-					@endforeach
-				</div> --}} {{-- ./masonry-container --}}
-		    {{-- @endif --}}
-		{{-- </div> --}}
+		</div> {{-- ./row --}}
 
+		<div class="row photo-upload">
+			<div class="col-xs-12">
+				 @include('admin/partials/forms/addphotostogallery')
+			</div>
+			<div class="text-center col-xs-4 col-xs-offset-4">
+				<a href="{{ route('refresh-page') }}" role="button" class="btn btn-success refresh-page">
+					<i class="fa fa-refresh" aria-hidden="true"></i>
+				</a>
+			</div>
+		</div> {{-- ./photo-upload --}}
+
+	</div> {{-- ./container-fluid --}}
 </section>
-
 @endsection
 
 @section('customJS')

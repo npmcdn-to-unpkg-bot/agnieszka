@@ -47,7 +47,11 @@ body {
 }
 
 p { text-rendering: optimizeLegibility; margin-bottom:15px; }
-a { transition: all 0.270s ease-out 0s; }
+a {
+  transition: all 0.270s ease-out 0s;
+  text-rendering: geometricPrecision;
+  font-variant-ligatures: no-common-ligatures;
+}
 a:hover,a:focus { text-decoration:none; }
 
 .activeNav {
@@ -64,13 +68,5 @@ ul,li,ol {
 }
 
 .content {
-  height: 100%;
   position: relative;
-}
-
-@media screen and (min-width: 1024px) {
-  .container-fluid {
-    padding-left:280px;
-    padding-right:$paddingSmall;
-  }
 }

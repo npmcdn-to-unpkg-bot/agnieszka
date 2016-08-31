@@ -55,10 +55,10 @@ class AuthController extends Controller
     public function authenticated(Request $request, User $user)
     {
         if($request->user()->hasRole('admin')) {
-            return redirect('/admin');
+            return redirect()->route('dashboard');
         }
 
-        return redirect('/client/{{ $user->id }}');
+        return redirect()->route('client-dashboard', ['id' => $user->id]);
     }
 
     /**
@@ -80,8 +80,8 @@ class AuthController extends Controller
         $this->create($request->all());
 
         // Auth::guard($this->getGuard())->login($this->create($request->all()));
-        flash()->success('Nice one! :)', 'You have successfully added a new client!');
-        return redirect('/admin');
+        flash()->success('Nice one! :)', 'You have successfully created a new client!');
+        return redirect('/dashboard');
     }
 
 }

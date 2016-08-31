@@ -1,0 +1,91 @@
+/* =======================================
+   Photosession
+   =======================================*/
+
+.ps-blue { background: #30a5ff; color: #fff; }
+.ps-teal { background: #1ebfae; color: #fff; }
+.ps-orange { background: #ffb53e; color: #fff; }
+.ps-red { background: #f9243f; color: #fff; }
+.ps-green { background: #a9ffad; color: #fff; }
+
+.photosession {
+	position: relative;
+	font-family:'Proxima Nova Soft W04 Regular';
+	height: 150px;
+	margin-bottom:10px;
+	border-radius: 10px;
+	.row {position: relative;}
+	.bg-img {
+		position: relative;
+		height: 150px;
+		padding:15px;
+		div {
+			height:100%;
+			background-size: cover;
+		    background-repeat: no-repeat;
+		    background-position: center;
+		}
+	}
+	.details {
+		padding: 15px 15px 15px 0;
+		.glyph {
+			height: 16px;
+		    width: 16px;
+		    margin: 0 3px 0 0;
+		    stroke-width: 3px;
+		}
+		.info {
+			.meta {
+				position: absolute;
+				top:10px;
+				right:10px;
+				font-size:12px;
+				.date {
+					margin-left:15px;
+					span {
+					    position: relative;
+    					top: 1px;
+					}
+				}
+			}
+			.title-and-name {
+				h3 {
+					margin:0;
+					padding:30px 0 15px 0;
+					font-family:'Proxima N W15 Smbd';
+				}
+				h5 {
+					margin:5px 0;
+					svg {
+						position: relative;
+						top: -2px;
+					}
+				}
+			}
+		}
+	}
+	.controls {
+		position: absolute;
+		bottom:10px;
+		right:10px;
+	    div {
+	    	position: relative;
+	    	button {
+	    	    width: 44px;
+    			height: 44px;
+	    		border-radius:50%;
+				opacity: .7;
+				transition: all 0.270s ease-out 0s;
+				.glyph {
+					height: 16px;
+				    width: 16px;
+				    margin: 0;
+				    stroke-width: 4px;
+				}
+				&:hover,&:focus {
+					opacity: 1;
+				}
+	    	}
+	    }
+	}
+}

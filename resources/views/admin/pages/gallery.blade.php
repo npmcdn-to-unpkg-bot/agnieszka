@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('title', 'Edit Client gallery')
 @section('meta_description', 'Edit Client gallery')
@@ -9,12 +9,14 @@
 @section('content')
 
 <section class="client-gallery">
+	
 	@if ($photosession != null)
 		<h1>Show Client gallery</h1>
 		<div class="col-md-6 col-md-offset-2 add-photosession">
 		{{ $photosession->user->first_name }}
-		<img src="{{ asset($photosession->background_image_path) }}" width="300" height="300" alt="Photosession background image">
-		<br>
+		<div class="bg-img">
+			<img src="{{ asset($photosession->background_image_path) }}" alt="Photosession background image">
+		</div>
 		<a href="/admin/photosessions/{{ $photosession->id }}/edit">Edit photosession</a>
         </div>
 

@@ -29,9 +29,12 @@ elixir(function(mix) {
     		'libs/sweetalert.css',
             'libs/social-icons.css'
     	],'./public/css/libs.css')
+        .styles([
+            'libs/admin-style.css',
+        ],'./public/css/admin/admin-style.css')
     	.browserify('app.js')
     	.browserSync({
     		proxy: 'agnieszka.dev',
-    		port:3006
+    		port:3008
     	});
 });

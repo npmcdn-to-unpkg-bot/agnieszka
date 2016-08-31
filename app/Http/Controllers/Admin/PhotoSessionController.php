@@ -62,7 +62,7 @@ class PhotoSessionController extends Controller
         $file->move($this->backgroundsBaseDir, $name);
 
         //Find the photo session
-        $photosession = PhotoSession::find($id)->firstOrFail();
+        $photosession = PhotoSession::findOrFail($id);
         $photosession->background_image_path = $this->backgroundsBaseDir . '/' . $name;
         $photosession->background_image_path_thumbnail = sprintf("%s/tn-%s", $this->backgroundsBaseDir, $name);
 
@@ -91,7 +91,7 @@ class PhotoSessionController extends Controller
         $photo = $this->makePhoto($request->file('photo'));
 
         //Save and associate photo with PhotoSession
-        PhotoSession::find($id)->firstOrFail()->addPhoto($photo);
+        PhotoSession::findOrFail($id)->addPhoto($photo);
     }
 
     protected function makePhoto(UploadedFile $file)
@@ -108,7 +108,7 @@ class PhotoSessionController extends Controller
      */
     public function show($id)
     {
-        $photosession = PhotoSession::find($id);
+        $photosession = PhotoSession::findOrFail($id);
 
         return view('admin.pages.gallery', compact('photosession'));
     }
@@ -119,9 +119,9 @@ class PhotoSessionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($photosessions)
     {
-        $photosession = PhotoSession::find($id);
+        $photosession = PhotoSession::findOrFail($photosessions);
         return view('admin.pages.editgallery', compact('photosession'));
     }
 

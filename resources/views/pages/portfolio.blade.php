@@ -35,7 +35,7 @@
 								        		 @if(Auth::check() && Auth::user()->hasRole('admin'))
 								        		 	<div class="delete-photo">
 								        		 		<form method="POST" action="/portfoliophoto/{{ $photo->id }}">
-								        					{!! csrf_field() !!}
+								        					{{ csrf_field() }}
 								        					<input type="hidden" name="_method" value="DELETE">
 
 								        					<button type="submit" class="btn btn-danger">
@@ -44,7 +44,7 @@
 								        				</form>
 								        		 	</div>
 							        			@endif
-												<img class="lazy img-responsive" src="{{ $photo->path }}" alt="Agnieszka Krol Portfolio photo">
+												<img class="img-responsive" src="{{ $photo->path }}" alt="Agnieszka Krol Portfolio photo">
 											</div>
 									    @endforeach
 								    </div> {{-- ./masonry-container --}}

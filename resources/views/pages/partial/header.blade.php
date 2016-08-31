@@ -31,6 +31,6 @@
         @include('pages.partial.sidebar')
     @endif
     @if (! Request::is('contact'))
-        @include('pages.partial.social-icons')
+        {{-- @include('pages.partial.social-icons') --}}
     @endif
 </header>

@@ -19,6 +19,7 @@ class PhotoSession extends Model
     	'title',
     	'category',
     	'background_image_path',
+        'background_image_path_thumbnail',
     	'date_of_photosession',
         'request_submitted'
     ];
@@ -41,6 +42,16 @@ class PhotoSession extends Model
     public function photos()
     {
         return $this->hasMany('App\Photo', 'photosession_id');
+    }
+
+    public function scopeRequestSubmitted($query)
+    {
+        return $query->where('request_submitted');
+    }
+
+    public function scopeAwaitingRequest($query)
+    {
+        return $query->where('request_submitted', 0);
     }
 
     public function setDateOfPhotosessionAttribute($date)
