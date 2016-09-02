@@ -4,7 +4,9 @@
 // Route::get('/', ['as' => 'home', function () {
 
 // 	\App\Role::create(['name' => 'admin']);
-// 	$role = \App\Role::whereName('admin')->first();
+// 	\App\Role::create(['name' => 'confirmed']);
+// 	$role1 = \App\Role::whereName('admin')->first();
+// 	$role2 = \App\Role::whereName('confirmed')->first();
 // 	$user = \App\User::create([
 // 		'first_name' => 'Istvan',
 // 		'last_name' => 'Lovas',
@@ -12,7 +14,8 @@
 // 		'password' => Hash::make('secret')
 // 	]);
 // 	$user = \App\User::first();
-// 	$user->roles()->attach($role);
+// 	$user->roles()->attach($role1);
+// 	$user->roles()->attach($role2);
 // 	return \App\User::with('roles')->find(1);
 // }]);
 

@@ -7,7 +7,7 @@ var preloader = new GSPreloader({
   radius: 42,
   dotSize: 15,
   dotCount: 10,
-  colors: ["#ffd900", "#f2f2f2", "#FF6600"], //have as many or as few colors as you want.
+  colors: ["#FFADA9", "#ff7c76", "#ffa9d0"], //have as many or as few colors as you want.
   boxOpacity: 0,
   boxBorder: "1px solid #AAA",
   animationOffset: 1.8 });

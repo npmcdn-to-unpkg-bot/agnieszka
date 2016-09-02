@@ -27,7 +27,9 @@ class PhotoSessionRequest extends Request
             'title' => 'required',
             'category' => 'required',
             'client' => 'required',
-            'date_of_photosession' => 'required'
+            'date' => 'required',
+            'photo_download_limit' => 'required|integer',
+            'expiry_date' => 'required'
         ];
     }
 }

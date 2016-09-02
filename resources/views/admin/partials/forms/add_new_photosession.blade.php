@@ -1,9 +1,10 @@
 @inject('users', 'App\User')
 
-<div class="panel panel-default">
-    <div class="panel-heading">Add new Photo Session</div>
+<div class="col-xs-12 col-md-6 add-photosession">
+    <div class="panel panel-default">
+        <div class="panel-heading">Add new photosession</div>
         <div class="panel-body">
-            <form class="form-horizontal" role="form" method="POST" enctype="multipart/form-data" action="{{ url('/admin/photosessions') }}">
+            <form class="form-horizontal form" role="form" method="POST" enctype="multipart/form-data" action="{{ url('/admin/photosessions') }}">
                 {{ csrf_field() }}
 
                 <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
@@ -44,7 +45,9 @@
                         <select id="client" name="client" class="form-control">
                             <option selected disabled>Please select a client</option>
                             @foreach($users::all() as $user)
-                                <option value="{{ $user->id }}">{{ $user->getFullName() }}</option>
+                                @if(! $user->hasRole('admin'))
+                                    <option value="{{ $user->id }}">{{ $user->getFullName() }}</option>
+                                @endif
                             @endforeach
                             @if ($errors->has('client'))
                                 <span class="help-block">
@@ -55,14 +58,47 @@
                     </div>
                 </div>
 
-                <div class="form-group{{ $errors->has('date_of_photosession') ? ' has-error' : '' }}">
-                    <label for="date_of_photosession" class="col-md-4 control-label">Date of shooting</label>
+                <div class="form-group{{ $errors->has('date') ? ' has-error' : '' }}">
+                    <label for="date" class="col-md-4 control-label">Date of shooting</label>
 
                     <div class="col-md-6">
-                        <input id="datepicker" type="text" class="form-control" name="date_of_photosession" value="{{ date('d/m/Y') }}">
-                        @if ($errors->has('date_of_photosession'))
+                        <input id="date" type="text" class="form-control" name="date" value="{{ date('d/m/Y') }}">
+                        @if ($errors->has('date'))
                             <span class="help-block">
-                                <strong>{{ $errors->first('date_of_photosession') }}</strong>
+                                <strong>{{ $errors->first('date') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                </div>
+
+                <div class="form-group{{ $errors->has('photo_download_limit') ? ' has-error' : '' }}">
+                    <label for="photo_download_limit" class="col-md-4 control-label">Download limit</label>
+
+                    <div class="col-md-6">
+                        <select id="photo_download_limit" name="photo_download_limit" class="form-control">
+                            <option value="5">5</option>
+                            <option value="10" selected>10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                            <option value="25">25</option>
+                            <option value="30">30</option>
+                            @if ($errors->has('photo_download_limit'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('photo_download_limit') }}</strong>
+                                </span>
+                            @endif
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group{{ $errors->has('expiry_date') ? ' has-error' : '' }}">
+                    <label for="expiry_date" class="col-md-4 control-label">Expiry date</label>
+
+                    <div class="col-md-6">
+                        <input id="expiry_date" type="text" class="form-control" name="expiry_date" value="{{ \Carbon\Carbon::now()->addMonth()->format('d/m/Y') }}">
+                        @if ($errors->has('expiry_date'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('expiry_date') }}</strong>
                             </span>
                         @endif
                     </div>
@@ -70,11 +106,12 @@
 
                 <div class="form-group">
                     <div class="col-md-6 col-md-offset-4">
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fa fa-btn fa-user"></i> Add new photo session
+                        <button type="submit" class="btn btn-primary" data-after-submit-value="Adding photosession&hellip;">
+                            <svg class="glyph stroked camera "><use xlink:href="#stroked-camera"/></svg> Add Photosession
                         </button>
                     </div>
                 </div>
             </form>
-        </div>
+        </div> {{-- ./panel-body --}}
+    </div> {{-- ./panel --}}
 </div>

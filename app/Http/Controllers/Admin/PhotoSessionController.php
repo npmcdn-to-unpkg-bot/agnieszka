@@ -22,7 +22,7 @@ class PhotoSessionController extends Controller
      */
     public function index()
     {
-        $photosessions = PhotoSession::all();
+        $photosessions = PhotoSession::latest('date')->get();
 
         return view('admin.pages.photosessions', compact('photosessions'));
     }
@@ -36,17 +36,18 @@ class PhotoSessionController extends Controller
     public function store(PhotoSessionRequest $request)
     {
         $user = User::findOrFail($request->client);
-
         $photosession = PhotoSession::create([
             'user_id' => $request->client,
             'title' => $request->title,
             'category' => $request->category,
-            'date_of_photosession' => $request->date_of_photosession
+            'date' => $request->date,
+            'photo_download_limit' => $request->photo_download_limit,
+            'expiry_date' => $request->expiry_date,
         ]);
 
         $user->photosessions()->save($photosession);
 
-        flash()->success('Nice one! :)', 'You have successfully created a new photo session!');
+        flash()->success('Nice one! :)', 'You have successfully created a new Photosession!');
         return redirect('/admin/photosessions/' . $photosession->id . '/edit');
     }
 

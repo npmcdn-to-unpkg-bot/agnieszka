@@ -7,8 +7,8 @@
 @stop
 
 @section('content')
-
 <section class="client-gallery">
+
 @if( $photosession->background_image === null)
 	<div class="row">
 		<h2>Add Background Image</h2>

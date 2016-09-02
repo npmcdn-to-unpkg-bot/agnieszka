@@ -81,7 +81,7 @@ class AuthController extends Controller
 
         // Auth::guard($this->getGuard())->login($this->create($request->all()));
         flash()->success('Nice one! :)', 'You have successfully created a new client!');
-        return redirect('/dashboard');
+        return back();
     }
 
 }

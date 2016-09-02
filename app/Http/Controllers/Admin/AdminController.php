@@ -13,20 +13,26 @@ class AdminController extends Controller
 {
 	public function dashboard()
 	{
-		$photosessions = Photosession::with('photos', 'user')->get();
-		$users = User::all();
+		$photosessions = Photosession::count();
+		$ordered = Photosession::where('ordered', true)->count();
+		$awaiting_orders = Photosession::where('ordered', false)->count();
+		$purchased = Photosession::where('purchased', true)->count();
+		$admins = User::withCount('roles')->count();
+		$clients = User::count() - $admins;
 
 		return view('admin.pages.dashboard', compact([
 			'photosessions',
-			'users'
+			'ordered',
+			'awaiting_orders',
+			'purchased',
+			'clients'
 		]));
 	}
 
 	public function clients()
 	{
-		$users = User::all();
-
-		return view('admin.pages.clients', compact('users'));
+		$clients = User::has('photosessions')->get();
+		return view('admin.pages.clients', compact('clients'));
 	}
 
 	//Add photo(s) to the Database

@@ -25,26 +25,11 @@
         <div class="row photosessions-overview">
             @include('admin.pages.partials.photosessions-overview')
         </div>
-
-       {{--  <div class="row forms">
-            <div class="form-error-msg">
-                @include('errors/errors')
-            </div>
-                    
-            <div class="col-md-5 col-md-offset-1 add-photosession">
-                <div class="row">
-                    <h1>Add new Photo Session</h1>
-            
-                    @include('admin.partials.forms.add_new_photosession')
-            
-                </div>
-            </div>
-        </div> --}}
+        
     </div> {{-- ./photosessions --}}
 @stop
 
 @section('customJS')
-<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
 <script src="https://npmcdn.com/masonry-layout@4.1/dist/masonry.pkgd.min.js"></script>
 <script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/dropzone.js"></script>

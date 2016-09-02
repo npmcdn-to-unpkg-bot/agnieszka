@@ -14,7 +14,7 @@
         <div class="user-link">
             @if(Auth::check())
                 @if (Auth::user()->hasRole('admin'))
-                    <a href="{{ route('admin') }}" class="icon-profile"><span>Hi, {{ Auth::user()->getFullName() }}</span> {!! file_get_contents("images/social-icons/profile.svg") !!}</a>
+                    <a href="{{ route('dashboard') }}" class="icon-profile"><span>Hi, {{ Auth::user()->getFullName() }}</span> {!! file_get_contents("images/social-icons/profile.svg") !!}</a>
                 @else
                     <a href="{{ route('client-dashboard', Auth::user()->id) }}" class="icon-profile"><span>Hi, {{ Auth::user()->getFullName() }}</span> {!! file_get_contents("images/social-icons/profile.svg") !!}</a>
                 @endif

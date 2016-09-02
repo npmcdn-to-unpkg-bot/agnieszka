@@ -26,7 +26,7 @@
 </head>
 <body id="app-layout">
     
-    {{-- @include('pages.partial.header') --}}
+    @include('pages.partial.header')
 
     <div class="content" role="document">
         @yield('content')

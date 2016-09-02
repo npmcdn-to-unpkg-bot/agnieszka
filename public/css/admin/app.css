@@ -9,8 +9,8 @@
 					Admin SCSS
 */
 /*!
- * Bootstrap v3.3.7 (http://getbootstrap.com)
- * Copyright 2011-2016 Twitter, Inc.
+ * Bootstrap v3.3.6 (http://getbootstrap.com)
+ * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
@@ -1081,6 +1081,7 @@ a {
     color: #23527c;
     text-decoration: underline; }
   a:focus {
+    outline: thin dotted;
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px; }
 
@@ -2292,6 +2293,7 @@ select[size] {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
+  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px; }
 
@@ -2796,6 +2798,7 @@ select[multiple].input-lg,
   -ms-user-select: none;
   user-select: none; }
   .btn:focus, .btn.focus, .btn:active:focus, .btn:active.focus, .btn.active:focus, .btn.active.focus {
+    outline: thin dotted;
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px; }
   .btn:hover, .btn:focus, .btn.focus {
@@ -5806,90 +5809,30 @@ ul, li, ol {
   #admin-header #sidebar {
     width: 240px; } }
 
-/* =======================================
-   Photosession
-   =======================================*/
-.ps-blue {
-  background: #30a5ff;
-  color: #fff; }
-
-.ps-teal {
-  background: #1ebfae;
-  color: #fff; }
-
-.ps-orange {
-  background: #ffb53e;
-  color: #fff; }
-
-.ps-red {
-  background: #f9243f;
-  color: #fff; }
-
-.ps-green {
-  background: #a9ffad;
-  color: #fff; }
-
-.photosession {
-  position: relative;
-  font-family: 'Proxima Nova Soft W04 Regular';
-  height: 150px;
-  margin-bottom: 10px;
+.register-new-client .panel, .add-photosession .panel {
   border-radius: 10px; }
-  .photosession .row {
-    position: relative; }
-  .photosession .bg-img {
+  .register-new-client .panel .panel-heading, .add-photosession .panel .panel-heading {
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px; }
+
+.register-new-client .btn, .add-photosession .btn {
+  font-variant-ligatures: no-common-ligatures;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.270s ease-out 0s; }
+  .register-new-client .btn:hover, .register-new-client .btn:focus, .add-photosession .btn:hover, .add-photosession .btn:focus {
+    background-color: #66e65c;
+    border-color: #66e65c;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); }
+  .register-new-client .btn[disabled], .add-photosession .btn[disabled] {
+    background-color: #a9ffad;
+    border-color: #a9ffad; }
+  .register-new-client .btn .glyph, .add-photosession .btn .glyph {
+    width: 17px;
+    height: 17px;
+    stroke-width: 3px;
     position: relative;
-    height: 150px;
-    padding: 15px; }
-    .photosession .bg-img div {
-      height: 100%;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center; }
-  .photosession .details {
-    padding: 15px 15px 15px 0; }
-    .photosession .details .glyph {
-      height: 16px;
-      width: 16px;
-      margin: 0 3px 0 0;
-      stroke-width: 3px; }
-    .photosession .details .info .meta {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      font-size: 12px; }
-      .photosession .details .info .meta .date {
-        margin-left: 15px; }
-        .photosession .details .info .meta .date span {
-          position: relative;
-          top: 1px; }
-    .photosession .details .info .title-and-name h3 {
-      margin: 0;
-      padding: 30px 0 15px 0;
-      font-family: 'Proxima N W15 Smbd'; }
-    .photosession .details .info .title-and-name h5 {
-      margin: 5px 0; }
-      .photosession .details .info .title-and-name h5 svg {
-        position: relative;
-        top: -2px; }
-  .photosession .controls {
-    position: absolute;
-    bottom: 10px;
-    right: 10px; }
-    .photosession .controls div {
-      position: relative; }
-      .photosession .controls div button {
-        width: 44px;
-        height: 44px;
-        border-radius: 50%;
-        opacity: .7;
-        transition: all 0.270s ease-out 0s; }
-        .photosession .controls div button .glyph {
-          height: 16px;
-          width: 16px;
-          margin: 0;
-          stroke-width: 4px; }
-        .photosession .controls div button:hover, .photosession .controls div button:focus {
-          opacity: 1; }
+    top: -2px;
+    margin-right: 3px; }
 
 /*# sourceMappingURL=app.css.map */

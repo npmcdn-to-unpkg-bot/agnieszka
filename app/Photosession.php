@@ -20,12 +20,29 @@ class PhotoSession extends Model
     	'category',
     	'background_image_path',
         'background_image_path_thumbnail',
-    	'date_of_photosession',
-        'request_submitted'
+    	'date',
+        'photo_download_limit',
+        'notification_sent',
+        'ordered',
+        'purchased',
+        'expiry_date'
     ];
     
     protected $table = 'photosessions';
+    protected $notification_sent = false;
+    protected $ordered = false;
+    protected $purchased = false;
 
+    public function setDateAttribute($date)
+    {
+        $this->attributes['date'] = Carbon::createFromFormat('d/m/Y',$date);   
+    }
+
+    public function setExpiryDateAttribute($date)
+    {
+        $this->attributes['expiry_date'] = Carbon::createFromFormat('d/m/Y',$date);   
+    }
+    
     /**
      * A Photosession belongs to a User (client)
      * @return Illuminate\Database\Eloquent\Relationships\BelongsTo
@@ -44,19 +61,51 @@ class PhotoSession extends Model
         return $this->hasMany('App\Photo', 'photosession_id');
     }
 
-    public function scopeRequestSubmitted($query)
+    /**
+     * Photos has been ordered by the client
+     * @return boolean
+     */
+    public function ordered()
     {
-        return $query->where('request_submitted');
+        return $this->ordered;
     }
 
-    public function scopeAwaitingRequest($query)
+    /**
+     * Photos has been purchased.
+     * @return boolean
+     */
+    public function purchased()
     {
-        return $query->where('request_submitted', 0);
+        return $this->purchased;
     }
 
-    public function setDateOfPhotosessionAttribute($date)
+    /**
+     * Client of the photosession has been notified via email.
+     * @return boolean
+     */
+    public function notification_sent()
     {
-    	$this->attributes['date_of_photosession'] = Carbon::createFromFormat('d/m/Y',$date);   
+        return $this->notification_sent;
+    }
+
+    public function photo_download_limit()
+    {
+        $this->photo_download_limit;
+    }
+
+    public function make_order()
+    {
+        return $this->ordered = true;
+    }
+
+    public function make_purchase()
+    {
+        return $this->purchased = true;
+    }
+
+    public function send_notification()
+    {
+        return $this->notification_sent = true;
     }
 
     public function addPhoto(Photo $photo)

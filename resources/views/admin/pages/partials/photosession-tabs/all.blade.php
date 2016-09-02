@@ -1,6 +1,6 @@
 @if(count($photosessions) > 0)
     @foreach($photosessions as $photosession)
-        <div class="col-xs-12 photosession {{ $photosession->request_submitted === 1 ? 'ps-teal' : 'ps-red' }}">
+        <div class="col-xs-12 photosession {{ $photosession->ordered ? 'ps-teal' : 'ps-red' }}">
             <div class="row">
 
                 <div class="col-xs-4 col-md-3 bg-img">
@@ -16,7 +16,7 @@
                             </span>
                             <span class="date">
                                 <svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"/></svg>
-                                <span>{{ $photosession->date_of_photosession }}</span>
+                                <span>{{ $photosession->date }}</span>
                             </span>
                         </div> {{-- ./meta --}}
                         <div class="title-and-name">

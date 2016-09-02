@@ -4,10 +4,10 @@
             <a href="#ps-all" aria-controls="ps-all" role="tab" data-toggle="tab">All</a>
         </li>
         <li role="presentation">
-            <a href="#ps-request-submitted" aria-controls="ps-request-submitted" role="tab" data-toggle="tab">Requests sent</a>
+            <a href="#ps-ordered" aria-controls="ps-ordered" role="tab" data-toggle="tab">Ordered</a>
         </li>
         <li role="presentation">
-            <a href="#ps-request-awaiting" aria-controls="ps-request-awaiting" role="tab" data-toggle="tab">Awaiting requests</a>
+            <a href="#ps-awaiting-order" aria-controls="ps-awaiting-order" role="tab" data-toggle="tab">Awaiting order</a>
         </li>
     </ul> {{-- Tapanel tabs --}}
 
@@ -17,10 +17,10 @@
                 @include('admin.pages.partials.photosession-tabs.all')
             </div> {{-- ./tab-pane --}}
 
-            <div role="tabpanel" class="tab-pane fade" id="ps-request-submitted">
-                @if(count($photosessions->where('request_submitted',1)) > 0)
+            <div role="tabpanel" class="tab-pane fade" id="ps-ordered">
+                @if(count($photosessions->where('ordered',true)) > 0)
                     <div class="row">
-                        @foreach($photosessions->where('request_submitted',1) as $photosession)
+                        @foreach($photosessions->where('ordered',true) as $photosession)
                             <div class="col-xs-6 col-sm-4 col-lg-3 photosession">
                                 <div class="controls">
                                     <div class="edit-photosession">
@@ -52,20 +52,20 @@
                                 @endif
                                 <div class="footer">
                                     <span>{{ $photosession->category }}</span>
-                                    <span>{{ $photosession->date_of_photosession }}</span>
+                                    <span>{{ $photosession->date }}</span>
                                 </div>
                             </div> {{-- ./photosession --}}
                         @endforeach
                     </div> {{-- ./row --}}
                 @else
-                <p>There is no photosession with submitted request! </p>
+                <p>There is no photosession with submitted order! </p>
                 @endif
             </div> {{-- ./tab-pane --}}
 
-            <div role="tabpanel" class="tab-pane fade" id="ps-request-awaiting">
-                @if(count($photosessions->where('request_submitted',0)) > 0)
+            <div role="tabpanel" class="tab-pane fade" id="ps-awaiting-order">
+                @if(count($photosessions->where('order',false)) > 0)
                     <div class="row">
-                        @foreach($photosessions->where('request_submitted',0) as $photosession)
+                        @foreach($photosessions->where('order',false) as $photosession)
                             <div class="col-xs-6 col-sm-4 col-lg-3 photosession">
                                 <div class="controls">
                                     <div class="edit-photosession">
@@ -97,13 +97,13 @@
                                 @endif
                                 <div class="footer">
                                     <span>{{ $photosession->category }}</span>
-                                    <span>{{ $photosession->date_of_photosession }}</span>
+                                    <span>{{ $photosession->date }}</span>
                                 </div>
                             </div> {{-- ./photosession --}}
                         @endforeach
                     </div> {{-- ./row --}}
                 @else
-                <p>There is no photosession with awaiting request! </p>
+                <p>There is no photosession with awaiting orderes! </p>
                 @endif
             </div> {{-- ./tab-pane --}}
         </div> {{-- ./tab-content --}}

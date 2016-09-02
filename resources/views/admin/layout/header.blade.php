@@ -29,9 +29,15 @@
     
     <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
     	<ul class="nav menu">
-    		<li class="{{ setActiveForAdminNavigation('admin') }}"><a href="{{ route('dashboard') }}"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Dashboard</a></li>
-    		<li class="{{ setActiveForAdminNavigation('admin/photosessions') }}"><a href="admin/photosessions"><svg class="glyph stroked camera "><use xlink:href="#stroked-camera"/></svg> Photosessions</a></li>
-    		<li class="{{ setActiveForAdminNavigation('admin/clients') }}"><a href="{{ route('clients') }}"><svg class="glyph stroked female user"><use xlink:href="#stroked-female-user"/></svg> Clients</a></li>
+    		<li class="{{ setActiveForAdminNavigation('admin') }}">
+    			<a href="{{ route('dashboard') }}"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Dashboard</a>
+    		</li>
+    		<li class="{{ setActiveForAdminNavigation('admin/photosessions') }}">
+    			<a href="admin/photosessions"><svg class="glyph stroked camera "><use xlink:href="#stroked-camera"/></svg> Photosessions</a>
+    		</li>
+    		<li class="{{ setActiveForAdminNavigation('admin/clients') }}">
+    			<a href="{{ route('clients') }}"><svg class="glyph stroked female user"><use xlink:href="#stroked-female-user"/></svg> Clients</a>
+    		</li>
     	</ul>
 	</div> {{-- ./sidebar --}}
 </header>
