@@ -10,6 +10,7 @@
 // font-family:'LinotypeBreweryW01-Bold';
 // font-family:'Proxima N W15 Smbd';
 // font-family:'Proxima Nova Soft W04 Regular';
+// font-family:'AdobeCaslonW01-Regular';
 
 $primary: #FFADA9;
 $primaryLight: #ffdedc;
@@ -42,7 +43,7 @@ html,body {
 
 body {
   font-size:$fontsize;
-  font-family:'LinotypeBreweryW01-Ligh';
+  font-family:'AdobeCaslonW01-Regular';
   color:$textcolor;
   background: $background;
 }

@@ -5743,7 +5743,7 @@ button.close {
     display: none !important; } }
 
 /* =======================================
-   General Styles for Admin Dasboard
+   General Styles
    =======================================*/
 html, body {
   width: 100%;
@@ -5751,7 +5751,7 @@ html, body {
 
 body {
   font-size: 16px;
-  font-family: 'LinotypeBreweryW01-Ligh';
+  font-family: 'AdobeCaslonW01-Regular';
   color: rgba(0, 0, 0, 0.7);
   background: #fbfbfb; }
 
@@ -5760,9 +5760,7 @@ p {
   margin-bottom: 15px; }
 
 a {
-  transition: all 0.270s ease-out 0s;
-  text-rendering: geometricPrecision;
-  font-variant-ligatures: no-common-ligatures; }
+  transition: all 0.270s ease-out 0s; }
 
 a:hover, a:focus {
   text-decoration: none; }
@@ -5778,8 +5776,76 @@ ul, li, ol {
   padding: 0; }
 
 .content {
+  height: 100%;
   position: relative; }
 
+section {
+  padding-bottom: 60px; }
+  section h2 {
+    margin: 0;
+    padding-top: 135px;
+    font-size: 96px;
+    font-family: 'Sheila W00';
+    letter-spacing: 0.07em;
+    color: #ffcbe2;
+    text-align: center; }
+  section .intro, section .outro {
+    padding: 60px 15px; }
+    section .intro p, section .outro p {
+      font-size: 18px;
+      margin: 0 auto;
+      max-width: 920px; }
+
+.social-icons {
+  display: none; }
+
+@media screen and (min-width: 992px) {
+  section .intro p, section .outro p {
+    text-align: center;
+    font-size: 21px; } }
+
+@media screen and (min-width: 1024px) {
+  .container-fluid {
+    padding-left: 280px;
+    padding-right: 40px; }
+  .social-icons {
+    display: block;
+    position: fixed;
+    bottom: 33px;
+    left: 40px;
+    z-index: 999; }
+    .social-icons li {
+      display: inline-block;
+      margin-right: 5px;
+      cursor: pointer;
+      transition: all 0.270s ease-out 0s; }
+      .social-icons li:hover .svg-icon path, .social-icons li:focus .svg-icon path {
+        fill: #ffdedc; } }
+
+@media screen and (min-width: 1200px) {
+  section .intro p, section .outro p {
+    font-size: 25px; } }
+
+/**
+ * Fix for vw, vh, vmin, vmax on iOS 7.
+ * http://caniuse.com/#feat=viewport-units
+ *
+ * This fix works by replacing viewport units with px values on known screen sizes.
+ *
+ * iPhone 6 and 6 Plus cannot run iOS 7, so are not targeted by this fix.
+ * Target devices running iOS 8+ will incidentally execute the media query,
+ * but this will still produce the expected result; so this is not a problem.
+ *
+ * As an example, replace:
+ *
+ *   height: 50vh;
+ *   font-size: 5vmin;
+ *
+ * with:
+ *
+ *   @include viewport-unit(height, 50vh);
+ *   @include viewport-unit(font-size, 5vmin);
+ */
 /* =======================================
    Admin Header
    =======================================*/
@@ -5834,5 +5900,120 @@ ul, li, ol {
     position: relative;
     top: -2px;
     margin-right: 3px; }
+
+/* =======================================
+   Photosession
+   =======================================*/
+.photosession {
+  position: relative;
+  height: 450px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border: 1px solid #000; }
+  .photosession .bg-img {
+    height: 225px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    z-index: 99; }
+  .photosession .button-edit-photosession {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100; }
+    .photosession .button-edit-photosession button {
+      width: 65px;
+      height: 65px;
+      border-radius: 50%; }
+      .photosession .button-edit-photosession button .glyph {
+        height: 20px;
+        width: 20px;
+        margin: 0;
+        stroke-width: 4px; }
+  .photosession .details {
+    padding: 15px 15px 15px 0; }
+    .photosession .details .glyph {
+      height: 16px;
+      width: 16px;
+      margin: 0 3px 0 0;
+      stroke-width: 3px; }
+    .photosession .details .info .meta {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 12px; }
+      .photosession .details .info .meta .date {
+        margin-left: 15px; }
+        .photosession .details .info .meta .date span {
+          position: relative;
+          top: 1px; }
+    .photosession .details .info .title-and-name h3 {
+      margin: 0;
+      padding: 30px 0 15px 0;
+      font-family: 'Proxima N W15 Smbd'; }
+    .photosession .details .info .title-and-name h5 {
+      margin: 5px 0; }
+      .photosession .details .info .title-and-name h5 svg {
+        position: relative;
+        top: -2px; }
+
+/* =======================================
+   Admin / Edit Gallery
+   =======================================*/
+#gallery {
+  padding-bottom: 60px; }
+  #gallery .admin-tools {
+    border-bottom: 1px solid #000; }
+    #gallery .admin-tools ul li {
+      display: inline; }
+  #gallery .gallery-wrapper, #gallery .photos {
+    margin: 15px -15px; }
+  #gallery .background-image {
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 70vh; }
+    @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
+      #gallery .background-image {
+        height: 716.8px; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape) {
+      #gallery .background-image {
+        height: 537.6px; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: portrait) {
+      #gallery .background-image {
+        height: 336px; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: landscape) {
+      #gallery .background-image {
+        height: 224px; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: portrait) {
+      #gallery .background-image {
+        height: 397.6px; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: landscape) {
+      #gallery .background-image {
+        height: 224px; } }
+  #gallery .photos .item {
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 15px; }
+    #gallery .photos .item .delete-photo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); }
+      #gallery .photos .item .delete-photo button {
+        border-radius: 50%;
+        opacity: 0;
+        transition: all 0.45s ease-in-out 0s; }
+        #gallery .photos .item .delete-photo button:hover, #gallery .photos .item .delete-photo button:focus {
+          opacity: 1; }
+    #gallery .photos .item:hover button, #gallery .photos .item:focus button {
+      opacity: .7; }
+    #gallery .photos .item img {
+      border-radius: 5px; }
 
 /*# sourceMappingURL=app.css.map */

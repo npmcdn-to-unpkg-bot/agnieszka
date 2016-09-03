@@ -10,9 +10,11 @@
 
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
-@import 'layout/general';
+@import '../general/general';
+@import '../mixins/vh_unit_workaround';
+
 @import 'layout/header';
-@import 'layout/sidebar';
 @import 'layout/dashboard/general-infos';
 @import 'layout/dashboard/forms';
-@import 'layout/photosessions/tabs';
+@import 'layout/photosessions/photosessions';
+@import 'layout/edit-gallery/gallery';

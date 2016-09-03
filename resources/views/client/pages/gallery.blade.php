@@ -3,17 +3,8 @@
 @section('title'){{ Auth::user()->getFullName() }} Profile @endsection
 @section('meta_description')Find the profile of {{ Auth::user()->getFullName() }} on Agnieszka Krol Photographery client gallery.@endsection
 
-<style>
-	.background-image {
-		background-repeat:no-repeat;
-		background-position: center;
-		background-size: cover;
-		height:100%;
-	}
-</style>
-
 @section('content')
-	{{-- @if(Auth::user() && Auth::user()->owns($photosession)) --}}
+	@if(Auth::user() && Auth::user()->owns($photosession) || Auth::user()->hasRole('d'))
 		<section class="client-gallery">
 			<div class="background-image" style="background-image: url('/{{ asset($photosession->background_image_path) }}')"></div>
 			<div class="container-fluid">
@@ -45,10 +36,10 @@
 				</div>
 			</div>
 		</section>
-	{{-- @endif --}}
+	@endif
 @endsection
 
-{{-- @section('customJS')
+@section('customJS')
     <script src="https://npmcdn.com/masonry-layout@4.1/dist/masonry.pkgd.min.js"></script>
 	<script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
 	<script src="{{ asset('js/libs.js') }}"></script>
@@ -63,4 +54,4 @@
 				});   
 		});
     </script>
-@stop --}}
+@stop

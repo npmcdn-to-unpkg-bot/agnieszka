@@ -5,15 +5,12 @@
 ++++++++++++++++++++++++++++++++++++++++++++++++
 ======= Webdesing by www.istvanlovas.com =======
 ++++++++++++++++++++++++++++++++++++++++++++++++
-			  Client gallery CSS
+			  Client gallery SCSS
 */
 
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
-@import "mixins/border_bottom_transition";
-@import "mixins/vertical_and_horizontal_align";
-@import "mixins/vh_unit_workaround";
-
-@import 'gallery/general';
-@import 'gallery/header';
-@import 'gallery/client-gallery';
+@import '../general/general';
+@import '../mixins/vh_unit_workaround';
+@import '../mixins/border_bottom_transition';
+@import 'layout/header';

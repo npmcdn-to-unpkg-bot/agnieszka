@@ -73,9 +73,6 @@ class PhotoSessionController extends Controller
 
         $photosession->save();
 
-        flash()->success('Congrats', 'You have successfully uploaded a new background for the gallery!');
-
-        return redirect()->back();
     }
 
     /**

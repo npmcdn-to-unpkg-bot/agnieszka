@@ -17,18 +17,19 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link href="{{ asset('css/gallery.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/gallery/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/admin/admin-style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/libs.css') }}" rel="stylesheet">
+
+    @yield('customCSS')
 
 </head>
 <body id="app-layout">
-
-    @include('client.pages.partials.header')
-
+    @include('client.layout.header')
     <div class="content" role="document">
         @yield('content')
-        @include('client.pages.partials.footer')
+        @include('client.layout.footer')
     </div>
-
 </body>
 </html>

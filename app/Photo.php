@@ -62,7 +62,10 @@ class Photo extends Model
     protected function makeThumbnail()
     {
         Image::make($this->path)
-            ->fit(200)
+            ->resize(300, null, function ($constraint) {
+                $constraint->aspectRatio();
+            })
+            ->insert('images/watermark.png', 'center')
             ->save($this->thumbnail_path); // save() is an Image Intervention method, not Laravels.
     }
     public function delete()

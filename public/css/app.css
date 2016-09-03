@@ -5742,26 +5742,6 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
-/**
- * Fix for vw, vh, vmin, vmax on iOS 7.
- * http://caniuse.com/#feat=viewport-units
- *
- * This fix works by replacing viewport units with px values on known screen sizes.
- *
- * iPhone 6 and 6 Plus cannot run iOS 7, so are not targeted by this fix.
- * Target devices running iOS 8+ will incidentally execute the media query,
- * but this will still produce the expected result; so this is not a problem.
- *
- * As an example, replace:
- *
- *   height: 50vh;
- *   font-size: 5vmin;
- *
- * with:
- *
- *   @include viewport-unit(height, 50vh);
- *   @include viewport-unit(font-size, 5vmin);
- */
 /* =======================================
    General Styles
    =======================================*/
@@ -5771,7 +5751,7 @@ html, body {
 
 body {
   font-size: 16px;
-  font-family: 'LinotypeBreweryW01-Ligh';
+  font-family: 'AdobeCaslonW01-Regular';
   color: rgba(0, 0, 0, 0.7);
   background: #fbfbfb; }
 
@@ -5846,6 +5826,26 @@ section {
   section .intro p, section .outro p {
     font-size: 25px; } }
 
+/**
+ * Fix for vw, vh, vmin, vmax on iOS 7.
+ * http://caniuse.com/#feat=viewport-units
+ *
+ * This fix works by replacing viewport units with px values on known screen sizes.
+ *
+ * iPhone 6 and 6 Plus cannot run iOS 7, so are not targeted by this fix.
+ * Target devices running iOS 8+ will incidentally execute the media query,
+ * but this will still produce the expected result; so this is not a problem.
+ *
+ * As an example, replace:
+ *
+ *   height: 50vh;
+ *   font-size: 5vmin;
+ *
+ * with:
+ *
+ *   @include viewport-unit(height, 50vh);
+ *   @include viewport-unit(font-size, 5vmin);
+ */
 /* =======================================
    Header
    =======================================*/

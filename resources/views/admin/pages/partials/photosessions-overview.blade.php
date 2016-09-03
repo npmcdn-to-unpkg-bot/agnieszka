@@ -31,7 +31,7 @@
                                         </form>
                                     </div>
                                     <div class="view-photosession">
-                                        <form method="GET" action="/admin/photosessions/{{ $photosession->id }}">
+                                        <form method="GET" action="{{ route('client-gallery', [$photosession->user_id, $photosession->id]) }}">
                                             <button type="submit" class="btn btn-success">
                                                 <i class="fa fa-eye" aria-hidden="true"></i>
                                             </button>

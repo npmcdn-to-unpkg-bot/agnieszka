@@ -6,7 +6,7 @@
 ++++++++++++++++++++++++++++++++++++++++++++++++
 ======= Webdesing by www.istvanlovas.com =======
 ++++++++++++++++++++++++++++++++++++++++++++++++
-			  Client gallery CSS
+			  Client gallery SCSS
 */
 /*!
  * Bootstrap v3.3.6 (http://getbootstrap.com)
@@ -5742,6 +5742,90 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
+/* =======================================
+   General Styles
+   =======================================*/
+html, body {
+  width: 100%;
+  height: 100%; }
+
+body {
+  font-size: 16px;
+  font-family: 'AdobeCaslonW01-Regular';
+  color: rgba(0, 0, 0, 0.7);
+  background: #fbfbfb; }
+
+p {
+  text-rendering: optimizeLegibility;
+  margin-bottom: 15px; }
+
+a {
+  transition: all 0.270s ease-out 0s; }
+
+a:hover, a:focus {
+  text-decoration: none; }
+
+.activeNav:after {
+  background-color: #fff;
+  width: 100% !important;
+  height: 2px; }
+
+ul, li, ol {
+  list-style: none;
+  list-style-image: none;
+  padding: 0; }
+
+.content {
+  height: 100%;
+  position: relative; }
+
+section {
+  padding-bottom: 60px; }
+  section h2 {
+    margin: 0;
+    padding-top: 135px;
+    font-size: 96px;
+    font-family: 'Sheila W00';
+    letter-spacing: 0.07em;
+    color: #ffcbe2;
+    text-align: center; }
+  section .intro, section .outro {
+    padding: 60px 15px; }
+    section .intro p, section .outro p {
+      font-size: 18px;
+      margin: 0 auto;
+      max-width: 920px; }
+
+.social-icons {
+  display: none; }
+
+@media screen and (min-width: 992px) {
+  section .intro p, section .outro p {
+    text-align: center;
+    font-size: 21px; } }
+
+@media screen and (min-width: 1024px) {
+  .container-fluid {
+    padding-left: 280px;
+    padding-right: 40px; }
+  .social-icons {
+    display: block;
+    position: fixed;
+    bottom: 33px;
+    left: 40px;
+    z-index: 999; }
+    .social-icons li {
+      display: inline-block;
+      margin-right: 5px;
+      cursor: pointer;
+      transition: all 0.270s ease-out 0s; }
+      .social-icons li:hover .svg-icon path, .social-icons li:focus .svg-icon path {
+        fill: #ffdedc; } }
+
+@media screen and (min-width: 1200px) {
+  section .intro p, section .outro p {
+    font-size: 25px; } }
+
 /**
  * Fix for vw, vh, vmin, vmax on iOS 7.
  * http://caniuse.com/#feat=viewport-units
@@ -5763,53 +5847,32 @@ button.close {
  *   @include viewport-unit(font-size, 5vmin);
  */
 /* =======================================
-   General Styles for Gallery
+   Gallery Header
    =======================================*/
-html, body {
-  width: 100%;
-  height: 100%; }
-
-body {
-  font-size: 16px;
-  color: rgba(0, 0, 0, 0.87);
-  line-height: 1.6;
-  background: #fbfbfb; }
-
-p {
-  text-rendering: optimizeLegibility; }
-
-a {
-  transition: all 0.270s ease-out 0s; }
-
-a:hover, a:focus {
-  text-decoration: none; }
-
-ul, li, ol {
-  list-style: none;
-  list-style-image: none;
-  padding: 0; }
-
-.content {
-  position: relative;
-  height: 100%; }
-
-.dz-max-files-reached {
-  background-color: red; }
+#gallery-header #sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 99;
+  background-color: #ff7c76;
+  width: 8px;
+  transition: width 0.54s cubic-bezier(0.9, 0, 0.33, 1) 0.2s, opacity 0.45s linear 0.2s, background-color 0.45s ease-in-out; }
+  #gallery-header #sidebar nav ul {
+    padding-top: 168px;
+    margin: 0;
+    position: relative; }
+    #gallery-header #sidebar nav ul li a {
+      font-family: 'Proxima N W15 Smbd';
+      color: #fff;
+      padding: 6px 0 0;
+      margin-left: 40px;
+      font-size: 18px; }
+      #gallery-header #sidebar nav ul li a:hover, #gallery-header #sidebar nav ul li a:focus {
+        color: #fff; }
 
 @media screen and (min-width: 1024px) {
-  section {
-    padding-left: 240px; } }
+  #admin-header #sidebar {
+    width: 240px; } }
 
-/* =======================================
-   Client Gallery
-   =======================================*/
-.item {
-  position: relative;
-  margin-bottom: 15px; }
-  .item input[type=checkbox] {
-    position: absolute;
-    opacity: 0; }
-  .item label {
-    margin: 0; }
-
-/*# sourceMappingURL=gallery.css.map */
+/*# sourceMappingURL=app.css.map */

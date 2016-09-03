@@ -1,12 +1,11 @@
 @if(count($photosessions) > 0)
     @foreach($photosessions as $photosession)
-        <div class="col-xs-12 photosession {{ $photosession->ordered ? 'ps-teal' : 'ps-red' }}">
+        <div class="col-xs-6 col-sm-4 photosession">
             <div class="row">
+                <div class="col-xs-12 bg-img" style="background-image: url('/{{ asset($photosession->background_image_path_thumbnail) }}')"></div>
+            </div>
 
-                <div class="col-xs-4 col-md-3 bg-img">
-                    <div style="background-image: url('/{{ asset($photosession->background_image_path_thumbnail) }}')"></div>
-                </div> {{-- ./bg-img --}}
-
+            <div class="row">
                 <div class="col-xs-8 details">
                     <div class="info">
                         <div class="meta">
@@ -29,14 +28,7 @@
                     </div> {{-- ./info --}}
                 </div> {{-- ./details --}}
 
-                <div class="controls">
-                    <div class="edit-photosession">
-                        <form method="GET" action="/admin/photosessions/{{ $photosession->id }}/edit">
-                            <button type="submit" class="btn btn-success">
-                                <svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"/></svg>
-                            </button>
-                        </form>
-                    </div>
+                {{-- <div class="controls">
                     <div class="view-photosession">
                         <form method="GET" action="{{ route('client-gallery', [$photosession->user->id,$photosession->id ]) }}">
                             <button type="submit" class="btn btn-success">
@@ -44,9 +36,17 @@
                             </button>
                         </form>
                     </div>
-                </div> {{-- ./controls --}}
+                </div> --}} {{-- ./controls --}}
 
             </div> {{-- ./row --}}
+
+            <div class="button-edit-photosession">
+                <form method="GET" action="/admin/photosessions/{{ $photosession->id }}/edit">
+                    <button type="submit" class="btn btn-success">
+                        <svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"/></svg>
+                    </button>
+                </form>
+            </div>
         </div> {{-- ./photosession --}}
     @endforeach
 @else

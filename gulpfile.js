@@ -13,16 +13,18 @@ var elixir = require('laravel-elixir');
 
 elixir(function(mix) {
     mix
-    	.sass('app.scss')
         .sass([
-            'gallery.scss'
-        ],'./public/css/gallery.css')
+            'public/app.scss'
+        ],'./public/css/app.css')
+        .sass([
+            'gallery/app.scss'
+        ],'./public/css/gallery/app.css')
         .sass([
             'admin/app.scss'
         ],'./public/css/admin/app.css')
     	.scripts([
     		'libs/sweetalert-dev.js',
-            'libs/img-lazyload.js'
+            'libs/smooth-scroll.js'
     	],'./public/js/libs.js')
     	.styles([
             'toggle.css',
