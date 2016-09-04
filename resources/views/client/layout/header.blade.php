@@ -1,4 +1,4 @@
-{{-- <header id="gallery-header">
+<header id="gallery-header">
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -40,4 +40,4 @@
     		</li>
     	</ul>
 	</div>
-</header> --}}
+</header>

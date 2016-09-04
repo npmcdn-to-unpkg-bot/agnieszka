@@ -14,7 +14,12 @@ class Photo extends Model
      * @var array
      */
 	protected $table = 'photosession_photos';
-    protected $fillable = ['path', 'name', 'thumbnail_path'];
+    protected $fillable = [
+        'path',
+        'name',
+        'thumbnail_path',
+        'selected'
+    ];
 
     /*
      * The base directory where photos are stored.
@@ -62,7 +67,7 @@ class Photo extends Model
     protected function makeThumbnail()
     {
         Image::make($this->path)
-            ->resize(300, null, function ($constraint) {
+            ->resize(700, null, function ($constraint) {
                 $constraint->aspectRatio();
             })
             ->insert('images/watermark.png', 'center')

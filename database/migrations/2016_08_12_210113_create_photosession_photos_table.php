@@ -21,6 +21,7 @@ class CreatePhotosessionPhotosTable extends Migration
             $table->string('name');
             $table->string('path');
             $table->string('thumbnail_path');
+            $table->boolean('selected')->default(false);
             $table->timestamps();
         });
     }

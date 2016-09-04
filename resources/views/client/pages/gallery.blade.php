@@ -4,7 +4,7 @@
 @section('meta_description')Find the profile of {{ Auth::user()->getFullName() }} on Agnieszka Krol Photographery client gallery.@endsection
 
 @section('content')
-	@if(Auth::user() && Auth::user()->owns($photosession) || Auth::user()->hasRole('d'))
+	@if(Auth::user() && Auth::user()->owns($photosession) || Auth::user()->hasRole('admin'))
 		<section class="client-gallery">
 			<div class="background-image" style="background-image: url('/{{ asset($photosession->background_image_path) }}')"></div>
 			<div class="container-fluid">

@@ -24,19 +24,34 @@ class PhotoSession extends Model
         'photo_download_limit',
         'notification_sent',
         'ordered',
+        'has_permission_to_download',
         'purchased',
         'expiry_date'
     ];
     
     protected $table = 'photosessions';
-    protected $dates = ['expiry_date' , 'date'];
+    protected $dates = ['created_at', 'updated_at', 'date', 'expiry_date'];
     protected $notification_sent = false;
     protected $ordered = false;
+    protected $has_permission_to_download = false;
     protected $purchased = false;
+
+    public function setDateAttribute($date) {
+        $this->attributes['date'] = Carbon::createFromFormat('d/m/Y', $date);
+    }
+
+    public function setExpiryDateAttribute($date) {
+        $this->attributes['expiry_date'] = Carbon::createFromFormat('d/m/Y', $date);
+    }
 
     public function getDate()
     {
         return $this->date->toDateString();
+    }
+
+    public function getExpiryDate()
+    {
+        return $this->expiry_date->toDateTimeString();
     }
 
     public function expires_in()
@@ -72,6 +87,15 @@ class PhotoSession extends Model
     }
 
     /**
+     * Photosession has permission to be downloadable by the client
+     * @return boolean
+     */
+    public function has_permission_to_download()
+    {
+        return $this->has_permission_to_download;
+    }
+
+    /**
      * Photos has been purchased.
      * @return boolean
      */
@@ -97,6 +121,11 @@ class PhotoSession extends Model
     public function make_order()
     {
         return $this->ordered = true;
+    }
+
+    public function allow_to_download()
+    {
+        return $this->has_permission_to_download = true;
     }
 
     public function make_purchase()
