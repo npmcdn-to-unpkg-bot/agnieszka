@@ -1,4 +1,4 @@
-@if(count($photosessions) > 0)
+@if(count($photosessions->where('ordered',true)) > 0)
     @foreach($photosessions as $photosession)
         <div class="col-xs-6 col-md-4 photosession">
             <div class="row">
@@ -56,5 +56,5 @@
         </div> {{-- ./photosession --}}
     @endforeach
 @else
-    <p>You have not created any photosessions yet!</p>
+    <p>You have not received any orders yet!</p>
 @endif

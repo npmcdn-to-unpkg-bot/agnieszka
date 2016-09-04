@@ -5779,53 +5779,6 @@ ul, li, ol {
   height: 100%;
   position: relative; }
 
-section {
-  padding-bottom: 60px; }
-  section h2 {
-    margin: 0;
-    padding-top: 135px;
-    font-size: 96px;
-    font-family: 'Sheila W00';
-    letter-spacing: 0.07em;
-    color: #ffcbe2;
-    text-align: center; }
-  section .intro, section .outro {
-    padding: 60px 15px; }
-    section .intro p, section .outro p {
-      font-size: 18px;
-      margin: 0 auto;
-      max-width: 920px; }
-
-.social-icons {
-  display: none; }
-
-@media screen and (min-width: 992px) {
-  section .intro p, section .outro p {
-    text-align: center;
-    font-size: 21px; } }
-
-@media screen and (min-width: 1024px) {
-  .container-fluid {
-    padding-left: 280px;
-    padding-right: 40px; }
-  .social-icons {
-    display: block;
-    position: fixed;
-    bottom: 33px;
-    left: 40px;
-    z-index: 999; }
-    .social-icons li {
-      display: inline-block;
-      margin-right: 5px;
-      cursor: pointer;
-      transition: all 0.270s ease-out 0s; }
-      .social-icons li:hover .svg-icon path, .social-icons li:focus .svg-icon path {
-        fill: #ffdedc; } }
-
-@media screen and (min-width: 1200px) {
-  section .intro p, section .outro p {
-    font-size: 25px; } }
-
 /**
  * Fix for vw, vh, vmin, vmax on iOS 7.
  * http://caniuse.com/#feat=viewport-units
@@ -5906,12 +5859,11 @@ section {
    =======================================*/
 .photosession {
   position: relative;
-  height: 450px;
-  margin-bottom: 15px;
-  border-radius: 10px;
-  border: 1px solid #000; }
+  margin-bottom: 15px; }
   .photosession .bg-img {
+    position: relative;
     height: 225px;
+    background-color: #ff7c76;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -5919,47 +5871,84 @@ section {
     border-top-right-radius: 10px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
     z-index: 99; }
-  .photosession .button-edit-photosession {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 100; }
-    .photosession .button-edit-photosession button {
-      width: 65px;
-      height: 65px;
-      border-radius: 50%; }
-      .photosession .button-edit-photosession button .glyph {
-        height: 20px;
-        width: 20px;
-        margin: 0;
-        stroke-width: 4px; }
-  .photosession .details {
-    padding: 15px 15px 15px 0; }
-    .photosession .details .glyph {
-      height: 16px;
-      width: 16px;
-      margin: 0 3px 0 0;
-      stroke-width: 3px; }
-    .photosession .details .info .meta {
+    .photosession .bg-img .glyph {
+      display: block;
       position: absolute;
-      top: 10px;
-      right: 10px;
-      font-size: 12px; }
-      .photosession .details .info .meta .date {
-        margin-left: 15px; }
-        .photosession .details .info .meta .date span {
-          position: relative;
-          top: 1px; }
-    .photosession .details .info .title-and-name h3 {
+      top: 50%;
+      left: 50%;
+      width: 50%;
+      height: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff; }
+    .photosession .bg-img .overlay {
+      background-color: #000;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 101;
+      opacity: .15; }
+    .photosession .bg-img h3 {
+      position: absolute;
+      color: #fff;
       margin: 0;
-      padding: 30px 0 15px 0;
-      font-family: 'Proxima N W15 Smbd'; }
-    .photosession .details .info .title-and-name h5 {
-      margin: 5px 0; }
-      .photosession .details .info .title-and-name h5 svg {
-        position: relative;
-        top: -2px; }
+      padding: 30px 15px;
+      z-index: 102; }
+  .photosession .button-view-photosession {
+    text-align: center; }
+    .photosession .button-view-photosession a {
+      display: block;
+      font-size: 18px;
+      color: #fff;
+      padding: 15px 0;
+      background-color: #FFADA9;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px; }
+  .photosession .details {
+    background-color: #ffdedc;
+    color: #fff; }
+    .photosession .details .button-edit-photosession {
+      width: 100%;
+      position: absolute;
+      top: -33px;
+      margin-left: -15px;
+      text-align: center;
+      z-index: 102; }
+      .photosession .details .button-edit-photosession button {
+        width: 66px;
+        height: 66px;
+        border-radius: 50%; }
+        .photosession .details .button-edit-photosession button .glyph {
+          height: 20px;
+          width: 20px;
+          margin: 0;
+          stroke-width: 4px; }
+    .photosession .details .info {
+      padding: 30px 0; }
+      .photosession .details .info .info-icons > div {
+        padding: 15px;
+        margin-top: 15px;
+        text-align: center;
+        font-size: 10px;
+        text-transform: uppercase; }
+        .photosession .details .info .info-icons > div .glyph {
+          height: 28px;
+          width: 28px;
+          margin: 0;
+          stroke-width: 3px; }
+        .photosession .details .info .info-icons > div span {
+          display: block;
+          margin-top: 10px; }
+    .photosession .details .meta p {
+      font-family: 'Proxima Nova Soft W04 Regular';
+      font-size: 14px;
+      line-height: 1; }
+      .photosession .details .meta p span {
+        font-family: 'Proxima N W15 Smbd';
+        font-size: 2.5em; }
 
 /* =======================================
    Admin / Edit Gallery

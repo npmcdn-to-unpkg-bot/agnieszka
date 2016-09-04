@@ -29,18 +29,19 @@ class PhotoSession extends Model
     ];
     
     protected $table = 'photosessions';
+    protected $dates = ['expiry_date' , 'date'];
     protected $notification_sent = false;
     protected $ordered = false;
     protected $purchased = false;
 
-    public function setDateAttribute($date)
+    public function getDate()
     {
-        $this->attributes['date'] = Carbon::createFromFormat('d/m/Y',$date);   
+        return $this->date->toDateString();
     }
 
-    public function setExpiryDateAttribute($date)
+    public function expires_in()
     {
-        $this->attributes['expiry_date'] = Carbon::createFromFormat('d/m/Y',$date);   
+        return Carbon::now()->diffInDays($this->expiry_date);
     }
     
     /**

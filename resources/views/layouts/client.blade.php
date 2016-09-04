@@ -29,7 +29,7 @@
     @include('client.layout.header')
     <div class="content" role="document">
         @yield('content')
-        @include('client.layout.footer')
     </div>
+    @include('client.layout.footer')
 </body>
 </html>

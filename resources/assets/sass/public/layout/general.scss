@@ -1,0 +1,66 @@
+section {
+  padding-bottom:$paddingLarge;
+  h2 {
+    margin:0;
+    padding-top: 135px;
+    font-size:96px;
+    font-family:'Sheila W00';
+    letter-spacing: 0.07em;
+    color:$secondaryLight;
+    text-align:center;
+  }
+  .intro,.outro {
+    padding:$paddingLarge 15px;
+    p {
+      font-size:18px;
+      margin:0 auto;
+      max-width:920px;
+    }
+  }
+}
+
+.social-icons {
+  display:none;
+}
+
+@media screen and (min-width: 992px) {
+  section {
+    .intro p, .outro p {
+      text-align:center;
+      font-size:21px;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container-fluid {
+    padding-left:280px;
+    padding-right:$paddingSmall;
+  }
+  .social-icons {
+    display:block;
+    position: fixed;
+    bottom:$paddingSmall - 7px;
+    left:$paddingSmall;
+    z-index: 999;
+    li {
+      display:inline-block;
+      margin-right:5px;
+      cursor:pointer;
+      transition: all 0.270s ease-out 0s;
+      &:hover, &:focus {
+        .svg-icon path {
+          fill:$primaryLight;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  section {
+    .intro p, .outro p {
+      font-size:25px;
+    }
+  }
+}

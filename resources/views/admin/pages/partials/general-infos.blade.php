@@ -30,7 +30,7 @@
     <div class="panel panel-red panel-widget">
         <div class="row no-padding">
             <div class="col-sm-3 col-lg-4 widget-left">
-                <svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"/></svg>
+                <svg class="glyph stroked hourglass"><use xlink:href="#stroked-hourglass"/></svg>
             </div>
             <div class="col-sm-9 col-lg-8 widget-right">
                 <div class="large">{{ $awaiting_orders }}</div>

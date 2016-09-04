@@ -8,12 +8,11 @@
 					 CSS
 */
 
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
-
 @import '../general/general';
 @import "../mixins/border_bottom_transition";
 @import "../mixins/vh_unit_workaround";
 
+@import 'layout/general';
 @import 'layout/header';
 @import 'layout/home';
 @import 'layout/portfolio';

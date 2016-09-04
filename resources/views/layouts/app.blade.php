@@ -30,7 +30,9 @@
 
     <div class="content" role="document">
         @yield('content')
-        @include('pages.partial.footer')
     </div>
+
+    @include('pages.partial.footer')
+    
 </body>
 </html>

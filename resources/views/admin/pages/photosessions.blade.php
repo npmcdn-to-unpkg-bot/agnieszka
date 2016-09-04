@@ -1,10 +1,9 @@
 @extends('layouts.admin')
 
 @section('title', 'Photosessions')
-@section('meta_description', 'List of all Photosessions of Agnieszka Krol')
+@section('meta_description', 'List of all Photosessions by Agnieszka Krol')
 @section('customCSS')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/dropzone.css">
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 @stop
 
 @section('content')
@@ -27,34 +26,4 @@
         </div>
         
     </div> {{-- ./photosessions --}}
-@stop
-
-@section('customJS')
-<script src="https://npmcdn.com/masonry-layout@4.1/dist/masonry.pkgd.min.js"></script>
-<script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/dropzone.js"></script>
-
-<script>
-$( function() {
-	var $container = $('.masonry-container');
-		$container.imagesLoaded(
-			{background: true},
-		 	function () {
-				$container.masonry({
-					columnWidth: '.item',
-		    		itemSelector: '.item'
-			});   
-	});
-
-    Dropzone.options.addPhotoSessionPhotosForm = {
-        paramName: 'photo',
-        maxFilesize: 3,
-        acceptedFiles: '.jpg, .jpeg, .png, .bmp'
-    };
-
-    $("#datepicker").datepicker({
-        dateFormat: "dd/mm/yy"
-    });
-});
-</script>
 @stop

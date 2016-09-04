@@ -3,12 +3,11 @@
    =======================================*/
 .photosession {
 	position: relative;
-	height: 450px;
 	margin-bottom:15px;
-	border-radius: 10px;
-	border:1px solid #000;
 	.bg-img {
+		position: relative;
 		height:225px;
+		background-color:$primaryDark;
 		background-size: cover;
 	    background-repeat: no-repeat;
 	    background-position: center;
@@ -16,61 +15,100 @@
 	    border-top-right-radius:10px;
 	    box-shadow: 0 1px 2px rgba(0,0,0,0.4);
 	    z-index:99;
-	}
-	.button-edit-photosession {
-		position: absolute;
-		top:50%;
-		left:50%;
-		transform: translate(-50%,-50%);
-		z-index:100;
-		button {
-    	    width: 65px;
-			height: 65px;
-    		border-radius:50%;
-			.glyph {
-				height: 20px;
-			    width: 20px;
-			    margin: 0;
-			    stroke-width: 4px;
-			}
-    	}
+	    .glyph {
+	    	display:block;
+	    	position: absolute;
+	    	top:50%;
+	    	left:50%;
+	        width: 50%;
+    		height: 50%;
+    		transform: translate(-50%, -50%);
+    		color: #fff;
+	    }
+	    .overlay {
+			background-color: #000;
+			border-top-left-radius:10px;
+	    	border-top-right-radius:10px;
+		    position: absolute;
+		    top: 0;
+		    bottom: 0;
+		    left: 0;
+		    right: 0;
+		    z-index: 101;
+		    opacity: .15;
+		}
+	    h3 {
+	    	position: absolute;
+	    	color:#fff;
+	    	margin: 0;
+	    	padding:30px 15px;
+	    	z-index:102;
+	    }
+	} // .bg-img
+	.button-view-photosession {
+		text-align:center;
+		a {
+			display:block;
+			font-size:18px;
+			color:#fff;
+			padding:15px 0;
+			background-color:$primary;
+			border-bottom-left-radius:10px;
+	    	border-bottom-right-radius:10px;
+		}
 	}
 	.details {
-		padding: 15px 15px 15px 0;
-		.glyph {
-			height: 16px;
-		    width: 16px;
-		    margin: 0 3px 0 0;
-		    stroke-width: 3px;
+		background-color:$primaryLight;
+		color:#fff;
+		.button-edit-photosession {
+			width: 100%;
+			position: absolute;
+			top:-33px;
+			margin-left: -15px;
+			text-align: center;
+			z-index:102;
+			button {
+				width: 66px;
+				height: 66px;
+	    		border-radius:50%;
+				.glyph {
+					height: 20px;
+				    width: 20px;
+				    margin: 0;
+				    stroke-width: 4px;
+				}
+	    	}
 		}
 		.info {
-			.meta {
-				position: absolute;
-				top:10px;
-				right:10px;
-				font-size:12px;
-				.date {
-					margin-left:15px;
-					span {
-					    position: relative;
-    					top: 1px;
-					}
+			padding: 30px 0;
+			.info-icons > div {
+				padding:15px;
+			    margin-top: 15px;
+				text-align: center;
+				font-size:10px;
+				text-transform:uppercase;
+				.glyph {
+					height: 28px;
+				    width: 28px;
+				    margin:0;
+				    stroke-width: 3px;
 				}
-			}
-			.title-and-name {
-				h3 {
-					margin:0;
-					padding:30px 0 15px 0;
-					font-family:'Proxima N W15 Smbd';
-				}
-				h5 {
-					margin:5px 0;
-					svg {
-						position: relative;
-						top: -2px;
-					}
+				span {
+					display:block;
+					margin-top:10px;
 				}
 			}
 		}
-	}
-}
+		.meta {
+			p {
+				font-family:'Proxima Nova Soft W04 Regular';
+				font-size:14px;
+				line-height: 1;
+				span {
+					font-family:'Proxima N W15 Smbd';
+					font-size:2.5em;
+				}
+			}
+		}
+	} // .details
+} // .photosession

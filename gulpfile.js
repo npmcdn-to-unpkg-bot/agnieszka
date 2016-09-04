@@ -23,8 +23,7 @@ elixir(function(mix) {
             'admin/app.scss'
         ],'./public/css/admin/app.css')
     	.scripts([
-    		'libs/sweetalert-dev.js',
-            'libs/smooth-scroll.js'
+    		'libs/sweetalert-dev.js'
     	],'./public/js/libs.js')
     	.styles([
             'toggle.css',
