@@ -15,7 +15,7 @@
         </div> {{-- ./tab-pane --}}
 
         <div class="tab-pane fade" id="ps-awaiting-order">
-            @include('admin.pages.partials.photosession-tabs.awaiting-ordered')
+            @include('admin.pages.partials.photosession-tabs.awaiting-orders')
         </div> {{-- ./tab-pane --}}
     </div> {{-- ./tab-content --}}
 </div>

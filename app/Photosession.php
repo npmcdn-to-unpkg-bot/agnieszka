@@ -33,7 +33,6 @@ class PhotoSession extends Model
     protected $dates = ['created_at', 'updated_at', 'date', 'expiry_date'];
     protected $notification_sent = false;
     protected $ordered = false;
-    protected $has_permission_to_download = false;
     protected $purchased = false;
 
     public function setDateAttribute($date) {
@@ -121,11 +120,6 @@ class PhotoSession extends Model
     public function make_order()
     {
         return $this->ordered = true;
-    }
-
-    public function allow_to_download()
-    {
-        return $this->has_permission_to_download = true;
     }
 
     public function make_purchase()

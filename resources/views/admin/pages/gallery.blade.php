@@ -27,12 +27,12 @@
 	        		<div class="row">
 	        			@foreach ($set as $photo)
 	        				<div class="col-md-3 gallery__image">
-	        				<form method="POST" action="/photos/{{ $photo->id }}">
-	        					{!! csrf_field() !!}
-	        					<input type="hidden" name="_method" value="DELETE">
+		        				<form method="POST" action="/photos/{{ $photo->id }}">
+		        					{!! csrf_field() !!}
+		        					<input type="hidden" name="_method" value="DELETE">
 
-	        					<button type="submit">Delete Photo</button>
-	        				</form>
+		        					<button type="submit">Delete Photo</button>
+		        				</form>
 	        					<a href="/{{ $photo->path }}">
 	        						<img src="{{ asset($photo->thumbnail_path) }}" alt="Thumbnail photo">
 	        					</a>
@@ -43,37 +43,6 @@
         	</div>
 
         </div>
-
-		{{-- <div class="col-xs-12 bg-img">
-			@if( $photosession->background_image == null)
-				@if(\Auth::user()->hasRole('admin'))
-					<div class="row">
-						<div class="col-xs-12 admin-add-background-image">
-					    	@include('admin/partials/forms/add_background_image')
-					    </div>
-					</div>
-				@endif
-				@if(\Auth::user()->hasRole('admin'))
-					<button id="background-image-upload" class="btn btn-img">
-						<i class="fa fa-plus-circle"> Change Image</i>
-					</button>
-				@endif
-				<div id="background-image" style="background-image: url('{{ asset('/images/photosession-bg-placeholder.jpg') }}');"></div>
-			@else
-			<div id="background-image" style="background-image: url('{{ $photosession->background_image }}');"></div>
-		</div> --}} {{-- ./bg-img --}}
-
-		{{-- <div class="col-md-12 photosession-photos"> --}}
-			{{-- @if (count($photosession->photos() > 0)) --}}
-				{{-- <div class="row masonry-container">
-					@foreach ($photosession->photos()->all() as $photo)
-					  	<div class="col-md-4 col-sm-6 item">
-							<img class="img-responsive" src="{{ $photosession->path }}" alt="">
-						</div>
-					@endforeach
-				</div> --}} {{-- ./masonry-container --}}
-		    {{-- @endif --}}
-		{{-- </div> --}}
 	@endif
 
 </section>

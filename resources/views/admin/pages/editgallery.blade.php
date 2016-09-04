@@ -19,31 +19,44 @@
         </div> {{-- ./row --}}
 
         <div class="row">
-            <div class="col-xs-12 col-lg-10">
-                <h1 class="page-header">{{ $photosession->title }}</h1>
+            <div class="col-xs-12 col-lg-10 title">
+            	<form method="POST" class="form" action=" {{ route('update-title' , $photosession->id) }}">
+			    	{{ csrf_field() }}
+    				<input type="hidden" name="_method" value="PATCH">
+    				<input type="text" name="title" value="{{ $photosession->title }}">
+    					<button type="submit" class="btn btn-primary">
+							<i class="fa fa-pencil" aria-hidden="true"></i> Edit title
+						</button>
+    			</form>
             </div>
         </div> {{-- ./row --}}
 
         <div class="row">
 
             <div class="col-xs-12">
-            	<div class="admin-tools clearfix">
-            		<ul class="photosession-icons pull-left">
-            			<li>confirmed</li>
-            			<li>ordered</li>
-            			<li>purchased</li>
-            		</ul>
-            		<ul class="pull-right">
-	               		@if($photosession->background_image_path !== null)
-	               			<li><button class="btn-primary change-bg">Change Background</button></li>
-	               		@endif
-	               			<li><a href="#add-photos-form" class="btn-primary add-more-photos">Add more photos</a></li>
-	               			<li><a href="{{ route('client-gallery', [$photosession->user_id, $photosession->id]) }}" title="view photosession">View</a></li>
-	               		<li>
-	               			<a href="{{ route('refresh-page') }}" role="button" class="btn btn-success refresh-page">
-								<i class="fa fa-refresh" aria-hidden="true"></i>
-							</a>
-						</li>
+            	<div class="row admin-tools">
+            		<ul class="notification-icons">
+            			<li>
+	            			@if($photosession->notification_sent())
+						        <svg class="glyph stroked email color-teal" title="Confirmed"><use xlink:href="#stroked-email"/></svg>
+						    @else
+						        <svg class="glyph stroked open letter color-red" title="Unconfirmed"><use xlink:href="#stroked-open-letter"/></svg>
+						    @endif
+					    </li>
+					    <li>
+					    	@if($photosession->ordered())
+						        <svg class="glyph stroked basket color-teal" title="Ordered"><use xlink:href="#stroked-basket"/></svg>
+						    @else
+						        <svg class="glyph stroked hourglass color-red" title=Unordered"><use xlink:href="#stroked-hourglass"/></svg>
+						    @endif
+					    </li>
+					    <li>
+					    	@if($photosession->purchased())
+						        <svg class="glyph stroked checkmark color-teal" title="Purchased"><use xlink:href="#stroked-checkmark"/></svg>
+						    @else
+						        <svg class="glyph stroked cancel color-red" title="Unpurchased"><use xlink:href="#stroked-cancel"/></svg>
+						    @endif
+					    </li>
             		</ul>
             	</div>
             </div>
@@ -118,7 +131,7 @@
 		 //   		$(this).prop('disabled',true);
 			// });
 
-			$('button.change-bg').click(function() {
+			$('.change-bg').click(function() {
 			  $('.add-bg-form').toggleClass('hidden');
 			});
 
@@ -127,7 +140,7 @@
                 maxFiles: 1,
                 maxFilesize: 5,
                 acceptedFiles: '.jpg, .jpeg, .png',
-                dictDefaultMessage: 'Drop 1 image here to upload for background',
+                dictDefaultMessage: 'Drop 1 image here to upload for the background of this Photosession! Filesize should not exceed 5 mb!',
                 accept: function(file, done) {
 				    done();
 				},
@@ -142,9 +155,9 @@
 
             Dropzone.options.addPhotosToGallery = {
                 paramName: 'photo',
-                maxFilesize: 3,
+                maxFilesize: 5,
                 acceptedFiles: '.jpg, .jpeg, .png',
-                dictDefaultMessage: 'Drop any number of photos here to upload',
+                dictDefaultMessage: 'Drop any number of photos here to upload! Individual filesizes should not exceed 5 mb!',
             };
         });
     </script>

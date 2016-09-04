@@ -125,15 +125,51 @@ class PhotoSessionController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the title in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function updateTitle(Request $request, $id)
     {
-        //
+        $photosession = PhotoSession::findOrFail($id);
+
+        $this->validate($request, [
+            'title' => 'required|min:5'
+        ]);
+
+        $photosession->title = $request->title;
+
+        $photosession->save();
+
+        flash()->success('Nice one! :)', 'You have successfully updated the title!');
+        return redirect()->back();
+    }
+
+    /**
+     * Enable cleint to download photos.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function enableAndDisableToDownloadPhotos(Request $request, $id)
+    {
+
+        $photosession = PhotoSession::findOrFail($id);
+
+        $this->validate($request, [
+            'has_permission_to_download' => 'required'
+        ]);
+
+        $photosession->has_permission_to_download = $request->has_permission_to_download;
+
+        $photosession->save();
+
+        $request->has_permission_to_download ? flash()->success('Nice one! :)', 'Your client now able to download photos from the gallery!') : flash()->error('Ok! :(', 'Your client now unable to download photos from the gallery!');
+
+        return redirect()->back();
     }
 
     /**

@@ -24,12 +24,12 @@ class PhotoSessionRequest extends Request
     public function rules()
     {
         return [
-            'title' => 'required',
+            'title' => 'required|min:5',
             'category' => 'required',
             'client' => 'required',
-            'date' => 'required',
+            'date' => 'required|date',
             'photo_download_limit' => 'required|integer',
-            'expiry_date' => 'required'
+            'expiry_date' => 'required|date'
         ];
     }
 }

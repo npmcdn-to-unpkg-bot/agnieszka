@@ -49,10 +49,30 @@ Route::group(['middleware' => 'admin'], function()
 		'as' => 'add_photos_to_gallery',
 		'uses' => 'Admin\PhotoSessionController@addPhoto'
 	]);
+
+	// Update title
+	Route::patch('admin/photosessions/{id}/title',[
+		'as' => 'update-title',
+		'uses' => 'Admin\PhotoSessionController@updateTitle'
+	]);
+
+	// Enable and Disable to download photos from gallery
+	Route::patch('admin/photosessions/{id}/enableAndDisableToDownloadPhotos',[
+		'as' => 'enableAndDisableToDownloadPhotos',
+		'uses' => 'Admin\PhotoSessionController@enableAndDisableToDownloadPhotos'
+	]);
+
+	// Update date
+	Route::patch('admin/photosessions/{id}/date',[
+		'as' => 'update-date',
+		'uses' => 'Admin\PhotoSessionController@updateDate'
+	]);
+
+
 	// Delete photos from photosession
 	Route::delete('photos/{id}', 'Admin\PhotosessionPhotoController@destroy' );
 	// Photosession Resource controller
-	Route::resource('admin/photosessions','Admin\PhotoSessionController', ['except' => ['create']]);
+	Route::resource('admin/photosessions','Admin\PhotoSessionController', ['except' => ['create','update']]);
 
 	// Refresh page
 	Route::get('refresh',[ 'as' => 'refresh-page', function(){
