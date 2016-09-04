@@ -37,10 +37,10 @@
             	<div class="row admin-tools">
             		<ul class="notification-icons">
             			<li>
-	            			@if($photosession->notification_sent())
-						        <svg class="glyph stroked email color-teal" title="Confirmed"><use xlink:href="#stroked-email"/></svg>
+	            			@if($photosession->published())
+						        <svg class="glyph stroked email color-teal" title="Published"><use xlink:href="#stroked-email"/></svg>
 						    @else
-						        <svg class="glyph stroked open letter color-red" title="Unconfirmed"><use xlink:href="#stroked-open-letter"/></svg>
+						        <svg class="glyph stroked open letter color-red" title="Unpublished"><use xlink:href="#stroked-open-letter"/></svg>
 						    @endif
 					    </li>
 					    <li>

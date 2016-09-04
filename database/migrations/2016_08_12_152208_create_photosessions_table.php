@@ -24,7 +24,7 @@ class CreatePhotosessionsTable extends Migration
             $table->string('background_image_path_thumbnail')->nullable();
             $table->timestamp('date');
             $table->integer('photo_download_limit')->unsigned()->default(10);
-            $table->boolean('notification_sent')->default(false);
+            $table->boolean('published')->default(false);
             $table->boolean('ordered')->default(false);
             $table->boolean('has_permission_to_download')->default(false);
             $table->boolean('purchased')->default(false);

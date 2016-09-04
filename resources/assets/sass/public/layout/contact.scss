@@ -6,7 +6,6 @@
 	position: relative;
 	background-color:#f2f2f2;
 	color:#454545;
-	@include viewport-unit(height, 100vh);
 	.contact-details{
 		padding:$paddingLarge * 1.5 15px;
 	    max-width: 1200px;

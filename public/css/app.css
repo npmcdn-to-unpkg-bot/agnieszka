@@ -465,26 +465,7 @@ header.open {
 #contact {
   position: relative;
   background-color: #f2f2f2;
-  color: #454545;
-  height: 100vh; }
-  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
-    #contact {
-      height: 1024px; } }
-  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape) {
-    #contact {
-      height: 768px; } }
-  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: portrait) {
-    #contact {
-      height: 480px; } }
-  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: landscape) {
-    #contact {
-      height: 320px; } }
-  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: portrait) {
-    #contact {
-      height: 568px; } }
-  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: landscape) {
-    #contact {
-      height: 320px; } }
+  color: #454545; }
   #contact .contact-details {
     padding: 90px 15px;
     max-width: 1200px;

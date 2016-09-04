@@ -48,7 +48,9 @@
 					@if($photosession->background_image_path !== null)
                			<li><a href="#" class="change-bg" title="Change background of photosession"><svg class="glyph stroked landscape"><use xlink:href="#stroked-landscape"/></svg> Change Background</a></li>
                		@endif
-           			<li><a href=""><svg class="glyph stroked email" title="Let client know that his/her photosession is ready to view"><use xlink:href="#stroked-email"/></svg> Send Notification</a></li>
+               		@if (! $photosession->published())
+               			<li><a href="{{ route('publish-gallery', $photosession->id) }}"><svg class="glyph stroked email" title="Make photosession available to view"><use xlink:href="#stroked-email"/></svg> Publish</a></li>
+               		@endif
            			<li><form method="POST" class="form" action="{{ route('enableAndDisableToDownloadPhotos', $photosession->id) }}">
 					   		{{ csrf_field() }}
 		    				<input type="hidden" name="_method" value="PATCH">
@@ -58,10 +60,12 @@
 							</button>
 		    			</form>
 		    		</li>
-           			<li><a href=""><svg class="glyph stroked checkmark" title="Mark as purchased"><use xlink:href="#stroked-checkmark"/></svg> Mark as Purchased</a></li>
+		    		@if (! $photosession->purchased())
+           			<li><a href="{{ route('mark-as-purchased', $photosession->id) }}"><svg class="glyph stroked checkmark" title="Mark as purchased"><use xlink:href="#stroked-checkmark"/></svg> Mark as Purchased</a></li>
+           			@endif
            			<li><a href="{{ route('client-gallery', [$photosession->user_id, $photosession->id]) }}" title="view photosession"><svg class="glyph stroked eye"><use xlink:href="#stroked-eye"/></svg> View Gallery</a></li>
            			<li role="presentation" class="divider"></li>
-           			<li><a href="{{ route('refresh-page') }}" role="button" class="btn btn-success refresh-page" title="refresh page"><i class="fa fa-refresh" aria-hidden="true"></i></a></li>
+           			<li><a href="{{ route('refresh-page') }}" role="button" class="btn btn-success refresh-page" title="refresh page"><i class="fa fa-refresh" aria-hidden="true"></i> Refresh page</a></li>
 				</ul>
 			</li>
 			@endif

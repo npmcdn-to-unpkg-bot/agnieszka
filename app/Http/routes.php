@@ -62,12 +62,17 @@ Route::group(['middleware' => 'admin'], function()
 		'uses' => 'Admin\PhotoSessionController@enableAndDisableToDownloadPhotos'
 	]);
 
-	// Update date
-	Route::patch('admin/photosessions/{id}/date',[
-		'as' => 'update-date',
-		'uses' => 'Admin\PhotoSessionController@updateDate'
+	// Publish Gallery
+	Route::get('admin/photosessions/{id}/publish',[
+		'as' => 'publish-gallery',
+		'uses' => 'Admin\PhotoSessionController@publish'
 	]);
 
+	// Mark Photosession as purchased
+	Route::get('admin/photosessions/{id}/mark-as-purchased',[
+		'as' => 'mark-as-purchased',
+		'uses' => 'Admin\PhotoSessionController@markAsPurchased'
+	]);
 
 	// Delete photos from photosession
 	Route::delete('photos/{id}', 'Admin\PhotosessionPhotoController@destroy' );

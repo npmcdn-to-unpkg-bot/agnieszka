@@ -1,10 +1,10 @@
 <div class="col-xs-4">
-    @if($photosession->notification_sent())
+    @if($photosession->published())
         <svg class="glyph stroked email color-teal"><use xlink:href="#stroked-email"/></svg>
-        <span class="color-teal">Confirmed</span>
+        <span class="color-teal">Published</span>
     @else
         <svg class="glyph stroked open letter color-red"><use xlink:href="#stroked-open-letter"/></svg>
-        <span class="color-red">Unconfirmed</span>
+        <span class="color-red">Unpublished</span>
     @endif
 </div>
 

@@ -22,7 +22,7 @@ class PhotoSession extends Model
         'background_image_path_thumbnail',
     	'date',
         'photo_download_limit',
-        'notification_sent',
+        'published',
         'ordered',
         'has_permission_to_download',
         'purchased',
@@ -31,9 +31,6 @@ class PhotoSession extends Model
     
     protected $table = 'photosessions';
     protected $dates = ['created_at', 'updated_at', 'date', 'expiry_date'];
-    protected $notification_sent = false;
-    protected $ordered = false;
-    protected $purchased = false;
 
     public function setDateAttribute($date) {
         $this->attributes['date'] = Carbon::createFromFormat('d/m/Y', $date);
@@ -107,29 +104,14 @@ class PhotoSession extends Model
      * Client of the photosession has been notified via email.
      * @return boolean
      */
-    public function notification_sent()
+    public function published()
     {
-        return $this->notification_sent;
+        return $this->published;
     }
 
     public function photo_download_limit()
     {
         $this->photo_download_limit;
-    }
-
-    public function make_order()
-    {
-        return $this->ordered = true;
-    }
-
-    public function make_purchase()
-    {
-        return $this->purchased = true;
-    }
-
-    public function send_notification()
-    {
-        return $this->notification_sent = true;
     }
 
     public function addPhoto(Photo $photo)

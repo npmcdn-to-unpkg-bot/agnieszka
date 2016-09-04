@@ -172,6 +172,43 @@ class PhotoSessionController extends Controller
         return redirect()->back();
     }
 
+    public function mark_as_ordered_or_unordered(Request $request, $id)
+    {
+        $photosession = PhotoSession::findOrFail($id);
+
+        $this->validate($request, [
+            'ordered' => 'required'
+        ]);
+
+        $photosession->ordered = $request->ordered;
+
+        $photosession->save();
+
+        return redirect()->back();
+    }
+
+    public function markAsPurchased(Request $request, $id)
+    {
+        $photosession = PhotoSession::findOrFail($id);
+
+        $photosession->purchased = true;
+
+        $photosession->save();
+
+        return redirect()->back();
+    }
+
+    public function publish(Request $request, $id)
+    {
+        $photosession = PhotoSession::findOrFail($id);
+
+        $photosession->published = true;
+
+        $photosession->save();
+
+        return redirect()->back();
+    }
+
     /**
      * Remove the specified resource from storage.
      *
