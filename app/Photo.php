@@ -73,6 +73,7 @@ class Photo extends Model
             ->insert('images/watermark.png', 'center')
             ->save($this->thumbnail_path); // save() is an Image Intervention method, not Laravels.
     }
+
     public function delete()
     {
         \File::delete([

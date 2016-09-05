@@ -114,6 +114,22 @@ class PhotoSession extends Model
         $this->photo_download_limit;
     }
 
+    /**
+     * Hide Gallery from client if He/she has made order already.
+     * @return bool
+     */
+    public function selectable()
+    {
+
+        if($this->published() && count($this->photos()->where('selected',true)) === 0)
+        {
+            return true;
+        }
+
+        return false;
+
+    }
+
     public function addPhoto(Photo $photo)
     {
         return $this->photos()->save($photo);

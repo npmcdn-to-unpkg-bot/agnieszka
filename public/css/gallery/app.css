@@ -30,6 +30,13 @@ a {
 a:hover, a:focus {
   text-decoration: none; }
 
+.btn, button {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
+
+a.btn:hover,
+button:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+
 .activeNav:after {
   background-color: #fff;
   width: 100% !important;
@@ -67,30 +74,53 @@ ul, li, ol {
 /* =======================================
    Gallery Header
    =======================================*/
-#gallery-header #sidebar {
-  position: fixed;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  z-index: 99;
-  background-color: #ff7c76;
-  width: 8px;
-  transition: width 0.54s cubic-bezier(0.9, 0, 0.33, 1) 0.2s, opacity 0.45s linear 0.2s, background-color 0.45s ease-in-out; }
-  #gallery-header #sidebar nav ul {
-    padding-top: 168px;
-    margin: 0;
-    position: relative; }
-    #gallery-header #sidebar nav ul li a {
-      font-family: 'Proxima N W15 Smbd';
-      color: #fff;
-      padding: 6px 0 0;
-      margin-left: 40px;
-      font-size: 18px; }
-      #gallery-header #sidebar nav ul li a:hover, #gallery-header #sidebar nav ul li a:focus {
-        color: #fff; }
+/* =======================================
+   Gallery
+   =======================================*/
+#client-gallery .photo-request-form .photos .item label {
+  cursor: pointer;
+  margin: 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 2px 3px rgba(0, 0, 0, 0.12);
+  transition: all 0.270s ease-in-out 0s; }
+  #client-gallery .photo-request-form .photos .item label .glyph {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20%;
+    height: 20%;
+    transform: translate(-50%, -50%);
+    color: #1ebfae;
+    opacity: 0;
+    stroke-width: 1%;
+    transition: all 0.270s ease-in-out 0s; }
+  #client-gallery .photo-request-form .photos .item label .selected-icon {
+    opacity: 1 !important;
+    width: 40%;
+    height: 40%;
+    z-index: 4 !important; }
+  #client-gallery .photo-request-form .photos .item label:hover, #client-gallery .photo-request-form .photos .item label:focus {
+    box-shadow: 0 8px 14px rgba(0, 0, 0, 0.15), 0 5px 5px rgba(0, 0, 0, 0.11); }
 
-@media screen and (min-width: 1024px) {
-  #admin-header #sidebar {
-    width: 240px; } }
+#client-gallery .photo-request-form .photos .item input[type=checkbox] {
+  margin: 0;
+  opacity: 0; }
+
+#client-gallery .photo-request-form .photos .item img {
+  opacity: 1;
+  border-radius: 10px;
+  transition: all 0.270s ease-in-out 0s; }
+
+#client-gallery .photo-request-form .photos .item .selected-img {
+  opacity: .95;
+  z-index: 3;
+  border: 1px solid #1ebfae; }
+
+#client-gallery .photo-request-form input[type="submit"] {
+  position: fixed;
+  top: 60px;
+  right: 60px;
+  z-index: 10000; }
 
 /*# sourceMappingURL=app.css.map */

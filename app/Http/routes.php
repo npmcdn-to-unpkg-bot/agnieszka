@@ -76,6 +76,7 @@ Route::group(['middleware' => 'admin'], function()
 
 	// Delete photos from photosession
 	Route::delete('photos/{id}', 'Admin\PhotosessionPhotoController@destroy' );
+
 	// Photosession Resource controller
 	Route::resource('admin/photosessions','Admin\PhotoSessionController', ['except' => ['create','update']]);
 
@@ -112,12 +113,15 @@ Route::get('client/{id}', [
 	'uses'		=> 'GalleryController@showClientDashboard'
 ]);
 
+Route::patch('photoRequest', [
+	'as'		=> 'sendPhotoRequest',
+	'uses'		=> 'GalleryController@sendPhotoRequest'
+]);
+
 Route::get('client/{id}/photosession/{photosession}', [
 	'as'		=> 'client-gallery',
 	'uses'		=> 'GalleryController@showGallery'
 ]);
-
-
 
 
 

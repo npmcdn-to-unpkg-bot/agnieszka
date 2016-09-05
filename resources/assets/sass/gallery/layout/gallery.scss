@@ -1,0 +1,61 @@
+/* =======================================
+   Gallery
+   =======================================*/
+
+#client-gallery {
+	.photo-request-form {
+		.photos {
+			.item {
+				label {
+					cursor:pointer;
+					margin:0;
+					border-radius: 10px;
+					box-shadow: 0 2px 3px rgba(0,0,0,0.10), 0 2px 3px rgba(0,0,0,0.12);
+					transition: all 0.270s ease-in-out 0s;
+					.glyph {
+				    	display:block;
+				    	position: absolute;
+				    	top:50%;
+				    	left:50%;
+				        width: 20%;
+			    		height: 20%;
+			    		transform: translate(-50%, -50%);
+			    		color: #1ebfae;
+			    		opacity:0;
+			    		stroke-width: 1%;
+			    		transition: all 0.270s ease-in-out 0s;
+				    }
+				    .selected-icon {
+						opacity:1 !important;
+						width:40%;
+						height:40%;
+						z-index:4 !important;
+					}
+					&:hover,&:focus {
+						box-shadow: 0 8px 14px rgba(0,0,0,0.15), 0 5px 5px rgba(0,0,0,0.11);
+					}
+				}
+				input[type=checkbox] {
+					margin:0;
+					opacity:0;
+				}
+				img {
+					opacity:1;
+					border-radius: 10px;
+					transition: all 0.270s ease-in-out 0s;
+				}
+				.selected-img {
+					opacity:.95;
+					z-index:3;
+					border: 1px solid #1ebfae;
+				}
+			}
+		}
+		input[type="submit"] {
+			position: fixed;
+			top:$paddingLarge;
+			right:$paddingLarge;
+			z-index:10000;
+		}
+	}
+}

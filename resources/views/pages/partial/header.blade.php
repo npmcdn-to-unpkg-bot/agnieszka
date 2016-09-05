@@ -10,7 +10,7 @@
         </div> {{-- ./toggle --}}
     @endif
 
-    @if (! Request::is('login'))
+    @if(! Request::is('login'))
         <div class="user-link">
             @if(Auth::check())
                 @if (Auth::user()->hasRole('admin'))
