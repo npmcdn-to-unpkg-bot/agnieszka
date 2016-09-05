@@ -25,6 +25,7 @@
 
 </head>
 <body id="app-layout">
+    <div class="page-load-bg"></div>
     
     @include('pages.partial.header')
 

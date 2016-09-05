@@ -99,8 +99,28 @@ $(window).on('load', function() {
 
   preloader.active(false);
 
-  var topNavLinks = $('#top-navigation li a'),
-      header = $('#header');
+  var loadingBG = $('.page-load-bg'),
+      page    = $('.content'),
+      header  = $('header'),
+      sidebar  = $('#sidebar'),
+      topNav  = $('.top-navbar'),
+      topNavLinks = $('#top-navigation li a');
+
+  TweenMax.set(topNav,{y:-150,});
+  TweenMax.set(sidebar,{x:-450,opacity:0});
+
+  // 1. preloader = false
+  // 2. page-load-bg disappear
+  // 3. Content fades in
+  // 4. Navigation slides in
+
+  var pageLoadedTween = '';
+
+  TweenMax.to(loadingBG,0.27,{height:0});
+  TweenMax.to(page,0.27,{opacity:1});
+  TweenMax.to(header,0.27,{opacity:1});
+  TweenMax.to(topNav,0.27,{y:0, opacity:1});
+  TweenMax.to(sidebar,0.27,{x:0, opacity:1});
 
   $('.toggle').click(function() {
     $(this).toggleClass('open');

@@ -2,7 +2,7 @@
     <nav id="top-navigation" role="navigation">
         <ul class="main-navigation">
             <li class="home"><a href="{{ route('home') }}" class="top-nav-link home {{ setActiveNavigation('/') }}">{{ trans('navigation.home') }}</a></li>
-            @if(Auth::user()->hasRole('admin'))
+            @if(Auth::user() && Auth::user()->hasRole('admin'))
                 <li><a href="{{ route('dashboard') }}" class="top-nav-link dashboard">Dashboard</a></li>
             @endif
             <li><a href="{{ route('portfolio') }}" class="top-nav-link portfolio {{ setActiveNavigation('portfolio') }}">{{ trans('navigation.portfolio') }}</a></li>
