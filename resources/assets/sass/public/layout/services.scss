@@ -2,9 +2,29 @@
    Services
    =======================================*/
 
+.family .banner .bg-img {
+	background-image: url('/images/services_page_photos/banner-family.jpg');
+}
+
+.newborn .banner .bg-img {
+	background-image: url('/images/services_page_photos/banner-newborn.jpg');
+}
+
+.maternity .banner .bg-img {
+	background-image: url('/images/services_page_photos/banner-maternity.jpg');
+}
+
+.artistic .banner .bg-img {
+	background-image: url('/images/services_page_photos/banner-artistic.jpg');
+}
+
 #services {
 	.services-by-catgory {
 		margin-top:$paddingLarge;
+		.wrapper {
+			box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+			border-radius: $borderRadius;
+		}
 		.service {
 			margin-bottom:30px;
 			.prices {
@@ -14,15 +34,22 @@
 				font-family:'LinotypeBreweryW01-Medi';
 			}
 			.banner {
+				position: relative;
 				overflow:hidden;
-				img {
-					border-radius: $borderRadius $borderRadius 0 0;
+				border-radius: $borderRadius $borderRadius 0 0;
+				height:210px;
+				.bg-img {
+					width:100%;
+					height:100%;
+					background-repeat:no-repeat;
+					background-position: center;
+					background-size:cover;
 				}
 			}
 			h3 {
 				text-align:center;
-				padding:10px 0;
-				background-color:$secondary;
+				padding: 10px 0 4px;
+				background-color:$primaryDark;
 				color:$textColor;
 				margin:0;
 			}
@@ -51,8 +78,8 @@
 				}
 				.footer {
 					font-size:13px;
-					padding:15px $paddingSmall;
-					background-color:$secondaryLight;
+					padding:15px 20px;
+					background-color:$primary;
 					border-radius:0 0 $borderRadius $borderRadius;
 					.whats-not-included {
 						color:$textColor;
@@ -70,6 +97,9 @@
 			.service {
 				padding-right:10px;
 				padding-left:10px;
+				.banner {
+					height:245px;
+				}
 			}
 		}
 	}

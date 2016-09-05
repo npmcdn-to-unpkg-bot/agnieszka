@@ -499,11 +499,11 @@ header.open {
     margin: 0 auto;
     text-align: center; }
     #contact .contact-details .contact-links a {
-      color: #FFADA9; }
+      color: #ff7c76; }
       #contact .contact-details .contact-links a:hover, #contact .contact-details .contact-links a:focus {
-        color: #ffdedc; }
+        color: #FFADA9; }
       #contact .contact-details .contact-links a i {
-        color: #333;
+        color: #454545;
         margin-right: 5px; }
     #contact .contact-details h3 {
       margin: 0;
@@ -515,9 +515,9 @@ header.open {
     cursor: pointer;
     transition: all 0.270s ease-out 0s; }
     #contact .get-social ul li .svg-icon path {
-      fill: #FFADA9; }
+      fill: #ff7c76; }
     #contact .get-social ul li:hover .svg-icon path, #contact .get-social ul li:focus .svg-icon path {
-      fill: #ffdedc; }
+      fill: #FFADA9; }
   #contact .footer {
     font-size: 13px; }
     #contact .footer p {
@@ -576,8 +576,23 @@ header.open {
 /* =======================================
    Services
    =======================================*/
+.family .banner .bg-img {
+  background-image: url("/images/services_page_photos/banner-family.jpg"); }
+
+.newborn .banner .bg-img {
+  background-image: url("/images/services_page_photos/banner-newborn.jpg"); }
+
+.maternity .banner .bg-img {
+  background-image: url("/images/services_page_photos/banner-maternity.jpg"); }
+
+.artistic .banner .bg-img {
+  background-image: url("/images/services_page_photos/banner-artistic.jpg"); }
+
 #services .services-by-catgory {
   margin-top: 60px; }
+  #services .services-by-catgory .wrapper {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    border-radius: 20px; }
   #services .services-by-catgory .service {
     margin-bottom: 30px; }
     #services .services-by-catgory .service .prices {
@@ -586,13 +601,20 @@ header.open {
       text-align: center;
       font-family: 'LinotypeBreweryW01-Medi'; }
     #services .services-by-catgory .service .banner {
-      overflow: hidden; }
-      #services .services-by-catgory .service .banner img {
-        border-radius: 20px 20px 0 0; }
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px 20px 0 0;
+      height: 210px; }
+      #services .services-by-catgory .service .banner .bg-img {
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover; }
     #services .services-by-catgory .service h3 {
       text-align: center;
-      padding: 10px 0;
-      background-color: #ffa9d0;
+      padding: 10px 0 4px;
+      background-color: #ff7c76;
       color: #fff;
       margin: 0; }
     #services .services-by-catgory .service .content {
@@ -614,8 +636,8 @@ header.open {
           border: 0; }
       #services .services-by-catgory .service .content .footer {
         font-size: 13px;
-        padding: 15px 40px;
-        background-color: #ffcbe2;
+        padding: 15px 20px;
+        background-color: #FFADA9;
         border-radius: 0 0 20px 20px; }
         #services .services-by-catgory .service .content .footer .whats-not-included {
           color: #fff;
@@ -624,7 +646,9 @@ header.open {
 @media screen and (min-width: 1200px) {
   #services .services-by-catgory .service {
     padding-right: 10px;
-    padding-left: 10px; } }
+    padding-left: 10px; }
+    #services .services-by-catgory .service .banner {
+      height: 245px; } }
 
 /* =======================================
    Login

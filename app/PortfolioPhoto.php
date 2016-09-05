@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Image;
 use Illuminate\Database\Eloquent\Model;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
@@ -26,6 +27,13 @@ class PortfolioPhoto extends Model
     	$photo->category = $category;
 
     	$file->move($photo->baseDir, $name);
+
+        Image::make($photo->path)
+            ->resize(600, null, function ($constraint) {
+                $constraint->aspectRatio();
+            })
+            ->insert('images/watermark.png', 'center')
+            ->save($photo->path); // save() is an Image Intervention method, not Laravels.
 
     	$photo->save();
 

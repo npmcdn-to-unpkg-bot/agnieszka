@@ -110,7 +110,7 @@
 	// Dropzone
 	Dropzone.options.addPortfolioPhotosForm = {
         paramName: 'photo',
-        maxFilesize: 1,
+        maxFilesize: 5,
         acceptedFiles: '.jpg, .jpeg, .png, .bmp'
     };
 </script>

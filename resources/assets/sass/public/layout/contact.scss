@@ -13,12 +13,12 @@
     	text-align: center;
 		.contact-links {
 			a {
-				color:$primary;
+				color:$primaryDark;
 				&:hover, &:focus {
-			    	color:$primaryLight;
+			    	color:$primary;
 				}
 				i {
-					color:#333;
+					color:#454545;
 					margin-right:5px;
 				}
 			}
@@ -35,11 +35,11 @@
 		cursor:pointer;
 		transition: all 0.270s ease-out 0s;
 		.svg-icon path {
-			fill:$primary;
+			fill:$primaryDark;
 		}
 		&:hover, &:focus {
 	    	.svg-icon path {
-	        	fill:$primaryLight;
+	        	fill:$primary;
 	      	}
 	    }
 	}
