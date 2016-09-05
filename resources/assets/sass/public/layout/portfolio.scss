@@ -2,7 +2,7 @@
    Portfolio
    =======================================*/
 #portfolio {
-	background-color: #fff;
+	// background-color: #fff;
 	// background-image: url('/images/bg-white-lg.jpg');
 	// background-repeat:no-repeat;
 	// background-position: 100%;
@@ -13,17 +13,21 @@
 	}
 	.masonry-container {
 		.item {
-			margin-bottom: 30px;
+			padding-right: 10px;
+			padding-left: 10px;
+			margin-bottom: 20px;
+			img {
+				border-radius: $borderRadius;
+			}
 		}
 	}
 	.photo-upload {
 		padding:$paddingLarge 0;
-		a {
+		.refresh-page {
 			display:block;
 			width:100%;
-			font-size:36px;
-			padding-top:$paddingSmall;
-			padding-bottom:$paddingSmall;
+			font-size:18px;
+			padding:15px 0;
 			margin-top:30px;
 		}
 	}
@@ -36,8 +40,8 @@
     transform: translate(-50%,-50%);
 	.btn-danger {
 		border-radius:50%;
-		opacity: .4;
-		transition: all 0.270s ease-out 0s;
+		opacity: .2;
+		transition: all 0.27s ease-out 0s;
 		.fa {
 			padding: 7px;
 	    	font-size: 25px;

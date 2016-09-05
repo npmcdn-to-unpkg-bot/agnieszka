@@ -27,10 +27,10 @@
 	                    		{{ csrf_field() }}
 	                    		<input type="hidden" name="_method" value="PATCH">
                     				@foreach($photosession->photos as $index => $photo)
-                    					@if(($index === 2) || ($index === 7) || ($index === 11) || ($index === 18))
-						                	<div class="col-xs-6 col-sm-6 item">
+                    					@if(($index === 1) || ($index === 6) || ($index === 13) || ($index === 18) || ($index === 25))
+						                	<div class="col-xs-6 col-md-8 col-lg-8 item">
 						                @else
-						                	<div class="col-xs-6 col-sm-3 item">
+						                	<div class="col-xs-6 col-md-4 col-lg-4 item">
 						                @endif
 						                	<input type="checkbox" value="{{ $photo->id }}" id="request_photo_{{ $photo->id }}" name="request_photo[]">
 						                    <label for="request_photo_{{ $photo->id }}">

@@ -54,7 +54,7 @@
 		.item  {
 			position: relative;
 			cursor:pointer;
-			margin-bottom:15px;
+			margin-bottom: 15px;
 			.delete-photo {
 				position: absolute;
 				top:50%;
@@ -62,8 +62,8 @@
 				transform: translate(-50%,-50%);
 				button {
 					border-radius: 50%;
-					opacity:0;
-					transition: all 0.45s ease-in-out 0s;
+					opacity:0.2;
+					transition: all 0.27s ease-in-out 0s;
 					&:hover, &:focus {
 						opacity:1;
 					}

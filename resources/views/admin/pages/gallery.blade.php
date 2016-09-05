@@ -54,14 +54,16 @@
 	<script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
 	<script src="{{ asset('js/libs.js') }}"></script>
     <script>
-    	var $container = $('.masonry-container');
-			$container.imagesLoaded(
-				{background: true},
-			 	function () {
-					$container.masonry({
-						columnWidth: '.item',
-			    		itemSelector: '.item'
-				});   
+    	$(function(){
+			var $container = $('.masonry-container');
+				$container.imagesLoaded(
+					{background: true},
+				 	function () {
+						$container.masonry({
+							columnWidth: '.item',
+				    		itemSelector: '.item'
+					});   
+			});
 		});
     </script>
 @stop

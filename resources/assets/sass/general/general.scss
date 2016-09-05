@@ -28,6 +28,7 @@ $accentDark:#66e65c;
 .color-orange { color: #ffb53e; }
 .color-red { color: #f9243f; }
 
+$blk: #1f1f1f;
 $textColor:#fff;
 
 $fontsize: 16px;
@@ -39,7 +40,7 @@ $paddingSmall: 40px;
 $paddingLarge: 60px;
 $sidebarSmall: 8px;
 
-$borderRadius:20px;
+$borderRadius:10px;
 
 html,body {
   width:100%;
@@ -53,7 +54,7 @@ body {
   background: $background;
 }
 
-p { text-rendering: optimizeLegibility; margin-bottom:15px; }
+p { text-rendering: optimizeLegibility; margin-bottom:10px; }
 a { transition: all 0.270s ease-out 0s; }
 a:hover,a:focus { text-decoration:none; }
 

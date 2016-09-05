@@ -30,8 +30,12 @@
 							
 							    @if (count($photos->where('category', $value)) > 0)
 							    	<div class="row masonry-container">
-									    @foreach ($photos->where('category', $value) as $photo)
-								        	<div class="col-xs-12 col-sm-6 col-md-4 item">
+									    @foreach ($photos->where('category', $value) as $index => $photo)
+									    	@if(($index === 1) || ($index === 6) || ($index === 13) || ($index === 18) || ($index === 25))
+								        		<div class="col-xs-6 col-md-8 col-lg-6 item">
+								        	@else
+								        		<div class="col-xs-6 col-md-4 col-lg-3 item">
+								        	@endif
 								        		 @if(Auth::check() && Auth::user()->hasRole('admin'))
 								        		 	<div class="delete-photo">
 								        		 		<form method="POST" action="/portfoliophoto/{{ $photo->id }}">
@@ -55,9 +59,9 @@
 							    		<div class="col-xs-12">
 							    			 @include('admin/partials/forms/add_photos', ['category' => $value])
 							    		</div>
-							    		<div class="text-center col-xs-4 col-xs-offset-4">
+							    		<div class="text-center col-xs-12">
 							    		<a href="{{ route('refresh-page') }}" role="button" class="btn btn-success refresh-page">
-							    			<i class="fa fa-refresh" aria-hidden="true"></i>
+							    			<i class="fa fa-refresh" aria-hidden="true"></i> Refresh Page
 							    		</a>
 							    		</div>
 							    	</div>

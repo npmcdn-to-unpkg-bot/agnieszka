@@ -26,7 +26,7 @@
 					<a href="mailto:agnieszkakrolphotography@gmail.com">
 						<i class="fa fa-envelope-o" aria-hidden="true"></i>
 						agnieszkakrolphotography@gmail.com
-					</a><br>
+					</a>
 					<a href="tel:0041786032798">
 						<i class="fa fa-phone" aria-hidden="true"></i>
 						+41 78 603 2798
@@ -46,7 +46,7 @@
 
 	    	<div class="row footer">
     			<p>&copy; {{ \Carbon\Carbon::now()->year }} Agnieszka Krol</p>
-    			<p>Crafted with love by Istvan Lovas</p>
+    			<p>Made with love by <a href="http://www.istvanlovas.com" title="Made by Istvan Lovas">Istvan Lovas</a></p>
 	    	</div>
 	    </div> {{-- ./container-fluid --}}
 

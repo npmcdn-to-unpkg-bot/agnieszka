@@ -37,7 +37,7 @@ body {
 
 p {
   text-rendering: optimizeLegibility;
-  margin-bottom: 15px; }
+  margin-bottom: 10px; }
 
 a {
   transition: all 0.270s ease-out 0s; }
@@ -145,7 +145,7 @@ ul, li, ol {
 #client-gallery .photo-request-form .photos .item {
   padding-right: 10px;
   padding-left: 10px;
-  margin-bottom: 10px; }
+  margin-bottom: 20px; }
   #client-gallery .photo-request-form .photos .item label {
     cursor: pointer;
     margin: 0;

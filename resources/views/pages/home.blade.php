@@ -6,7 +6,7 @@
 @section('content')
 
     <section id="home"></section>
-
+    
 @endsection
 
 @section('customJS')

@@ -2,6 +2,9 @@
     <nav id="top-navigation" role="navigation">
         <ul class="main-navigation">
             <li class="home"><a href="{{ route('home') }}" class="top-nav-link home {{ setActiveNavigation('/') }}">{{ trans('navigation.home') }}</a></li>
+            @if(Auth::user()->hasRole('admin'))
+                <li><a href="{{ route('dashboard') }}" class="top-nav-link dashboard">Dashboard</a></li>
+            @endif
             <li><a href="{{ route('portfolio') }}" class="top-nav-link portfolio {{ setActiveNavigation('portfolio') }}">{{ trans('navigation.portfolio') }}</a></li>
             @if(Request::is('portfolio'))
                 <ul class="portfolio-tabs" role="tablist">
@@ -30,8 +33,9 @@
         </ul>
         <footer>
             @include('pages.partial.social-icons')
-            <span class="{{ Request::is('/') ? 'hidden' : '' }}">Legal</span>
+            <p class="legal {{ Request::is('/') ? 'hidden' : '' }}"><a href="">Legal</a></p>
             <p class="{{ Request::is('/') ? 'hidden' : '' }}">&copy; {{ \Carbon\Carbon::now()->year }} Agnieszka Krol</p>
+            <p class="{{ Request::is('/') ? 'hidden' : '' }}">Crafted by <a href="http://www.istvanlovas.com">IstvanLovas</a></p>
         </footer>
     </nav> {{-- ./top-navigation --}}
 </div> {{-- ./sidebar --}}

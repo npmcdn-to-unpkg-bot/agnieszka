@@ -29,7 +29,7 @@ class PortfolioPhoto extends Model
     	$file->move($photo->baseDir, $name);
 
         Image::make($photo->path)
-            ->resize(600, null, function ($constraint) {
+            ->resize(700, null, function ($constraint) {
                 $constraint->aspectRatio();
             })
             ->insert('images/watermark.png', 'center')
