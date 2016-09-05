@@ -3,9 +3,40 @@
    =======================================*/
 
 #client-gallery {
+	.banner {
+		background-repeat:no-repeat;
+		background-position: center;
+		background-size: cover;
+		@include viewport-unit(height, 100vh);
+	}
+	.title {
+		width:80%;
+		position: absolute;
+		top:50%;
+		left:50%;
+		transform: translate(-50%, -50%);
+		text-align:center;
+		color:#fff;
+		h1 {
+			margin:0;
+			font-family:'Sheila W00 Bd';
+			font-size:72px;
+			letter-spacing: 5px;
+
+		}
+		a {
+			position:relative;
+			padding:18px 65px;
+			border:2px solid $secondaryLight;
+		}
+	}
 	.photo-request-form {
+		// display:none;
 		.photos {
 			.item {
+			    padding-right: 10px;
+    			padding-left: 10px;
+    			margin-bottom: 10px;
 				label {
 					cursor:pointer;
 					margin:0;
@@ -38,6 +69,7 @@
 				input[type=checkbox] {
 					margin:0;
 					opacity:0;
+					position: absolute;
 				}
 				img {
 					opacity:1;

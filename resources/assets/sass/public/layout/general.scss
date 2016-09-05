@@ -1,3 +1,5 @@
+
+
 section {
   padding-bottom:$paddingLarge;
   h2 {
@@ -6,7 +8,7 @@ section {
     font-size:96px;
     font-family:'Sheila W00';
     letter-spacing: 0.07em;
-    color:$secondaryLight;
+    color:$primaryLight;
     text-align:center;
   }
   .intro,.outro {
@@ -17,10 +19,6 @@ section {
       max-width:920px;
     }
   }
-}
-
-.social-icons {
-  display:none;
 }
 
 @media screen and (min-width: 992px) {
@@ -36,24 +34,6 @@ section {
   .container-fluid {
     padding-left:280px;
     padding-right:$paddingSmall;
-  }
-  .social-icons {
-    display:block;
-    position: fixed;
-    bottom:$paddingSmall - 7px;
-    left:$paddingSmall;
-    z-index: 999;
-    li {
-      display:inline-block;
-      margin-right:5px;
-      cursor:pointer;
-      transition: all 0.270s ease-out 0s;
-      &:hover, &:focus {
-        .svg-icon path {
-          fill:$primaryLight;
-        }
-      }
-    }
   }
 }
 

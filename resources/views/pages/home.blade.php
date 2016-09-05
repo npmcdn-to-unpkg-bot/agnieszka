@@ -11,8 +11,14 @@
 
 @section('customJS')
 <script>
-	$('.top-navbar .logo, .user-link span').addClass('white-logo');
-    $('#header #sidebar').addClass('noBackGroundColor');
+	$(function(){
+		$('.top-navbar .logo').addClass('white-logo');
+    	$('#header #sidebar').addClass('noBackGroundColor');
+    	$('footer').css({
+    		'width': 'auto',
+    		'left': '40px'
+    	});
+	});
 </script>
 
 @endsection

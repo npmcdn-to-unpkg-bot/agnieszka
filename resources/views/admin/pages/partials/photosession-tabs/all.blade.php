@@ -50,7 +50,7 @@
             </div> {{-- ./row --}}
             
             <div class="row button-view-photosession">
-                <a href="{{ route('client-gallery', [$photosession->user->id,$photosession->id ]) }}">View</a>
+                <a href="{{ route('client-gallery', [$photosession->user->id,$photosession->id ]) }}">Preview</a>
             </div>
 
         </div> {{-- ./photosession --}}

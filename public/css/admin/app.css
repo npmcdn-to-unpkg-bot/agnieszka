@@ -5745,6 +5745,21 @@ button.close {
 /* =======================================
    General Styles
    =======================================*/
+.color-gray {
+  color: #5f6468; }
+
+.color-blue {
+  color: #30a5ff; }
+
+.color-teal {
+  color: #1ebfae; }
+
+.color-orange {
+  color: #ffb53e; }
+
+.color-red {
+  color: #f9243f; }
+
 html, body {
   width: 100%;
   height: 100%; }

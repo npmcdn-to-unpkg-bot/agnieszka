@@ -27,35 +27,8 @@
 	    	position: relative;
 	    }
 	}
-	.user-link {
-		position: absolute;
-	    top: $paddingSmall + 10px;
-	    right: $paddingSmall;
-	    span {
-	    	color:#454545;
-	    	top: -7px;
-    		position: relative;
-	    }
-		.icon-profile {
-			position: relative;
-			top: -4px;
-		}
-		.btn-client-login {
-			font-size:$fontsize;
-			font-family:'Proxima N W15 Smbd';
-			padding: 7px 22px;
-		    color: #fff;
-		    border-radius: $borderRadius;
-			background-color:$accentDark;
-			text-decoration: none;
-			text-rendering: geometricPrecision;
-		    font-variant-ligatures: no-common-ligatures;
-			box-shadow: 0 2px 6px rgba(0,0,0,.1);
-			transition: all 0.270s ease-out 0s;
-			&:hover, &:focus {
-		    	background-color:$accent;
-		    }
-		}
+	.client-login-button {
+		display:none;
 	}
 }
 
@@ -73,9 +46,11 @@ header {
 	    z-index: 99;
 	    background-color: $primaryDark;
 	    width: 8px;
+	    box-shadow: none;
 	    transition: width .54s cubic-bezier(.9,0,.33,1) .2s,
     				opacity .45s linear .2s,
-    				background-color .45s ease-in-out;
+    				background-color .45s ease-in-out,
+    				box-shadow .27s ease-in-out .2s;
 		#top-navigation {
 			position: absolute;
 	    	height: 100%;
@@ -84,7 +59,6 @@ header {
 	    	z-index: 100;
 	    	ul {
 				li {
-					display: list-item;
 					a {
 						display: inline-block;
 				    	backface-visibility: hidden;
@@ -129,6 +103,7 @@ header {
 		    	margin:0;
 		    	position: relative;
 			    li {
+			    	display: list-item;
 				    .top-nav-link {
 				    	font-family:'Proxima N W15 Smbd';
 				    	color:#fff;
@@ -141,6 +116,9 @@ header {
 					    }
 					}
 				}
+			}
+			footer {
+				display:none;
 			}
 		}
 	}
@@ -168,9 +146,11 @@ header.open {
 	#sidebar {
 		background-color: $primary;
 		@include viewport-unit(width, 50vw);
+		box-shadow: 3px 0 2px rgba(0, 0, 0, 0.2);
 	    transition: width .54s cubic-bezier(.6,.035,.25,1) 0s,
 	    			opacity .64s linear .8s,
-	    			background-color .54s ease-in-out;
+	    			background-color .54s ease-in-out,
+	    			box-shadow .27s ease-out;
 	    #top-navigation {
 		    pointer-events: auto;
 		}
@@ -183,16 +163,34 @@ header.open {
 @media screen and (min-width: 1024px) {
 	.noBackGroundColor {
 		background:0 !important;
+		box-shadow:none !important;
 	}
 	.top-navbar {
 		text-align:left;
 		.logo {
 			text-align:inherit;
 		}
+		.client-login-button {
+			display:inline-block;
+			position: absolute;
+		    top: $paddingSmall + 10px;
+		    right: $paddingSmall;
+			font-size:$fontsize;
+			font-family:'Proxima N W15 Smbd';
+			padding: 7px 22px;
+		    color: #fff;
+		    border-radius: $borderRadius;
+			background-color:$accentDark;
+			text-decoration: none;
+			text-rendering: geometricPrecision;
+		    font-variant-ligatures: no-common-ligatures;
+			transition: all 0.27s ease-out 0s;
+		}
 	}
 	header {
 		#sidebar {
 			width:240px;
+			box-shadow: 3px 0 2px rgba(0, 0, 0, 0.2);
 			#top-navigation {
 				position: absolute;
 		    	height: 100%;
@@ -206,12 +204,43 @@ header.open {
 		    		}
 		    	}
 		    	ul.main-navigation {
-		    		li.home {
+		    		li.home, a.login {
 		    			display:none !important;
 		    		}
 		    		li .top-nav-link {
 					    transform:translateX(0px);
 					}
+				}
+				footer {
+					display:block;
+					width:240px;
+					margin:0;
+				    text-align:center;
+				    position: absolute;
+				    bottom:$paddingLarge;
+				    z-index: 999;
+				    .social-icons {
+				    	margin:0;
+				    	li {
+				    		display:inline-block;
+						    margin-right:5px;
+						    cursor:pointer;
+						    transition: all 0.270s ease-out 0s;
+						    &:hover, &:focus {
+						        .svg-icon path {
+						          fill:$primaryLight;
+						        }
+						    }
+				    	}
+				    }
+				    span {
+				    	padding-top:15px;
+						font-size:10px;
+				    }
+				    p {
+				    	font-size:11px;
+				    	margin:5px 0 0;
+				    }
 				}
 			}
 		}

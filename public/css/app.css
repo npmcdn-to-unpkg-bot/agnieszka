@@ -10,6 +10,21 @@
 /* =======================================
    General Styles
    =======================================*/
+.color-gray {
+  color: #5f6468; }
+
+.color-blue {
+  color: #30a5ff; }
+
+.color-teal {
+  color: #1ebfae; }
+
+.color-orange {
+  color: #ffb53e; }
+
+.color-red {
+  color: #f9243f; }
+
 html, body {
   width: 100%;
   height: 100%; }
@@ -79,7 +94,7 @@ section {
     font-size: 96px;
     font-family: 'Sheila W00';
     letter-spacing: 0.07em;
-    color: #ffcbe2;
+    color: #ffdedc;
     text-align: center; }
   section .intro, section .outro {
     padding: 60px 15px; }
@@ -87,9 +102,6 @@ section {
       font-size: 18px;
       margin: 0 auto;
       max-width: 920px; }
-
-.social-icons {
-  display: none; }
 
 @media screen and (min-width: 992px) {
   section .intro p, section .outro p {
@@ -99,20 +111,7 @@ section {
 @media screen and (min-width: 1024px) {
   .container-fluid {
     padding-left: 280px;
-    padding-right: 40px; }
-  .social-icons {
-    display: block;
-    position: fixed;
-    bottom: 33px;
-    left: 40px;
-    z-index: 999; }
-    .social-icons li {
-      display: inline-block;
-      margin-right: 5px;
-      cursor: pointer;
-      transition: all 0.270s ease-out 0s; }
-      .social-icons li:hover .svg-icon path, .social-icons li:focus .svg-icon path {
-        fill: #ffdedc; } }
+    padding-right: 40px; } }
 
 @media screen and (min-width: 1200px) {
   section .intro p, section .outro p {
@@ -145,31 +144,8 @@ section {
       letter-spacing: 0.07em;
       color: #ffdedc;
       position: relative; }
-  .top-navbar .user-link {
-    position: absolute;
-    top: 50px;
-    right: 40px; }
-    .top-navbar .user-link span {
-      color: #454545;
-      top: -7px;
-      position: relative; }
-    .top-navbar .user-link .icon-profile {
-      position: relative;
-      top: -4px; }
-    .top-navbar .user-link .btn-client-login {
-      font-size: 16px;
-      font-family: 'Proxima N W15 Smbd';
-      padding: 7px 22px;
-      color: #fff;
-      border-radius: 20px;
-      background-color: #66e65c;
-      text-decoration: none;
-      text-rendering: geometricPrecision;
-      font-variant-ligatures: no-common-ligatures;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      transition: all 0.270s ease-out 0s; }
-      .top-navbar .user-link .btn-client-login:hover, .top-navbar .user-link .btn-client-login:focus {
-        background-color: #a9ffad; }
+  .top-navbar .client-login-button {
+    display: none; }
 
 header {
   position: absolute;
@@ -188,24 +164,23 @@ header {
     z-index: 99;
     background-color: #ff7c76;
     width: 8px;
-    transition: width 0.54s cubic-bezier(0.9, 0, 0.33, 1) 0.2s, opacity 0.45s linear 0.2s, background-color 0.45s ease-in-out; }
+    box-shadow: none;
+    transition: width 0.54s cubic-bezier(0.9, 0, 0.33, 1) 0.2s, opacity 0.45s linear 0.2s, background-color 0.45s ease-in-out, box-shadow 0.27s ease-in-out 0.2s; }
     header #sidebar #top-navigation {
       position: absolute;
       height: 100%;
       width: 100%;
       pointer-events: none;
       z-index: 100; }
-      header #sidebar #top-navigation ul li {
-        display: list-item; }
-        header #sidebar #top-navigation ul li a {
-          display: inline-block;
-          backface-visibility: hidden;
-          text-decoration: none;
-          text-rendering: geometricPrecision;
-          font-variant-ligatures: no-common-ligatures;
-          will-change: transform;
-          transform: translateX(-460px);
-          z-index: 2; }
+      header #sidebar #top-navigation ul li a {
+        display: inline-block;
+        backface-visibility: hidden;
+        text-decoration: none;
+        text-rendering: geometricPrecision;
+        font-variant-ligatures: no-common-ligatures;
+        will-change: transform;
+        transform: translateX(-460px);
+        z-index: 2; }
       header #sidebar #top-navigation ul.portfolio-tabs {
         font-size: 14px;
         margin: 6px 0; }
@@ -243,28 +218,32 @@ header {
         padding-top: 168px;
         margin: 0;
         position: relative; }
-        header #sidebar #top-navigation ul.main-navigation li .top-nav-link {
-          font-family: 'Proxima N W15 Smbd';
-          color: #fff;
-          padding: 6px 0 0;
-          margin-left: 40px;
-          font-size: 18px;
-          position: relative;
-          transition: all 0.270s ease-out 0s; }
-          header #sidebar #top-navigation ul.main-navigation li .top-nav-link:focus:after, header #sidebar #top-navigation ul.main-navigation li .top-nav-link:hover:after {
-            width: 100%;
-            background-color: #fff; }
-          header #sidebar #top-navigation ul.main-navigation li .top-nav-link:after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 2px;
-            background-color: #fff;
-            width: 0;
-            height: 2px;
+        header #sidebar #top-navigation ul.main-navigation li {
+          display: list-item; }
+          header #sidebar #top-navigation ul.main-navigation li .top-nav-link {
+            font-family: 'Proxima N W15 Smbd';
+            color: #fff;
+            padding: 6px 0 0;
+            margin-left: 40px;
+            font-size: 18px;
+            position: relative;
             transition: all 0.270s ease-out 0s; }
-          header #sidebar #top-navigation ul.main-navigation li .top-nav-link:hover, header #sidebar #top-navigation ul.main-navigation li .top-nav-link:focus {
-            color: #fff; }
+            header #sidebar #top-navigation ul.main-navigation li .top-nav-link:focus:after, header #sidebar #top-navigation ul.main-navigation li .top-nav-link:hover:after {
+              width: 100%;
+              background-color: #fff; }
+            header #sidebar #top-navigation ul.main-navigation li .top-nav-link:after {
+              content: '';
+              position: absolute;
+              left: 0;
+              bottom: 2px;
+              background-color: #fff;
+              width: 0;
+              height: 2px;
+              transition: all 0.270s ease-out 0s; }
+            header #sidebar #top-navigation ul.main-navigation li .top-nav-link:hover, header #sidebar #top-navigation ul.main-navigation li .top-nav-link:focus {
+              color: #fff; }
+      header #sidebar #top-navigation footer {
+        display: none; }
   header .overlay {
     background-color: #000;
     position: fixed;
@@ -286,7 +265,8 @@ header.open {
   header.open #sidebar {
     background-color: #FFADA9;
     width: 50vw;
-    transition: width 0.54s cubic-bezier(0.6, 0.035, 0.25, 1) 0s, opacity 0.64s linear 0.8s, background-color 0.54s ease-in-out; }
+    box-shadow: 3px 0 2px rgba(0, 0, 0, 0.2);
+    transition: width 0.54s cubic-bezier(0.6, 0.035, 0.25, 1) 0s, opacity 0.64s linear 0.8s, background-color 0.54s ease-in-out, box-shadow 0.27s ease-out; }
     @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
       header.open #sidebar {
         width: 384px; } }
@@ -313,13 +293,30 @@ header.open {
 
 @media screen and (min-width: 1024px) {
   .noBackGroundColor {
-    background: 0 !important; }
+    background: 0 !important;
+    box-shadow: none !important; }
   .top-navbar {
     text-align: left; }
     .top-navbar .logo {
       text-align: inherit; }
+    .top-navbar .client-login-button {
+      display: inline-block;
+      position: absolute;
+      top: 50px;
+      right: 40px;
+      font-size: 16px;
+      font-family: 'Proxima N W15 Smbd';
+      padding: 7px 22px;
+      color: #fff;
+      border-radius: 20px;
+      background-color: #66e65c;
+      text-decoration: none;
+      text-rendering: geometricPrecision;
+      font-variant-ligatures: no-common-ligatures;
+      transition: all 0.27s ease-out 0s; }
   header #sidebar {
-    width: 240px; }
+    width: 240px;
+    box-shadow: 3px 0 2px rgba(0, 0, 0, 0.2); }
     header #sidebar #top-navigation {
       position: absolute;
       height: 100%;
@@ -327,10 +324,33 @@ header.open {
       pointer-events: all; }
       header #sidebar #top-navigation ul.portfolio-tabs li a {
         transform: translateX(0px); }
-      header #sidebar #top-navigation ul.main-navigation li.home {
+      header #sidebar #top-navigation ul.main-navigation li.home, header #sidebar #top-navigation ul.main-navigation a.login {
         display: none !important; }
       header #sidebar #top-navigation ul.main-navigation li .top-nav-link {
-        transform: translateX(0px); } }
+        transform: translateX(0px); }
+      header #sidebar #top-navigation footer {
+        display: block;
+        width: 240px;
+        margin: 0;
+        text-align: center;
+        position: absolute;
+        bottom: 60px;
+        z-index: 999; }
+        header #sidebar #top-navigation footer .social-icons {
+          margin: 0; }
+          header #sidebar #top-navigation footer .social-icons li {
+            display: inline-block;
+            margin-right: 5px;
+            cursor: pointer;
+            transition: all 0.270s ease-out 0s; }
+            header #sidebar #top-navigation footer .social-icons li:hover .svg-icon path, header #sidebar #top-navigation footer .social-icons li:focus .svg-icon path {
+              fill: #ffdedc; }
+        header #sidebar #top-navigation footer span {
+          padding-top: 15px;
+          font-size: 10px; }
+        header #sidebar #top-navigation footer p {
+          font-size: 11px;
+          margin: 5px 0 0; } }
 
 /* =======================================
    Home
@@ -550,7 +570,6 @@ header.open {
       #contact .contact-details .address p {
         width: 90%;
         position: relative;
-        top: -4px;
         padding-left: 5px;
         float: left; } }
 

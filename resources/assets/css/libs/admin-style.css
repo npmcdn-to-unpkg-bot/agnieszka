@@ -32,12 +32,6 @@ h1, h2, h3, h4, h5, h6 {
 	color: #9fadbb;
 }
 
-.color-gray { color: #5f6468; }
-.color-blue { color: #30a5ff; }
-.color-teal { color: #1ebfae; }
-.color-orange { color: #ffb53e; }
-.color-red { color: #f9243f; }
-
 .bg-primary .glyphicon-remove { color: #5f6468;}
 .bg-primary .glyphicon-remove:hover { color: #ef4040;}
 

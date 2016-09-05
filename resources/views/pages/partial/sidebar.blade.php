@@ -19,6 +19,7 @@
             <li><a href="{{ route('about') }}" class="top-nav-link about {{ setActiveNavigation('about') }}">{{ trans('navigation.about') }}</a></li>
             <li><a href="{{ route('services') }}" class="top-nav-link services {{ setActiveNavigation('services') }}">{{ trans('navigation.services') }}</a></li>
             <li><a href="{{ route('contact') }}" class="top-nav-link contact {{ setActiveNavigation('contact') }}">{{ trans('navigation.contact') }}</a></li>
+            <li><a href="{{ url('login') }}" class="top-nav-link login">{{ trans('navigation.login') }}</a></li>
             <li>
             @if(App::isLocale('en'))
                 <a href="{{ route('language-chooser', 'de') }}" class="top-nav-link lang">De</a>
@@ -27,5 +28,10 @@
             @endif
             </li>
         </ul>
+        <footer>
+            @include('pages.partial.social-icons')
+            <span class="{{ Request::is('/') ? 'hidden' : '' }}">Legal</span>
+            <p class="{{ Request::is('/') ? 'hidden' : '' }}">&copy; {{ \Carbon\Carbon::now()->year }} Agnieszka Krol</p>
+        </footer>
     </nav> {{-- ./top-navigation --}}
 </div> {{-- ./sidebar --}}

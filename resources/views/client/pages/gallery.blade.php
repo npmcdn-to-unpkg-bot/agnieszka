@@ -6,11 +6,20 @@
 @section('content')
 @if(Auth::user() && Auth::user()->owns($photosession) || Auth::user()->hasRole('admin'))
 	<section id="client-gallery">
-		<div class="background-image" style="background-image: url('/{{ asset($photosession->background_image_path) }}')"></div>
+		<div class="banner" style="background-image: url('/{{ asset($photosession->background_image_path) }}')">
+			<div class="title">
+				<h1>{{ $photosession->title }}</h1>
+				<h6>{{ $photosession->getDate() }}</h6>
+				<a href="#instructions" role="button">Get Started</a>
+			</div>
+		</div>
 		<div class="container-fluid">
 			<div class="row">
 
-				@if($photosession->selectable())
+				<div class="col-xs-12 instructions text-center">
+					<h2>This is where the instructions come to tell the client how to download the photos,etc.</h2>
+				</div>
+
 				<div class="col-xs-12 photo-request-form">
 					@if(count($photosession->photos) > 0)
 	                    <div class="row masonry-container photos">
@@ -35,7 +44,7 @@
 	                    </div> {{-- ./masonry-container --}}
 	                @endif
 				</div>
-				@endif
+			
 
 			</div>
 		</div>
@@ -49,6 +58,9 @@
 	<script src="{{ asset('js/libs.js') }}"></script>
     <script>
     	$(function() {
+
+    		var maxNumberPhotos = parseInt($('#selectable_photos').text());
+
     		var $container = $('.masonry-container');
 				$container.imagesLoaded(
 					{background: true},
@@ -78,6 +90,26 @@
 			);
 
 			$('.item label').click(function() {
+				if(! $(this).hasClass('selected')) {
+					$('#selected_photos').html(function(i, val) { return val*1+1 });
+
+					var selectedPhotos = parseInt($('#selected_photos').text());
+
+					if(selectedPhotos > maxNumberPhotos) {
+						$('#selected_photos').addClass('color-red');
+					}
+
+				} else {
+					$('#selected_photos').html(function(i, val) { return val*1-1 });
+					
+					var selectedPhotos = parseInt($('#selected_photos').text());
+					
+					if(selectedPhotos <= maxNumberPhotos) {
+						$('#selected_photos').removeClass('color-red');
+					}
+
+				}
+
 				$(this).toggleClass('selected');
 				$(this).find('.glyph').toggleClass('selected-icon');
 				$(this).find('img').toggleClass('selected-img');

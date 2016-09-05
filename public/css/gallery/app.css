@@ -10,6 +10,21 @@
 /* =======================================
    General Styles
    =======================================*/
+.color-gray {
+  color: #5f6468; }
+
+.color-blue {
+  color: #30a5ff; }
+
+.color-teal {
+  color: #1ebfae; }
+
+.color-orange {
+  color: #ffb53e; }
+
+.color-red {
+  color: #f9243f; }
+
 html, body {
   width: 100%;
   height: 100%; }
@@ -74,48 +89,100 @@ ul, li, ol {
 /* =======================================
    Gallery Header
    =======================================*/
+#gallery-header .container-fluid {
+  padding-right: 15px;
+  padding-left: 15px; }
+
+#gallery-header .glyph {
+  width: 16px;
+  height: 16px; }
+
 /* =======================================
    Gallery
    =======================================*/
-#client-gallery .photo-request-form .photos .item label {
-  cursor: pointer;
-  margin: 0;
-  border-radius: 10px;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 2px 3px rgba(0, 0, 0, 0.12);
-  transition: all 0.270s ease-in-out 0s; }
-  #client-gallery .photo-request-form .photos .item label .glyph {
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 20%;
-    height: 20%;
-    transform: translate(-50%, -50%);
-    color: #1ebfae;
-    opacity: 0;
-    stroke-width: 1%;
+#client-gallery .banner {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh; }
+  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
+    #client-gallery .banner {
+      height: 1024px; } }
+  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape) {
+    #client-gallery .banner {
+      height: 768px; } }
+  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: portrait) {
+    #client-gallery .banner {
+      height: 480px; } }
+  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: landscape) {
+    #client-gallery .banner {
+      height: 320px; } }
+  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: portrait) {
+    #client-gallery .banner {
+      height: 568px; } }
+  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: landscape) {
+    #client-gallery .banner {
+      height: 320px; } }
+
+#client-gallery .title {
+  width: 80%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff; }
+  #client-gallery .title h1 {
+    margin: 0;
+    font-family: 'Sheila W00 Bd';
+    font-size: 72px;
+    letter-spacing: 5px; }
+  #client-gallery .title a {
+    position: relative;
+    padding: 18px 65px;
+    border: 2px solid #ffcbe2; }
+
+#client-gallery .photo-request-form .photos .item {
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-bottom: 10px; }
+  #client-gallery .photo-request-form .photos .item label {
+    cursor: pointer;
+    margin: 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 2px 3px rgba(0, 0, 0, 0.12);
     transition: all 0.270s ease-in-out 0s; }
-  #client-gallery .photo-request-form .photos .item label .selected-icon {
-    opacity: 1 !important;
-    width: 40%;
-    height: 40%;
-    z-index: 4 !important; }
-  #client-gallery .photo-request-form .photos .item label:hover, #client-gallery .photo-request-form .photos .item label:focus {
-    box-shadow: 0 8px 14px rgba(0, 0, 0, 0.15), 0 5px 5px rgba(0, 0, 0, 0.11); }
-
-#client-gallery .photo-request-form .photos .item input[type=checkbox] {
-  margin: 0;
-  opacity: 0; }
-
-#client-gallery .photo-request-form .photos .item img {
-  opacity: 1;
-  border-radius: 10px;
-  transition: all 0.270s ease-in-out 0s; }
-
-#client-gallery .photo-request-form .photos .item .selected-img {
-  opacity: .95;
-  z-index: 3;
-  border: 1px solid #1ebfae; }
+    #client-gallery .photo-request-form .photos .item label .glyph {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 20%;
+      height: 20%;
+      transform: translate(-50%, -50%);
+      color: #1ebfae;
+      opacity: 0;
+      stroke-width: 1%;
+      transition: all 0.270s ease-in-out 0s; }
+    #client-gallery .photo-request-form .photos .item label .selected-icon {
+      opacity: 1 !important;
+      width: 40%;
+      height: 40%;
+      z-index: 4 !important; }
+    #client-gallery .photo-request-form .photos .item label:hover, #client-gallery .photo-request-form .photos .item label:focus {
+      box-shadow: 0 8px 14px rgba(0, 0, 0, 0.15), 0 5px 5px rgba(0, 0, 0, 0.11); }
+  #client-gallery .photo-request-form .photos .item input[type=checkbox] {
+    margin: 0;
+    opacity: 0;
+    position: absolute; }
+  #client-gallery .photo-request-form .photos .item img {
+    opacity: 1;
+    border-radius: 10px;
+    transition: all 0.270s ease-in-out 0s; }
+  #client-gallery .photo-request-form .photos .item .selected-img {
+    opacity: .95;
+    z-index: 3;
+    border: 1px solid #1ebfae; }
 
 #client-gallery .photo-request-form input[type="submit"] {
   position: fixed;

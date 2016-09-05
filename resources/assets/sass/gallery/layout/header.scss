@@ -1,4 +1,13 @@
 /* =======================================
    Gallery Header
    =======================================*/
-
+#gallery-header {
+	.container-fluid {
+		padding-right: 15px;
+    	padding-left: 15px;
+	}
+	.glyph {
+		width:16px;
+		height:16px;
+	}
+}

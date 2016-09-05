@@ -111,7 +111,7 @@ class PhotoSession extends Model
 
     public function photo_download_limit()
     {
-        $this->photo_download_limit;
+        return $this->photo_download_limit;
     }
 
     /**
