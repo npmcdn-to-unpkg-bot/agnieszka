@@ -36,7 +36,7 @@ html, body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ffcbe2;
+  background-color: #ffdedc;
   z-index: -1; }
 
 body {
@@ -78,7 +78,8 @@ ul, li, ol {
 
 .content,
 .top-navbar,
-header {
+#sidebar,
+.page {
   opacity: 0; }
 
 /**

@@ -54,7 +54,7 @@ html,body {
   left:0;
   right:0;
   bottom:0;
-  background-color: $secondaryLight;
+  background-color: $primaryLight;
   z-index:-1;
 }
 
@@ -98,8 +98,7 @@ ul,li,ol {
 
 .content,
 .top-navbar,
-header {
+#sidebar,
+.page {
   opacity:0;
 }
-
-

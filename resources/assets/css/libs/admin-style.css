@@ -401,17 +401,10 @@ a.bg-danger:hover {
 .panel-teal .widget-left { background: #1ebfae; color: #fff; }
 .panel-orange .widget-left { background: #ffb53e; color: #fff; }
 .panel-red .widget-left { background: #f9243f; color: #fff; }
+.panel-pink .widget-left { background: #ffa9d0; color: #fff; }
 
 .panel-widget {
 	background: #fff;
-}
-
-/*Jumbotron*/
-
-.jumbotron {
-	background: #fff;
-	border-bottom: 1px solid #eee;
-	color: #5f6468;
 }
 
 /*Tabs*/
@@ -436,49 +429,6 @@ a.bg-danger:hover {
 .nav-tabs li.active a:hover {
 	border: 0;
 	padding: 15px 20px;
-}
-
-.nav-pills {
-	padding: 15px;
-	padding-bottom: 0;
-}
-
-.nav-pills li a,
-.nav-pills li a:hover,
-.nav-pills li.active a,
-.nav-pills li.active a:hover {
-	border: 0;
-	padding: 7px 15px;
-}
-
-.nav-pills li.active a,
-.nav-pills li.active a:hover {
-	background: #30a5ff;
-}
-
-.tab-content {
-	padding: 15px;
-}
-
-
-/*Navbar*/
-
-.navbar {
-	border: 0;
-}
-
-.navbar input {
-	border: 0;
-	background: #444;
-	color: #fff;
-}
-
-.navbar input:focus {
-	color: #fff;
-	background: #555;
-	border: 1px solid #30a5ff;
-	outline: 0;
-	box-shadow: inset 0px 0px 0px 1px #30a5ff;
 }
 
 .user-menu {
@@ -613,62 +563,9 @@ h1.page-header {
 	border-bottom: 0;
 }
 
-/*Calendar Widget*/
-
-#calendar, .datepicker-inline {
-	width: 100%;
-}
-
-#calendar table {
-	width: 100%;
-}
-
-.datepicker table tr td.old,
-.datepicker table tr td.new {
-	color: rgba(255, 255, 255, .50);
-}
-
-.datepicker table tr td.active,
-.datepicker table tr td.active:hover,
-.datepicker table tr td.active.disabled,
-.datepicker table tr td.active.disabled:hover,
-.datepicker table tr td.active:hover,
-.datepicker table tr td.active:hover:hover,
-.datepicker table tr td.active.disabled:hover,
-.datepicker table tr td.active.disabled:hover:hover,
-.datepicker table tr td.active:focus,
-.datepicker table tr td.active:hover:focus,
-.datepicker table tr td.active.disabled:focus,
-.datepicker table tr td.active.disabled:hover:focus,
-.datepicker table tr td.active:active,
-.datepicker table tr td.active:hover:active,
-.datepicker table tr td.active.disabled:active,
-.datepicker table tr td.active.disabled:hover:active,
-.datepicker table tr td.active.active,
-.datepicker table tr td.active:hover.active,
-.datepicker table tr td.active.disabled.active,
-.datepicker table tr td.active.disabled:hover.active,
-.open .dropdown-toggle.datepicker table tr td.active,
-.open .dropdown-toggle.datepicker table tr td.active:hover,
-.open .dropdown-toggle.datepicker table tr td.active.disabled,
-.open .dropdown-toggle.datepicker table tr td.active.disabled:hover {
-	color: #ffffff;
-	background-color: rgba(0, 0, 0, .5);
-	border-color: #285e8e;
-}
-
-.datepicker table tr td span:hover,
-.datepicker thead tr:first-child th:hover,
-.datepicker tfoot tr th:hover,
-.datepicker table tr td.day:hover,
-.datepicker table tr td.day.focused {
-	background: rgba(0, 0, 0, 0.25);
-}
-
 .panel-heading .glyphicon {
 	margin-right: 10px;
 }
-
 
 /*Icons*/
 
@@ -678,10 +575,14 @@ h1.page-header {
 	width: 16px;
 	margin: 0 10px 0 0;
 	stroke-width: 3px;
+	position: relative;
+	top: -2px;
 }
 
 .user-menu .glyph {
 	stroke-width: 4px;
+	position: relative;
+	top: -2px;
 }
 
 .breadcrumb .glyph {

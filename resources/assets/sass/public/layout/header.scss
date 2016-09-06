@@ -227,6 +227,9 @@ header.open {
 						    margin-right:5px;
 						    cursor:pointer;
 						    transition: all 0.270s ease-out 0s;
+						    a {
+						    	display: inline;
+						    }
 						    &:hover, &:focus {
 						        .svg-icon path {
 						          fill:$primaryLight;

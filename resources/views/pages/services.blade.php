@@ -5,7 +5,7 @@
 
 @section('content')
 
-    <section id="services">
+    <section id="services" class="page">
     	<div class="container-fluid">
 
 			<h2>{{ trans('services.header') }}</h2>

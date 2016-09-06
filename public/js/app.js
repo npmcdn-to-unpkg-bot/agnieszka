@@ -50,7 +50,7 @@ function GSPreloader(options) {
   colors.push(colors.shift());
 
   //setup background box
-  TweenLite.set(box, { width: radius * 2 + 70, height: radius * 2 + 70, borderRadius: "14px", backgroundColor: options.boxColor || "white", border: options.boxBorder || "1px solid #AAA", position: "absolute", xPercent: -50, yPercent: -50, opacity: options.boxOpacity != null ? options.boxOpacity : 0.3 });
+  TweenLite.set(box, { width: radius * 2 + 70, height: radius * 2 + 70, borderRadius: "14px", backgroundColor: options.boxColor || "white", border: options.boxBorder || "1px solid #AAA", position: "absolute", xPercent: -50, yPercent: -50, opacity: options.boxOpacity !== null ? options.boxOpacity : 0.3 });
   box.className = options.boxClass || "preloader-box";
   element.appendChild(box);
 
@@ -102,41 +102,37 @@ function GSPreloader(options) {
   };
 }
 
+var loadingBG = $('.page-load-bg'),
+    body = $('.content'),
+    page = $('.page'),
+    pageElements = $('.page > div'),
+    header = $('header'),
+    sidebar = $('#sidebar'),
+    topNavBar = $('.top-navbar'),
+    topNavLinks = $('#sidebar a'),
+    ease1 = 'Power2.easeIn',
+    ease2 = 'Power2.easeOut',
+    noease = 'Power0.easeNone',
+    easeParams = 4,
+    delay = 5;
+
+TweenMax.set(pageElements, { y: 50 });
+TweenMax.set(topNavBar, { y: -150 });
+TweenMax.set(topNavLinks, { y: -15, opacity: 0 });
+
 $(window).on('load', function () {
 
   preloader.active(false);
-
-  var loadingBG = $('.page-load-bg'),
-      page = $('.content'),
-      header = $('header'),
-      sidebar = $('#sidebar'),
-      topNav = $('.top-navbar'),
-      topNavLinks = $('#top-navigation li a');
-
-  TweenMax.set(topNav, { y: -150 });
-  TweenMax.set(sidebar, { x: -450, opacity: 0 });
-
-  // 1. preloader = false
-  // 2. page-load-bg disappear
-  // 3. Content fades in
-  // 4. Navigation slides in
-
-  var pageLoadedTween = '';
-
-  TweenMax.to(loadingBG, 0.27, { height: 0 });
-  TweenMax.to(page, 0.27, { opacity: 1 });
-  TweenMax.to(header, 0.27, { opacity: 1 });
-  TweenMax.to(topNav, 0.27, { y: 0, opacity: 1 });
-  TweenMax.to(sidebar, 0.27, { x: 0, opacity: 1 });
+  var pageloadTween = new TimelineMax().staggerTo([body, topNavBar, sidebar], 0.60, { opacity: 1, ease: ease2 }, 0.20).to(topNavBar, 0.2, { y: 0, ease: ease2 }, "-=0.40").staggerTo(topNavLinks, 0.8, { y: 0, opacity: 1, ease: ease2 }, 0.15, "-=1.2").to(page, 0.2, { opacity: 1, ease: Power3.easeInOut }).staggerTo(pageElements, 1, { y: 0, ease: Power3.easeInOut }, 0.20, "-=0.25");
 
   $('.toggle').click(function () {
     $(this).toggleClass('open');
     $(header).toggleClass('open');
 
     if ($(header).hasClass('open')) {
-      TweenMax.staggerTo(topNavLinks, 0.18, { ease: Power2.easeOut, x: 0, delay: 0.1 }, 0.04);
+      TweenMax.staggerTo(topNavLinks, 0.18, { ease: ease2, x: 0, delay: 0.1 }, 0.04);
     } else {
-      TweenMax.staggerTo(topNavLinks, 0.18, { ease: Power2.easeIn, x: -460 }, 0.04);
+      TweenMax.staggerTo(topNavLinks, 0.18, { ease: ease1, x: -460 }, 0.04);
     }
   }); //$('.toggle').click(function()
 
